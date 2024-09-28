@@ -29,6 +29,7 @@ class HomeController extends Controller
             ->Orwhere('description', 'like', '%'.$key.'%');
         }
        $produits = produits::select('*')->latest()->take(20)->get();
+       $searchproducts = produits::select('*')->latest()->take(2)->get();
 
       // $produits = produits::select('*')->latest()->take(16)->get();
        $categoryProducts = DB::table('produits')
@@ -44,7 +45,7 @@ class HomeController extends Controller
        ->limit(10)->get();
 
        $services = Service::all();
-      return view('front.index', compact('produits','configs','banners','services','key','testimonials', 'categoryProducts'));
+      return view('front.index', compact('searchproducts','produits','configs','banners','services','key','testimonials', 'categoryProducts'));
 
     }
      

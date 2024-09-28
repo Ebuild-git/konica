@@ -13,7 +13,7 @@ use Illuminate\Support\Str;
 class panier_client extends Controller
 {
     
-    public function count_panier()
+    public function count_panier1()
     {
         // Vérifier si la session 'panier' existe, sinon initialiser une session vide
         if (!session()->has('cart')) {
@@ -28,14 +28,14 @@ class panier_client extends Controller
         $produits = [];
 
         foreach ($panier_temporaire as $data) {
-            $produit = produits::select('id','photo','prix','nom')->find($data['id_produit']);
+            $produit = produits::select('id','photo','prix','nom','taille')->find($data['id_produit']);
             if ($produit) {
                 $produits[] = [
                     'id_produit' => $produit->id,
                     'nom' => $produit->nom,
                     'photo' => Storage::url($produit->photo),
                     'quantite' => $data['quantite'],
-              
+                    'taille' => $data['taille'],
                     'prix' => $produit->prix,
                     'total' => $data["quantite"] * $produit->prix,
                 ];
@@ -53,7 +53,83 @@ class panier_client extends Controller
             ]
         );
     }
- 
+    public function count_panier()
+    {
+        // Vérifier si la session 'panier' existe, sinon initialiser une session vide
+        if (!session()->has('cart')) {
+            session(['cart' => []]);
+        }
+
+        // Récupérer le panier de la session
+        $panier_temporaire = session('cart');
+        $total = count($panier_temporaire);
+        $list = [];
+        $montant_total = 0;
+
+        foreach ($panier_temporaire as $data) {
+            $produit = produits::select('id','photo','prix','nom')->find($data['id_produit']);
+            if ($produit) {
+                
+                $list[] = [
+                    '
+                    
+                                <li class="single-item"  >
+                                    <div class="item-area" >
+                                       <div class="item-img">
+                                           <img src="'.Storage::url($produit->photo).'" alt="">
+                                       </div>
+                                       <div class="content-and-quantity">
+                                           <div class="content">
+                                               <div
+                                                   class="price-and-btn d-flex align-items-center justify-content-between">
+                                                   <span>'.$produit->getPrice().' DT</span>
+                                                   <button class="close-btn">
+                                                      <a href="#"class="cart-item__remove"
+                                   onclick="DeleteToCart('.$produit->id.')">
+                                   
+                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                                        width="15" style=" fill:red" height="15"
+                                                        fill="currentColor">
+                                                        <path
+                                                            d="M6.45455 19L2 22.5V4C2 3.44772 2.44772 3 3 3H21C21.5523 3 22 3.44772 22 4V18C22 18.5523 21.5523 19 21 19H6.45455ZM13.4142 11L15.8891 8.52513L14.4749 7.11091L12 9.58579L9.52513 7.11091L8.11091 8.52513L10.5858 11L8.11091 13.4749L9.52513 14.8891L12 12.4142L14.4749 14.8891L15.8891 13.4749L13.4142 11Z">
+                                                        </path>
+                                                    </svg>
+                                </a>
+                                                   </button>
+                                               </div>
+                                               <p><a href="#">'. Str::limit($produit->nom, 15) .'</a></p>
+                                           </div>
+                                           <div class="quantity-area">
+                                           <div class="quantity">
+                                            <a href="#" class="quantity__minus" onclick="changeQuantity(' . $produit->id . ', ' . max(1, $data['quantite'] - 1) . ')">
+                                        <span><i class="bi bi-dash"></i></span>
+                                    </a>
+                                    <input name="quantity" type="text" class="quantity__input" value="' . $data['quantite'] . '" onchange="changeQuantity(' . $produit->id . ', this.value)">
+                                    <a href="#" class="quantity__plus" onclick="changeQuantity(' . $produit->id . ', ' . ($data['quantite'] + 1) . ')">
+                                        <span><i class="bi bi-plus"></i></span>
+                                    </a>
+
+                                               
+                                           </div>
+                                       </div>
+                                   </div> 
+                               </li>
+                  
+                            '
+                ];
+                $montant_total += $data["quantite"] * intval($produit->getPrice());
+            }
+        }
+
+        return response()->json(
+            [
+                "total" => $total,
+                "list" => $list,
+                "montant_total" => $montant_total
+            ]
+        );
+    }
+
     public function updateQuantity(Request $request)
     {
         $panier = session('cart', []);
@@ -179,51 +255,6 @@ class panier_client extends Controller
     }
 
 
-
-
-    public function update1($id_produit,$quantite){
-       
-        $panier = session('cart', []);
-        $produit_existe = false;
-
-        foreach ($panier as &$item) {
-            if ($item['id_produit'] == $id_produit) {
-                $item['quantite'] = $quantite;
-                $produit_existe = true;
-                break;
-            }
-        }
-
-        if (!$produit_existe) {
-            $panier[] = [
-                'id_produit' => $id_produit,
-                'quantite' => $quantite,
-            ];
-        }
-
-        session(['cart' => $panier]);
-
-        $this->total =0 ;
-    }
-
-    public function update($id_produit, $quantite)
-{
-    // Find the product in the session cart and update the quantity
-    $cart = session()->get('cart', []);
-
-    foreach ($cart as &$item) {
-        if ($item['id_produit'] == $id_produit) {
-            $item['quantite'] = $quantite;
-            break;
-        }
-    }
-
-    // Save the updated cart back to session
-    session(['cart' => $cart]);
-
-    // Optionally, re-render the component or update the cart total
-    $this->emit('cartUpdated');
-}
 
 
 

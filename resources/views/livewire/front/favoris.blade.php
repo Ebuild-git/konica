@@ -93,12 +93,12 @@
     <table class="table axil-product-table axil-wishlist-table">
         <thead>
             <tr>
-                <th scope="col" class="product-remove"></th>
-                <th scope="col" class="product-thumbnail">Produit</th>
-                <th scope="col" class="product-title"></th>
+                <th scope="col" width="5%" class="product-remove"></th>
+                <th scope="col" width="25%" class="product-thumbnail">Produit</th>
+              {{--   <th scope="col" class="product-title"></th> --}}
                 <th scope="col" class="product-title"> Date ajout</th>
            
-                <th scope="col" class="product-price">Prix uitaire</th>
+                <th scope="col" width="10%" class="product-price">Prix uitaire</th>
                 <th scope="col" class="product-stock-status"> Statut</th>
                 <th scope="col" width="25%" class="product-add-cart"></th>
             </tr>
@@ -115,9 +115,11 @@
                     </div>
                 </td>
                 {{-- <td class="product-remove"><a href="#" class="remove-wishlist"><i class="fal fa-times"></i></a></td> --}}
-                <td class="product-thumbnail"><a href="{{ route('details-produits', ['id' => $favo->produit->id, 'slug'=>Str::slug(Str::limit($favo->produit->nom, 10))]) , }}"><img src="{{ Storage::url($favo->produit->photo) }}" alt="Digital Product"></a></td>
-                <td class="product-title"><a href="{{ route('details-produits', ['id' => $favo->produit->id, 'slug'=>Str::slug(Str::limit($favo->produit->nom, 10))]) , }}">{{
-                                            $favo->produit->nom }}</a></td>
+                <td class="product-thumbnail"><a href="{{ route('details-produits', ['id' => $favo->produit->id, 'slug'=>Str::slug(Str::limit($favo->produit->nom, 10))]) , }}"><img src="{{ Storage::url($favo->produit->photo) }}" alt="Digital Product"></a>
+                {{ $favo->produit->nom }}
+                </td>
+                {{-- <td class="product-title"><a href="{{ route('details-produits', ['id' => $favo->produit->id, 'slug'=>Str::slug(Str::limit($favo->produit->nom, 10))]) , }}">{{
+                                            $favo->produit->nom }}</a></td> --}}
                 <td>  <p class="date">{{ $favo->created_at->format('d-m-Y') }}</p></td>
                 <td class="product-price" data-title="Price"><span class="currency-symbol"></span>  {{ $favo->produit->getPrice() }} DT</td>
                 <td class="product-stock-status" data-title="Status">   @if ($favo->produit->stock > 0)
