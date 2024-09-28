@@ -26,7 +26,7 @@ class forget extends Mailable
         return $this->to($this->user)
             ->view('Mail.forget')
             ->subject( ' Réinitialiser le mot de passe')
-            ->from("no_reply@youthkey.store", config('app.name'))
+            ->from("no_reply@konica.store", config('app.name'))
             ->with([
                 'user' => $this->user,
                 'code' => $this->code

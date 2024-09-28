@@ -11,7 +11,10 @@ class HomeComposer
     public function compose(View $view)
     {
         $view->with([
-            'categories' => Category::has('produits')->take(8)->get(),
+          //  'categories' => Category::has('produits')->take(8)->get(),
+          //  'categories' => Category::has('produits')->take(8)->get(), // Pour la catégorie page
+            'categories' => Category::all(), // Pour la catégorie page
+        
             'lastproduits' => produits::orderBy('created_at', 'desc')->take(9)->get(),
            'marques' => Marque::all(),
 

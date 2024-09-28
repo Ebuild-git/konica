@@ -3,6 +3,7 @@
 namespace App\Livewire\Front;
 
 use App\Models\produits;
+
 use Livewire\Component;
 
 class Panier extends Component

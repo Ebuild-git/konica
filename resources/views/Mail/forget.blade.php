@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vérification de votre compte YOUTHKEY</title>
+    <title>Vérification de votre compte KONICA</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -61,7 +61,7 @@
         <div class="content">
             <h1>Vérification de votre compte</h1>
             <p>Bonjour {{ $user->nom  }} ,</p>
-            <p>Merci de vous être inscrit sur YOUTHKEY. Pour finaliser votre inscription et vérifier votre compte, veuillez utiliser le code de vérification ci-dessous :</p>
+            <p>Merci de vous être inscrit sur KONICA. Pour finaliser votre inscription et vérifier votre compte, veuillez utiliser le code de vérification ci-dessous :</p>
             <span class="code">{{$code }}</span>
             <p>Si vous n'avez pas demandé cette vérification, veuillez ignorer cet email.</p>
         </div>

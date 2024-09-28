@@ -1,156 +1,108 @@
-@extends('front.fixe')
-@section('titre', 'Création compte')
-@section('body')
 
-    <main>
-        @php
-    $config = DB::table('configs')->first();
-    $service = DB::table('services')->get();
-    $produit = DB::table('produits')->get();
+@include('sweetalert::alert')
+@php
+$config = DB::table('configs')->first();
+$service = DB::table('services')->get();
+$produit = DB::table('produits')->get();
 @endphp
 
-        <div class="tp-login-area pt-150 pb-150 fix">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-xxl-7 col-xl-6 col-lg-6">
-                        <div class="tp-login-left">
-                            <style>
-                                @media only screen and (max-width: 768px) {
 
 
-                                    .tp-login-thumbs {
-                                        display: none;
-                                    }
-                                }
-                            </style>
-                            <div class="tp-login-thumbs">
-                                <img src="{{ Storage::url($config->logo) }}" alt="Logo" height="600" width="600" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class=" col card-body p-5">
-                        <h2 class="text-uppercase text-center mb-5">Création compte</h2>
-                        @if (session()->has('error'))
-                            <div class="alert alert-danger p-3 small">
-                                {{ session('error') }}
-                            </div>
-                        @endif
-                        @if (session()->has('success'))
-                            <div class="alert alert-success p-3 small">
-                                {{ session('success') }}
-                            </div>
-                        @endif
-                        <div class="contact-form">
-                            <form method="POST" action="{{ route('register') }}">
+<!doctype html>
+<html class="no-js" lang="en">
 
-                                @csrf
-                                <div class="input-validator">
-                                    <input type="text" name="nom" placeholder="Votre nom" value="{{ old('nom') }}"
-                                        required />
-                                    @error('nom')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                                <div class="input-validator">
-                                    <input type="text" name="prenom" value="{{ old('prenom') }}"
-                                        placeholder="Votre prénom" required width="100" />
-                                    @error('prenom')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                                <div class="input-validator">
-                                    <input type="text" name="email" value="{{ old('email') }}"
-                                        placeholder=" Votre Email" required />
-                                    @error('email')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                                <div class="input-validator">
-                                    <input id="password" required type="password" value="{{ old('password') }}"
-                                        placeholder="Votre mot de passe"
-                                        class="form-control @error('password') is-invalid @enderror" name="password"
-                                        required autocomplete="new-password" aria-describedby="basic-addon1">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Création compte</title>
+    <meta name="robots" content="noindex, follow" />
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png">
+
+    <!-- CSS
+    ============================================ -->
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/font-awesome.css">
+    <link rel="stylesheet" href="assets/css/vendor/flaticon/flaticon.css">
+    <link rel="stylesheet" href="assets/css/vendor/slick.css">
+    <link rel="stylesheet" href="assets/css/vendor/slick-theme.css">
+    <link rel="stylesheet" href="assets/css/vendor/jquery-ui.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/sal.css">
+    <link rel="stylesheet" href="assets/css/vendor/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css/vendor/base.css">
+    <link rel="stylesheet" href="assets/css/style.min.css">
+
+</head>
 
 
-                                    <span class="input-group-text">
-                                        <i class="fas fa-eye-slash password-toggle"></i>
-                                    </span>
+<body>
+    <div class="axil-signin-area">
 
-
-                                    @error('password')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                    <style>
-                                        .input-validator {
-                                            position: relative;
-                                        }
-
-                                        .input-group-text {
-                                            cursor: pointer;
-                                            position: absolute;
-                                            right: 10px;
-                                            top: 10px;
-                                        }
-                                    </style>
-
-
-                                </div>
-                                <div class="input-validator">
-                                    <input id="password-confirm" required placeholder="Confirmer le mot de passe"
-                                        type="password" class="form-control" name="password_confirmation" required
-                                        autocomplete="new-password">
-
-                                    @error('password')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-
-                                </div>
-
-
-                                {{-- </div><a class="btn -dark" href="#">Enregistrer</a> --}}
-                                <div class="text-center">
-
-                                    <button {{-- class="tp-btn-theme w-100" --}} class="btn -dark"
-                                        type="submit"><span>Enregistrer</span></button>
-
-                                </div>
-                            </form>
-
-                            <script>
-                                const passwordField = document.getElementById('password');
-                                const toggleButton = document.querySelector('.password-toggle');
-
-                                toggleButton.addEventListener('click', function() {
-                                    if (passwordField.type === 'password') {
-                                        passwordField.type = 'text';
-                                        this.classList.remove('fa-eye-slash');
-                                        this.classList.add('fa-eye');
-                                    } else {
-                                        passwordField.type = 'password';
-                                        this.classList.remove('fa-eye');
-                                        this.classList.add('fa-eye-slash');
-                                    }
-                                });
-                            </script>
-                        </div>
-
+        <!-- Start Header -->
+        <div class="signin-header">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <a href="{{ route('home') }}" class="site-logo"><img src="{{ Storage::url($config->logo) }}" width="50" height="50" alt="logo"></a>
+                </div>
+                <div class="col-md-6">
+                    <div class="singin-header-btn">
+                        <p>Vous avez un compte?</p>
+                        <a href="{{ url('login') }}" class="axil-btn btn-bg-secondary sign-up-btn">Connexion</a>
                     </div>
                 </div>
-                {{-- </div> --}}
-                {{-- </div> --}}
-                {{-- </div> --}}
             </div>
         </div>
+        <!-- End Header -->
 
-    </main>
-@endsection
+        <div class="row">
+            <div class="col-xl-4 col-lg-6">
+                <div class="axil-signin-banner bg_image bg_image--10">
+                    <h3 class="title">Nous offrons les mellieurs produits.</h3>
+                </div>
+            </div>
+            <div class="col-lg-6 offset-xl-2">
+                <div class="axil-signin-form-wrap">
+                    <div class="axil-signin-form">
+                        <h3 class="title">Création compte</h3>
+                    
+
+                        @livewire('front.register') 
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS
+============================================ -->
+    <!-- Modernizer JS -->
+    <script src="assets/js/vendor/modernizr.min.js"></script>
+    <!-- jQuery JS -->
+    <script src="assets/js/vendor/jquery.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="assets/js/vendor/popper.min.js"></script>
+    <script src="assets/js/vendor/bootstrap.min.js"></script>
+    <script src="assets/js/vendor/slick.min.js"></script>
+    <script src="assets/js/vendor/js.cookie.js"></script>
+    <!-- <script src="assets/js/vendor/jquery.style.switcher.js"></script> -->
+    <script src="assets/js/vendor/jquery-ui.min.js"></script>
+    <script src="assets/js/vendor/jquery.ui.touch-punch.min.js"></script>
+    <script src="assets/js/vendor/jquery.countdown.min.js"></script>
+    <script src="assets/js/vendor/sal.js"></script>
+    <script src="assets/js/vendor/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/vendor/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/js/vendor/isotope.pkgd.min.js"></script>
+    <script src="assets/js/vendor/counterup.js"></script>
+    <script src="assets/js/vendor/waypoints.min.js"></script>
+
+    <!-- Main JS -->
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

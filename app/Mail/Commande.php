@@ -32,7 +32,7 @@ class Commande extends Mailable
         return $this->to($this->commande->email)
             ->view('Mail.commande')
             ->subject('Votre commande sur '. config('app.name'))
-            ->from("no_reply@youthkey.store", config('app.name'));
+            ->from("no_reply@konica.store", config('app.name'));
 
     }
   

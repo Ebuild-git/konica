@@ -21,6 +21,7 @@ class ContactForm extends Component
     public $email = '';
    public $sujet ='';
     public $message = '';
+    public $telephone = '';
 
 
 
@@ -32,6 +33,7 @@ class ContactForm extends Component
             'nom' => 'required|max:200|string',
             'sujet' => 'required|max:200|string',
             'message' => 'required|max:5000|string',
+            'telephone' => 'nullable|numeric',
           
         ], [
             'email.required' => 'Veuillez entrer votre email',
@@ -46,6 +48,7 @@ class ContactForm extends Component
         $contact->nom = $this->nom;
         $contact->sujet = $this->sujet;
         $contact->message = $this->message;
+        $contact->telephone = $this->telephone;
    
 
         if ($contact->save()) {

@@ -1,141 +1,121 @@
-@extends('front.fixe')
-@section('titre', 'Connexion')
-@section('body')
-
-    <main>
-        @php
-            $config = DB::table('configs')->first();
-            $service = DB::table('services')->get();
-            $produit = DB::table('produits')->get();
-        @endphp
-
-        <div class="tp-login-area pt-150 pb-150 fix">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-xxl-7 col-xl-6 col-lg-6">
-                        <div class="tp-login-left">
-                            <style>
-                                @media only screen and (max-width: 768px) {
+@include('sweetalert::alert')
+@php
+$config = DB::table('configs')->first();
+$service = DB::table('services')->get();
+$produit = DB::table('produits')->get();
+@endphp
 
 
-                                    .tp-login-thumbs {
-                                        display: none;
-                                    }
-                                }
-                            </style>
-                            <div class="tp-login-thumbs">
-                                <img src="{{ Storage::url($config->logo) }}" alt="Logo" height="600" width="600" />
-                            </div>
-                        </div>
+
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Connexion</title>
+    <meta name="robots" content="noindex, follow" />
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png">
+
+    <!-- CSS
+    ============================================ -->
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/font-awesome.css">
+    <link rel="stylesheet" href="assets/css/vendor/flaticon/flaticon.css">
+    <link rel="stylesheet" href="assets/css/vendor/slick.css">
+    <link rel="stylesheet" href="assets/css/vendor/slick-theme.css">
+    <link rel="stylesheet" href="assets/css/vendor/jquery-ui.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/sal.css">
+    <link rel="stylesheet" href="assets/css/vendor/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css/vendor/base.css">
+    <link rel="stylesheet" href="assets/css/style.min.css">
+
+</head>
+
+
+<body>
+    <div class="axil-signin-area">
+
+        <!-- Start Header -->
+        <div class="signin-header">
+            <div class="row align-items-center">
+                <div class="col-sm-4">
+                    <a href="{{ url('home') }}" class="site-logo"><img src="{{ Storage::url($config->logo) }}" width="50" height="50" alt="logo"></a>
+                </div>
+                <div class="col-sm-8">
+                    <div class="singin-header-btn">
+                        <p>Pas de compte?</p>
+                        <a href="{{ url('register') }}" class="axil-btn btn-bg-secondary sign-up-btn">S'inscrire</a>
                     </div>
-                    <div class="col d-flex justify-content-center align-items-center h-100">
-
-
-
-
-                        <div class="card-body p-5">
-                            <h2 class="text-uppercase text-center mb-5">Se connecter</h2>
-
-
-                            @if (session()->has('error'))
-                                <div class="alert alert-danger p-3 small">
-                                    {{ session('error') }}
-                                </div>
-                            @endif
-                            @if (session()->has('success'))
-                                <div class="alert alert-success p-3 small">
-                                    {{ session('success') }}
-                                </div>
-                            @endif
-                            <div class="contact-form">
-                                <form method="POST" action="{{ route('login') }}">
-
-                                    @csrf
-                                    <div class="input-validator">
-                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                        <input type="email" class="form-control"
-                                            value="{{ old('email') }}"id="user_login_email" name="email"
-                                            placeholder="Email" />
-
-
-                                    </div>
-
-                                    <div class="input-validator">
-                                        <input type="password" class="form-control" placeholder="Password" name="password"
-                                            value="" id="password" />
-                                        <span class="input-group-text" id="togglePassword">
-                                            <i class="fa fa-eye"></i>
-                                        </span>
-                                    </div>
-                                    <style>
-                                        .input-validator {
-                                            position: relative;
-                                        }
-
-
-                                        .input-group-text {
-                                            cursor: pointer;
-                                            position: absolute;
-                                            right: 10px;
-                                            top: 10px;
-                                        }
-                                    </style>
-
-
-                                    <div class="row">
-
-                                        <div class=" col text-center">
-
-
-
-                                            <button class="btn -dark"type="submit"><span>Connexion</span></button>
-                                        </div>
-
-
-
-                                        <div class="text-center p-2">
-                                            <a class="forget" href="{{ route('forgot-password') }}">Mot de passe
-                                                oublié</a>
-                                        </div>
-
-                                    </div>
-
-                                    <br>
-                                    <br><br>
-
-                                    <div class=" col tp-login-forgot text-center">
-                                        <span >
-                                            Vous n'avez pas de compte ?
-                                        </span>
-                                        <a href="{{ url('register') }}">M'inscrire </a>
-
-                                    </div>
-
-
-                                </form>
-                                <script>
-                                    document.addEventListener('DOMContentLoaded', function() {
-                                        const togglePassword = document.getElementById('togglePassword');
-                                        const password = document.getElementById('password');
-                                        if (togglePassword && password) {
-                                            togglePassword.addEventListener('click', function() {
-                                                const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-                                                password.setAttribute('type', type);
-                                                this.firstElementChild.classList.toggle('fa-eye-slash');
-                                            });
-                                        } else {
-                                            console.error("Element with id 'togglePassword' or 'password' not found!");
-                                        }
-                                    });
-                                </script>
-                            </div>
-
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </div>
+        <!-- End Header -->
 
-    </main>
-@endsection
+        <div class="row">
+            <div class="col-xl-4 col-lg-6">
+                <div class="axil-signin-banner bg_image bg_image--9">
+                    <h3 class="title">We Offer the Best Products</h3>
+                </div>
+            </div>
+            <div class="col-lg-6 offset-xl-2">
+                <div class="axil-signin-form-wrap">
+                    <div class="axil-signin-form">
+                        <h3 class="title">Sign in to eTrade.</h3>
+                        <p class="b2 mb--55">Enter your detail below</p>
+
+
+                        @livewire('connexion')
+                      {{--   <form class="singin-form">
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" class="form-control" name="email" value="annie@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="password" class="form-control" name="password" value="123456789">
+                            </div>
+                            <div class="form-group d-flex align-items-center justify-content-between">
+                                <button type="submit" class="axil-btn btn-bg-primary submit-btn">Connexion</button>
+                                <a href="forgot-password.html" class="forgot-btn">Forget password?</a>
+                            </div>
+                        </form> --}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS
+============================================ -->
+    <!-- Modernizer JS -->
+    <script src="assets/js/vendor/modernizr.min.js"></script>
+    <!-- jQuery JS -->
+    <script src="assets/js/vendor/jquery.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="assets/js/vendor/popper.min.js"></script>
+    <script src="assets/js/vendor/bootstrap.min.js"></script>
+    <script src="assets/js/vendor/slick.min.js"></script>
+    <script src="assets/js/vendor/js.cookie.js"></script>
+    <!-- <script src="assets/js/vendor/jquery.style.switcher.js"></script> -->
+    <script src="assets/js/vendor/jquery-ui.min.js"></script>
+    <script src="assets/js/vendor/jquery.ui.touch-punch.min.js"></script>
+    <script src="assets/js/vendor/jquery.countdown.min.js"></script>
+    <script src="assets/js/vendor/sal.js"></script>
+    <script src="assets/js/vendor/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/vendor/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/js/vendor/isotope.pkgd.min.js"></script>
+    <script src="assets/js/vendor/counterup.js"></script>
+    <script src="assets/js/vendor/waypoints.min.js"></script>
+
+    <!-- Main JS -->
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
