@@ -340,7 +340,7 @@
                                 </a>
                             </li>
 
-                           {{--  <li>
+                            <li>
                                 <a href="{{route('cache.clear')}}" >
                                     <i class="bx bx-right-arrow-alt"></i>
                                     Vider le cash
@@ -351,7 +351,7 @@
                                     <i class="bx bx-right-arrow-alt"></i>
                                     Lier les images
                                 </a>
-                            </li> --}}
+                            </li> 
                         </ul>
 
                         
