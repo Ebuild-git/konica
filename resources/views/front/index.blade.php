@@ -103,7 +103,7 @@
                 </div>
             </div>
          
-            
+
             <div class="axil-product-area bg-color-white axil-section-gap">
                 <div class="container">
                     <div class="section-title-wrapper">
@@ -150,9 +150,9 @@
                                                     </div>
                                                     <div class="product-hover-action">
                                                         <ul class="cart-action">
-                                                            <li class="quickview"><a href="#" data-bs-toggle="modal"
+                                                           {{--  <li class="quickview"><a href="#" data-bs-toggle="modal"
                                                                     data-bs-target="#{{ $produit->id }}"><i
-                                                                        class="far fa-eye"></i></a></li>
+                                                                        class="far fa-eye"></i></a></li> --}}
                                                             <li class="select-option">
                                                                 <a onclick="AddToCart( {{ $produit->id }} )">
                                                                     Ajouter au panier

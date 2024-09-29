@@ -183,15 +183,13 @@
                                         <div class="product-hover-action">
                                             <ul class="cart-action">
                                                 @if (Auth()->user())
-                                                <li class="wishlist">
-
-                                                    <a onclick="AddFavoris({{ $produit->id }})"
-                                                        class="axil-btn wishlist-btn"><i class="far fa-heart"></i></a>
-                                                </li>
+                                                <li class="wishlist"><a
+                                                        onclick="AddFavoris({{ $produit->id }})"><i
+                                                            class="far fa-heart"></i></a></li>
                                             @endif
                                                 <li class="select-option"><a onclick="AddToCart( {{ $produit->id }} )">Ajouter au panier</a></li>
-                                                <li class="quickview"><a href="#" data-bs-toggle="modal" data-bs-target="#{{ $produit->id }}"><i class="far fa-eye"></i></a></li>
-                                            </ul>
+                                               {{--  <li class="quickview"><a href="#" data-bs-toggle="modal" data-bs-target="#{{ $produit->id }}"><i class="far fa-eye"></i></a></li>
+                                         --}}    </ul>
                                         </div>
                                     </div>
                                     <div class="product-content">
