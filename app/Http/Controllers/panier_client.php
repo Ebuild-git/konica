@@ -104,13 +104,13 @@ class panier_client extends Controller
         }
 
 
-        if ($produit->statut == "disponible") {
+        /* if ($produit->statut == "disponible") {
             return response()->json([
                 'statut' => false,
                 'message' => " Le produit est  indisponible !",
             ]);
         }
-
+ */
          //si l'user est un grossite on ajute sa quantite si il a prix moind de la quantite_minimal_grossiste	
          if ($user && $user->role == "grossiste") {
             if ($quantite < $produit->quantite_minimal_grossiste) {
@@ -122,13 +122,13 @@ class panier_client extends Controller
 
 
         //verifier que le stock demander est disponible
-        if ($produit->stock < $quantite) {
+     /*    if ($produit->stock < $quantite) {
             return response()->json([
                 'statut' => false,
                 'message' => "Quantité insuffisante en stock !",
             ]);
         }
-
+ */
        
 
 

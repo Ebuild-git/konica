@@ -131,10 +131,10 @@
                                      <a href="{{ url('login') }}">Connexion</a>
                                  </li> --}}
                                 @else
-                                    @if (auth()->user()->role != 'client')
+                                   {{--  @if (auth()->user()->role != 'client')
                                         <li><a href="{{ url('dashboard') }}">Dashboard</a>
                                         </li>
-                                    @endif
+                                    @endif --}}
 
 
                                 @endguest
@@ -183,6 +183,10 @@
 
                                     @if (Auth()->user())
                                         <ul>
+                                            @if (auth()->user()->role != 'client')
+                                            <li><a href="{{ url('dashboard') }}">Dashboard</a>
+                                            </li>
+                                        @endif
                                             <li>
                                                 <a href="{{ route('account') }}">Mon compte</a>
                                             </li>

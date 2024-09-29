@@ -29,7 +29,7 @@
         </div>
         <div class="col-sm-4">
             <div class="mb-3">
-                <label for="">Photo d'illustration ((648*564))</label>
+                <label for="">Photo d'illustration ((300*300))</label>
                 <div class="preview-produit-illustration" onclick="preview_illustration('new-prosduit')">
                     @if ($category)
                         @if ($photo2 && is_null($photo))
