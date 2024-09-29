@@ -19,19 +19,19 @@
                 <style>
                     .carousel-item {
                         height: 600px;
-                      
+
 
                         background-size: cover;
-                      
+
                         background-position: center;
-                     
+
                     }
 
                     .main-slider-content {
                         margin-top: 300px;
-                        
+
                         color: white;
-                       
+
                     }
                 </style>
                 <div class="carousel-inner">
@@ -69,643 +69,330 @@
             </div>
 
 
-    
+
             <!-- End Slider Area -->
             <!-- Start Categorie Area  -->
-               <!-- Start Categorie Area  -->
-        <div class="axil-categorie-area bg-color-white axil-section-gapcommon">
-            <div class="container">
-                <div class="section-title-wrapper">
-                    <span class="title-highlighter highlighter-secondary"> <i class="far fa-tags"></i> Categories</span>
-                    <h2 class="title">Parcourir par categories</h2>
-                </div>
-                <div class="categrie-product-activation slick-layout-wrapper--15 axil-slick-arrow  arrow-top-slide">
-                    
-                    @foreach ($categories as $category) 
-                    <div class="slick-single-layout">
-                        <div class="categrie-product" data-sal="zoom-out" data-sal-delay="200" data-sal-duration="500">
-                            <a href="/category/{{ $category->id }}"
-                                class="{{ isset($current_category) && $current_category->id === $category->id ? 'selected' : '' }}">
-                                <img class="img-fluid" src="{{ Storage::url($category->photo) }}" width="100" height="100" alt="product categorie">
-                               {{--  <img class="img-fluid" src="./assets/images/product/categories/elec-4.png" alt="product categorie"> --}}
-                                <h6 class="cat-title">{{ $category->nom ?? '' }}</h6>
-                            </a>
-                        </div>
-                        <!-- End .categrie-product -->
+            <!-- Start Categorie Area  -->
+            <div class="axil-categorie-area bg-color-white axil-section-gapcommon">
+                <div class="container">
+                    <div class="section-title-wrapper">
+                        <span class="title-highlighter highlighter-secondary"> <i class="far fa-tags"></i> Categories</span>
+                        <h2 class="title">Parcourir par categories</h2>
                     </div>
-                    @endforeach
-                  
-             
-                </div>
-            </div>
-        </div>
-        <!-- End Categorie Area  -->
+                    <div class="categrie-product-activation slick-layout-wrapper--15 axil-slick-arrow  arrow-top-slide">
 
-        
-            <!-- Start Expolre Product Area  -->
-          
-        <!-- Start Expolre Product Area  -->
-        <div class="axil-product-area bg-color-white axil-section-gap">
-            <div class="container">
-                <div class="section-title-wrapper">
-                    <span class="title-highlighter highlighter-primary"> <i class="far fa-shopping-basket"></i> Nos Produits</span>
-                    <h2 class="title">Parcourir nos Produits</h2>
-                </div>
-                <div class="explore-product-activation slick-layout-wrapper slick-layout-wrapper--15 axil-slick-arrow arrow-top-slide">
-                    <div class="slick-single-layout">
-                        <div class="row row--15">
-                            @foreach ($produits as $produit)
-                            @if ($produit)
-                            <div class="col-xl-3 col-lg-4 col-sm-6 col-12 mb--30">
-                                <div class="axil-product product-style-one">
-                                    <div class="thumbnail">
-                                        <a  href="{{ route('details-produits', ['id' => $produit->id, 'slug' => Str::slug(Str::limit($produit->nom, 10))]) }}">
-                                            <img data-sal="zoom-out" data-sal-delay="200" data-sal-duration="800" loading="lazy" class="main-img" src="{{ Storage::url($produit->photo) }}" alt="Product Images">
-                                            <img class="hover-img" src="{{ Storage::url($produit->photo) }}" alt="Product Images">
-                                        </a>
-                                        {{-- <div class="label-block label-right">
-                                            <div class="product-badget"><span>@if ($produit->inPromotion())
-                                                <span>
-                                                    -{{ $produit->inPromotion()->pourcentage }}%</span>
-                                            @endif</span></div>
-                                        </div> --}}
-                                        <style>
-                                                          
-                                            .top-left {
-                                                position: absolute;
-                                                top: 8px;
-                                                right: 18px;
-                                                color: red;
-                                            }
-
-                                      
-                                        
-                                        
-                        </style>
-                   
-                        <div class="top-left"  style="background-color: rgb(237, 16, 16);color: white;">
-                            <span>@if ($produit->inPromotion())
-                                <span>
-                                    -{{ $produit->inPromotion()->pourcentage }}%</span>
-                            @endif</span>
-                        </div>
-                                        <div class="product-hover-action">
-                                            <ul class="cart-action">
-                                                <li class="quickview"><a href="#" data-bs-toggle="modal" data-bs-target="#{{ $produit->id }}"><i class="far fa-eye"></i></a></li>
-                                                <li class="select-option">
-                                                    <a onclick="AddToCart( {{ $produit->id }} )">
-                                                        Ajouter au panier
-                                                    </a>
-                                                </li>
-                                                @if (Auth()->user())
-                                                <li class="wishlist"><a onclick="AddFavoris({{ $produit->id }})"><i class="far fa-heart"></i></a></li>
-                                                @endif
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product-content">
-                                        <div class="inner">
-                                            <div class="product-rating">
-                                               {{--  <span class="icon">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </span>
-                                                <span class="rating-number">(64)</span> --}}
-                                            </div>
-                                           {{--  <h5 class="title"><a href="{{ route('details-produits', ['id' => $produit->id, 'slug' => Str::slug(Str::limit($produit->nom, 10))]) }}">{{ $produit->nom ?? ' ' }}</a></h5>
-                                            --}} {{-- <div class="product-price-variant">
-                                                <span class="price current-price">$29.99</span>
-                                                <span class="price old-price">$49.99</span>
-                                            </div> --}}
-                                            <div class="">
-                                                <h5 class="title"><a   href="{{ route('details-produits', ['id' => $produit->id, 'slug' => Str::slug(Str::limit($produit->nom, 10))]) }}">{{ Str::limit($produit->nom, 15) }}</a></h5>
-                                            </div>
-                                            <div class="product__price__wrapper">
-                                                <h6 class="product-price--main">
-    
-                                                  
-                                                    @if ($produit->inPromotion())
-                                                    <div class="row">
-                                                        <div class="col-sm-6 col-6">
-    
-                                                            <b class="text-success" style="color: #4169E1">
-                                                                {{ $produit->getPrice() }} DT
-                                                            </b>
-                                                        </div>
-                                                       
-                                                        <div class="col-sm-6 col-6 text-end">
-                                                            <strike>
-    
-    
-                                                                <span style="font-size: 1.2rem; color: #dc3545; font-weight: bold;">
-                                                                    {{ $produit->prix }} DT
-                                                                </span>
-    
-    
-                                                            </strike>
-                                                        </div>
-                                                    @else
-                                                        {{ $produit->getPrice() }}DT
-                                                @endif
-    
-    
-    
-                                                </h6>
-                                            </div>
-                                        </div>
-                                    </div>
+                        @foreach ($categories as $category)
+                            <div class="slick-single-layout">
+                                <div class="categrie-product" data-sal="zoom-out" data-sal-delay="200"
+                                    data-sal-duration="500">
+                                    <a href="/category/{{ $category->id }}"
+                                        class="{{ isset($current_category) && $current_category->id === $category->id ? 'selected' : '' }}">
+                                        <img {{-- class="img-fluid" --}} src="{{ Storage::url($category->photo) }}" width="200"
+                                            border-radius="8px" height="200" class="rounded shadow"
+                                            alt="product categorie">
+                                        {{--  <img class="img-fluid" src="./assets/images/product/categories/elec-4.png" alt="product categorie"> --}}
+                                        <h6 class="cat-title">{{ $category->nom ?? '' }}</h6>
+                                    </a>
                                 </div>
+                                <!-- End .categrie-product -->
                             </div>
-                            @endif
-                            @endforeach
-                        
-                        </div>
-                    </div>
-                    <!-- End .slick-single-layout -->
-                    
-                    <!-- End .slick-single-layout -->
-                </div>
-                <div class="row">
-                    <div class="col-lg-12 text-center mt--20 mt_sm--0">
-                        <a href="{{ route('shop') }}" class="axil-btn btn-bg-lighter btn-load-more">Voir tous les Produits</a>
-                    </div>
-                </div>
+                        @endforeach
 
-            </div>
-        </div>
-        <!-- End Expolre Product Area  -->
-      {{--   @if($produits)
-        @foreach($produits as $key=>$produit)
-        <div class="modal fade quick-view-product" id="{{ $produit->id }}" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="far fa-times"></i></button>
+
                     </div>
-                    <div class="modal-body">
-                        <div class="single-product-thumb">
-                            <div class="row">
-                                <div class="col-lg-7 mb--40">
-                                    <div class="row">
-                                        <div class="col-lg-10 order-lg-2">
-                                            <div class="single-product-thumbnail product-large-thumbnail axil-product thumbnail-badge zoom-gallery">
+                </div>
+            </div>
+         
+            
+            <div class="axil-product-area bg-color-white axil-section-gap">
+                <div class="container">
+                    <div class="section-title-wrapper">
+                        <span class="title-highlighter highlighter-primary"> <i class="far fa-shopping-basket"></i> Nos
+                            Produits</span>
+                        <h2 class="title">Parcourir nos Produits</h2>
+                    </div>
+                    <div
+                        class="explore-product-activation slick-layout-wrapper slick-layout-wrapper--15 axil-slick-arrow arrow-top-slide">
+                        <div class="slick-single-layout">
+                            <div class="row row--15">
+                                @foreach ($produits as $produit)
+                                    @if ($produit)
+                                        <div class="col-xl-3 col-lg-4 col-sm-6 col-12 mb--30">
+                                            <div class="axil-product product-style-one">
                                                 <div class="thumbnail">
-                                                    <img id="mainImage" src="{{ Storage::url($produit->photo) }}" width="50 " height="50 "
-                                                    border-radius="8px" alt="Product image" />
-                                                    <div class="label-block label-right">
-                                                        <div class="product-badget">20% OFF</div>
-                                                    </div>
-                                                    <div class="product-quick-view position-view">
-                                                        <a src="{{ Storage::url($produit->photo) }}" class="popup-zoom">
-                                                            <i class="far fa-search-plus"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                              
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2 order-lg-1">
-                                            <div class="product-small-thumb small-thumb-wrapper">
-                                                <div class="small-thumb-img">
-                                                    @foreach (json_decode($produit->photos) ?? [] as $image)
-                                                    <div class="slider__item">
-                                                        <img onclick="changeMainImage('{{ Storage::url($image) }}')" src="{{ Storage::url($image) }}" width="100" height="100" style="border-radius: 8px;" alt="Additional product image" />
-                                                    </div>
-                                                @endforeach
-                                                </div>
-                                                
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-5 mb--40">
-                                    <div class="single-product-content">
-                                        <div class="inner">
-                                            <div class="product-rating">
+                                                    <a
+                                                        href="{{ route('details-produits', ['id' => $produit->id, 'slug' => Str::slug(Str::limit($produit->nom, 10))]) }}">
+                                                        <img data-sal="zoom-out" data-sal-delay="200"
+                                                            data-sal-duration="800" loading="lazy" class="main-img"
+                                                            border-radius="8px" src="{{ Storage::url($produit->photo) }}"
+                                                            alt="Product Images">
+                                                        <img class="hover-img" border-radius="8px"
+                                                            src="{{ Storage::url($produit->photo) }}" alt="Product Images">
+                                                    </a>
                                             
-                                            </div>
-                                            <h3 class="product-title">{{ $produit->nom }}</h3>
-                                            <span class="price-amount">
-                                                
-                                                @if ($produit->inPromotion())
-                                                <div class="row">
-                                                    <div class="col-sm-6 col-6">
+                                                    <style>
+                                                        .top-left {
+                                                            position: absolute;
+                                                            top: 8px;
+                                                            right: 18px;
+                                                            color: red;
+                                                        }
+                                                    </style>
 
-                                                        <b class="text-success" style="color: #4169E1">
-                                                            {{ $produit->getPrice() }} DT
-                                                        </b>
+                                                    <div class="top-left"
+                                                        style="background-color: rgb(237, 16, 16);color: white;">
+                                                        <span>
+                                                            @if ($produit->inPromotion())
+                                                                <span>
+                                                                    -{{ $produit->inPromotion()->pourcentage }}%</span>
+                                                            @endif
+                                                        </span>
                                                     </div>
-                                                   
-                                                    <div class="col-sm-6 col-6 text-end">
+                                                    <div class="product-hover-action">
+                                                        <ul class="cart-action">
+                                                            <li class="quickview"><a href="#" data-bs-toggle="modal"
+                                                                    data-bs-target="#{{ $produit->id }}"><i
+                                                                        class="far fa-eye"></i></a></li>
+                                                            <li class="select-option">
+                                                                <a onclick="AddToCart( {{ $produit->id }} )">
+                                                                    Ajouter au panier
+                                                                </a>
+                                                            </li>
+                                                            @if (Auth()->user())
+                                                                <li class="wishlist"><a
+                                                                        onclick="AddFavoris({{ $produit->id }})"><i
+                                                                            class="far fa-heart"></i></a></li>
+                                                            @endif
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="product-content">
+                                                    <div class="inner">
+                                                        <div class="product-rating">
                                                      
-                                                          
-                                                            <span style="position: relative; font-size: 1.2rem; color: #dc3545; font-weight: bold;">
-                                                                {{ $produit->prix }} DT
-                                                                <span style="position: absolute; top: 50%; left: 0; width: 100%; height: 2px; background-color: black;"></span>
-                                                            </span>
-                                                            
-                                                       
-                                                    </div>
-                                                @else
-                                                    {{ $produit->getPrice() }}DT
-                                            @endif
-                                            </span>
-                                            <ul class="product-meta">
-                                              
-                                                @if ($produit->stock > 0)
-                                                <label class="badge bg-success"> Stock disponible</label>
-                                            @else
-                                                <label class="badge bg-danger"> Stock non disponible</label>
-                                            @endif
-                                             
-                                            <li>Categorie:<span> {{ Str::limit($produit->categories->nom, 30) }}</span>
-                                            </li>
-                                                 </ul>
-                                            <p class="description">{{ $produit->description ?? ' ' }}</p>
-    
-                                            <div class="product-variations-wrapper">
-    
-                                               
-                                                <div class="product-variation">
-                                               
-                                                </div>
-                                            
-                                                <div class="product-variation">
-                                              
-                                                </div>
+                                                        </div>
                                           
-    
-                                            </div>
-    
-                                         
-                                            <div class="product-action-wrapper d-flex-center">
-                                                
-                                                <div class="pro-qty"><input type="text" value="1"></div>
-                                                
-    
-                                                <ul class="product-action d-flex-center mb--0">
-                                                    <li class="add-to-cart"><a href="cart.html" class="axil-btn btn-bg-primary">Add to Cart</a></li>
-                                                    <li class="wishlist"><a href="wishlist.html" class="axil-btn wishlist-btn"><i class="far fa-heart"></i></a></li>
-                                                </ul>
-                                               
-    
-                                            </div>
-                                           
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                                                        <div class="">
+                                                            <h5 class="title"><a
+                                                                    href="{{ route('details-produits', ['id' => $produit->id, 'slug' => Str::slug(Str::limit($produit->nom, 10))]) }}">{{ Str::limit($produit->nom, 15) }}</a>
+                                                            </h5>
+                                                        </div>
+                                                        <div class="product__price__wrapper">
+                                                            <h6 class="product-price--main">
 
-        @endforeach
-        @endif
-          --}}
-            <!-- Start Expolre Product Area  -->
-            <div class="axil-new-arrivals-product-area fullwidth-container flash-sale-area section-gap-80-35">
-                <div class="container ml--xxl-0">
-                    <div class="section-title-border slider-section-title">
-                        <h2 class="title">Publication Réscentes 💥</h2>
+
+                                                                @if ($produit->inPromotion())
+                                                                    <div class="row">
+                                                                        <div class="col-sm-6 col-6">
+
+                                                                            <b class="text-success"
+                                                                                style="color: #4169E1">
+                                                                                {{ $produit->getPrice() }} DT
+                                                                            </b>
+                                                                        </div>
+
+                                                                        <div class="col-sm-6 col-6 text-end">
+                                                                            <strike>
+
+
+                                                                                <span
+                                                                                    style="font-size: 1.2rem; color: #dc3545; font-weight: bold;">
+                                                                                    {{ $produit->prix }} DT
+                                                                                </span>
+
+
+                                                                            </strike>
+                                                                        </div>
+                                                                    @else
+                                                                        {{ $produit->getPrice() }}DT
+                                                                @endif
+
+
+
+                                                            </h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+                                @endforeach
+
+                            </div>
+                        </div>
+                        
                     </div>
-                    <div class="recently-viwed-activation slick-layout-wrapper--15 axil-slick-angle angle-top-slide">
-                        <div class="slick-single-layout">
-                            <div class="axil-product product-style-eight">
-                                <div class="thumbnail">
-                                    <a href="single-product-8.html">
-                                        <img data-sal="zoom-out" data-sal-delay="100" data-sal-duration="800"
-                                            loading="lazy" class="main-img"
-                                            src="assets/images/product/fashion/product-26.png" alt="Product Images">
-                                    </a>
-                                    <div class="label-block label-left">
-                                        <div class="product-badget sale">Sale</div>
-                                    </div>
-                                    <div class="product-hover-action">
-                                        <ul class="cart-action">
-                                            <li class="select-option">
-                                                <a href="single-product-8.html">
-                                                    <i class="far fa-shopping-cart"></i> Add to Cart
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <div class="inner">
-                                        <h5 class="title"><a href="single-product-8.html">Kalrez® Spectrum™ 6375</a></h5>
-                                        <div class="product-rating">
-                                            <span class="icon">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                            </span>
-                                            <span class="rating-number">6,400</span>
-                                        </div>
-                                        <div class="product-price-variant">
-                                            <span class="price old-price">$30.00</span>
-                                            <span class="price current-price">$17.84</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="slick-single-layout">
-                            <div class="axil-product product-style-eight">
-                                <div class="thumbnail">
-                                    <a href="single-product-8.html">
-                                        <img data-sal="zoom-out" data-sal-delay="150" data-sal-duration="800"
-                                            loading="lazy" class="main-img"
-                                            src="assets/images/product/fashion/product-27.png" alt="Product Images">
-                                    </a>
-                                    <div class="label-block label-left">
-                                        <div class="product-badget">20% OFF</div>
-                                    </div>
-                                    <div class="product-hover-action">
-                                        <ul class="cart-action">
-                                            <li class="select-option">
-                                                <a href="single-product-8.html">
-                                                    <i class="far fa-shopping-cart"></i> Add to Cart
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <div class="inner">
-                                        <h5 class="title"><a href="single-product-8.html">Calvin Klein womens Solid
-                                                Sheath With Chiffon Bell Sleeves Dress</a></h5>
-                                        <div class="product-rating">
-                                            <span class="icon">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                            </span>
-                                            <span class="rating-number">6,400</span>
-                                        </div>
-                                        <div class="product-price-variant">
-                                            <span class="price old-price">$100.00</span>
-                                            <span class="price current-price">$78.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="slick-single-layout">
-                            <div class="axil-product product-style-eight">
-                                <div class="thumbnail">
-                                    <a href="single-product-8.html">
-                                        <img data-sal="zoom-out" data-sal-delay="200" data-sal-duration="800"
-                                            loading="lazy" class="main-img"
-                                            src="assets/images/product/fashion/product-28.png" alt="Product Images">
-                                    </a>
-                                    <div class="label-block label-left">
-                                        <div class="product-badget">TOP SELLING</div>
-                                    </div>
-                                    <div class="product-hover-action">
-                                        <ul class="cart-action">
-                                            <li class="select-option">
-                                                <a href="single-product-8.html">
-                                                    <i class="far fa-shopping-cart"></i> Add to Cart
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <div class="inner">
-                                        <h5 class="title"><a href="single-product-8.html">Gildan Men's Ultra Cotton
-                                                T-Shirt, Style G2000,</a></h5>
-                                        <div class="product-rating">
-                                            <span class="icon">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                            </span>
-                                            <span class="rating-number">6,400</span>
-                                        </div>
-                                        <div class="product-price-variant">
-                                            <span class="price old-price">$20.00</span>
-                                            <span class="price current-price">$17.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="slick-single-layout">
-                            <div class="axil-product product-style-eight">
-                                <div class="thumbnail">
-                                    <a href="single-product-8.html">
-                                        <img data-sal="zoom-out" data-sal-delay="250" data-sal-duration="800"
-                                            loading="lazy" class="main-img"
-                                            src="assets/images/product/fashion/product-29.png" alt="Product Images">
-                                    </a>
-                                    <div class="label-block label-left">
-                                        <div class="product-badget sold-out">SOLD OUT</div>
-                                    </div>
-                                    <div class="product-hover-action">
-                                        <ul class="cart-action">
-                                            <li class="select-option">
-                                                <a href="single-product-8.html">
-                                                    <i class="far fa-shopping-cart"></i> Add to Cart
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <div class="inner">
-                                        <h5 class="title"><a href="single-product-8.html">Essentials Men's Regular-Fit
-                                                Short-Sleeve Crewneck T-Shirt</a></h5>
-                                        <div class="product-rating">
-                                            <span class="icon">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                            </span>
-                                            <span class="rating-number">6,400</span>
-                                        </div>
-                                        <div class="product-price-variant">
-                                            <span class="price old-price">$12.00</span>
-                                            <span class="price current-price">$5.22</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="slick-single-layout">
-                            <div class="axil-product product-style-eight">
-                                <div class="thumbnail">
-                                    <a href="single-product-8.html">
-                                        <img data-sal="zoom-out" data-sal-delay="100" data-sal-duration="800"
-                                            loading="lazy" class="main-img"
-                                            src="assets/images/product/fashion/product-30.png" alt="Product Images">
-                                    </a>
-                                    <div class="product-hover-action">
-                                        <ul class="cart-action">
-                                            <li class="select-option">
-                                                <a href="single-product-8.html">
-                                                    <i class="far fa-shopping-cart"></i> Add to Cart
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <div class="inner">
-                                        <h5 class="title"><a href="single-product-8.html">2.4G Remote Control Rc BB-8
-                                                Droid Football Robot</a></h5>
-                                        <div class="product-rating">
-                                            <span class="icon">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                            </span>
-                                            <span class="rating-number">1,300</span>
-                                        </div>
-                                        <div class="product-price-variant">
-                                            <span class="price current-price">$100.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="slick-single-layout">
-                            <div class="axil-product product-style-eight">
-                                <div class="thumbnail">
-                                    <a href="single-product-8.html">
-                                        <img data-sal="zoom-out" data-sal-delay="150" data-sal-duration="800"
-                                            loading="lazy" class="main-img"
-                                            src="assets/images/product/fashion/product-31.png" alt="Product Images">
-                                    </a>
-                                    <div class="product-hover-action">
-                                        <ul class="cart-action">
-                                            <li class="select-option">
-                                                <a href="single-product-8.html">
-                                                    <i class="far fa-shopping-cart"></i> Add to Cart
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <div class="inner">
-                                        <h5 class="title"><a href="single-product-8.html">Perfume Nat White Chocolate
-                                                Flavor WONF (BD-10914)</a></h5>
-                                        <div class="product-rating">
-                                            <span class="icon">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                            </span>
-                                            <span class="rating-number">2,300</span>
-                                        </div>
-                                        <div class="product-price-variant">
-                                            <span class="price current-price">$14.81</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="slick-single-layout">
-                            <div class="axil-product product-style-eight">
-                                <div class="thumbnail">
-                                    <a href="single-product-8.html">
-                                        <img data-sal="zoom-out" data-sal-delay="200" data-sal-duration="800"
-                                            loading="lazy" class="main-img"
-                                            src="assets/images/product/fashion/product-32.png" alt="Product Images">
-                                    </a>
-                                    <div class="product-hover-action">
-                                        <ul class="cart-action">
-                                            <li class="select-option">
-                                                <a href="single-product-8.html">
-                                                    <i class="far fa-shopping-cart"></i> Add to Cart
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <div class="inner">
-                                        <h5 class="title"><a href="single-product-8.html">Women's Winter Mid Length
-                                                Thick Warm Faux Lamb Wool.</a></h5>
-                                        <div class="product-rating">
-                                            <span class="icon">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                            </span>
-                                            <span class="rating-number">50</span>
-                                        </div>
-                                        <div class="product-price-variant">
-                                            <span class="price current-price">$59.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="slick-single-layout">
-                            <div class="axil-product product-style-eight">
-                                <div class="thumbnail">
-                                    <a href="single-product-8.html">
-                                        <img data-sal="zoom-out" data-sal-delay="250" data-sal-duration="800"
-                                            loading="lazy" class="main-img"
-                                            src="assets/images/product/fashion/product-33.png" alt="Product Images">
-                                    </a>
-                                    <div class="product-hover-action">
-                                        <ul class="cart-action">
-                                            <li class="select-option">
-                                                <a href="single-product-8.html">
-                                                    <i class="far fa-shopping-cart"></i> Add to Cart
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <div class="inner">
-                                        <h5 class="title"><a href="single-product-8.html">Ion8 One Touch Sport / Bike
-                                                Water Bottle - Leakproof</a></h5>
-                                        <div class="product-rating">
-                                            <span class="icon">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                            </span>
-                                            <span class="rating-number">652</span>
-                                        </div>
-                                        <div class="product-price-variant">
-                                            <span class="price current-price">$29.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="row">
+                        <div class="col-lg-12 text-center mt--20 mt_sm--0">
+                            <a href="{{ route('shop') }}" class="axil-btn btn-bg-lighter btn-load-more">Voir tous les
+                                Produits</a>
                         </div>
                     </div>
+
                 </div>
             </div>
-            <!-- End Expolre Product Area  -->
-       
+
+
+
+            <!-- Product Quick View Modal Start -->
+            @if ($produits)
+                @foreach ($produits as $key => $produit)
+                    <div class="modal fade quick-view-product" id="{{ $produit->id }}" tabindex="-1"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"><i class="far fa-times"></i></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="single-product-thumb">
+                                        <div class="row">
+                                            <div class="col-lg-7 mb--40">
+                                                {{--  <div class="col-lg-6"> --}}
+                                                <div class="shop-details-img">
+                                                    <div class="tab-content" id="v-pills-tabContent">
+
+                                                        <div class="shop-details-tab-img product-img--main"
+                                                            id="zoomContaine" data-scale="1.4"
+                                                            style="overflow: hidden; position: relative;">
+
+                                                            <img id="mainImage" src="{{ Storage::url($produit->photo) }}"
+                                                                height="600" width="600" alt="Product image"
+                                                                style="transition: transform 0.3s ease;" />
+                                                        </div>
+
+
+                                                    </div>
+                                                    <br><br>
+
+                                                    <div class="nav nav-pills" id="v-pills-tab" role="tablist"
+                                                        aria-orientation="vertical">
+                                                        @foreach (json_decode($produit->photos) ?? [] as $image)
+                                                            <div class="slider__item">
+                                                                <img onclick="changeMainImage('{{ Storage::url($image) }}')"
+                                                                    src="{{ Storage::url($image) }}" width="100"
+                                                                    height="100" style="border-radius: 8px;"
+                                                                    alt="Additional product image" />
+                                                            </div>
+                                                        @endforeach
+                                                    </div>
+                                                </div>
+
+                                                <script>
+                                                    function changeMainImage(imageUrl) {
+                                                        document.getElementById('mainImage').src = imageUrl;
+                                                    }
+                                                </script>
+
+                                                <script>
+                                                    const zoomContaine = document.getElementById('zoomContaine');
+                                                    const mainImage = document.getElementById('mainImage');
+                                                    const scale = zoomContaine.getAttribute('data-scale') || 1.4;
+
+
+                                                    zoomContaine.addEventListener('mouseover', function() {
+                                                        mainImage.style.transform = `scale(${scale})`;
+                                                        mainImage.style.cursor = "zoom-in";
+                                                    });
+
+
+                                                    zoomContaine.addEventListener('mouseout', function() {
+                                                        mainImage.style.transform = "scale(1)";
+                                                    });
+
+
+                                                    function changeMainImage(imageUrl) {
+                                                        mainImage.src = imageUrl;
+                                                        mainImage.style.transform = "scale(1)";
+                                                    }
+                                                </script>
+
+
+
+
+                                            </div>
+                                 
+                                            <div class="col-lg-5 mb--40">
+                                                <div class="single-product-content">
+                                                    <div class="inner">
+
+                                                        <h3 class="product-title">{{ $produit->nom }}</h3>
+                                                        <span class="price-amount">
+                                                            @if ($produit->inPromotion())
+                                                                <b class="text-success" style="color: #4169E1">
+                                                                    {{ $produit->getPrice() }} DT
+                                                                </b>
+
+                                                                <span
+                                                                    style="position: relative; font-size: 1.2rem; color: #dc3545; font-weight: bold;">
+                                                                    {{ $produit->prix }} DT
+                                                                    <span
+                                                                        style="position: absolute; top: 50%; left: 0; width: 100%; height: 2px; background-color: black;"></span>
+                                                                </span>
+                                                            @else
+                                                                {{ $produit->getPrice() }}DT
+                                                            @endif
+                                                        </span>
+                                                        <ul class="product-meta">
+                                                            @if ($produit->stock > 0)
+                                                                <label class="badge bg-success"> Stock disponible</label>
+                                                            @else
+                                                                <label class="badge bg-danger"> Stock non
+                                                                    disponible</label>
+                                                            @endif
+
+                                                            <li>Categorie:<span>
+                                                                    {{ Str::limit($produit->categories->nom, 30) }}</span>
+                                                            </li>
+                                                            <li> <span>Reference:</span> {{ $produit->reference }}</li>
+                                                        </ul>
+                                                        <p class="description">{!! $produit->description !!}</p>
+
+                                                        <div class="product-variations-wrapper">
+
+
+                                                        </div>
+
+
+                                                        <div class="product-action-wrapper d-flex-center">
+
+                                                            <div class="pro-qty">
+                                                                <span class="quantity-control minus"></span>
+                                                                <input type="number" class="input-text qty text"
+                                                                    name="quantite" min="1" value="1"
+                                                                    id="qte-{{ $produit->id }}" autocomplete="off">
+                                                                <span class="quantity-control plus"></i></span>
+                                                            </div>
+
+                                                            <ul class="product-action d-flex-center mb--0">
+                                                                <li class="add-to-cart"><a
+                                                                        onclick="AddToCart( {{ $produit->id }} )"
+                                                                        class="axil-btn btn-bg-primary">Ajouter au
+                                                                        panier</a></li>
+                                                                @if (Auth()->user())
+                                                                    <li class="wishlist"><a
+                                                                            onclick="AddFavoris({{ $produit->id }})"><i
+                                                                                class="far fa-heart"></i></a></li>
+                                                                @endif
+                                                            </ul>
+                                                            <!-- End Product Action  -->
+
+                                                        </div>
+                                                        <!-- End Product Action Wrapper  -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            @endif
+            
+
             <!-- Start Expolre Product Area  -->
             <div class="axil-product-area bg-color-white axil-section-gapcommon">
                 <div class="container">
@@ -716,19 +403,26 @@
                         class="popular-product-activation slick-layout-wrapper slick-layout-wrapper--15 axil-slick-angle angle-top-slide">
                         <div class="slick-single-layout">
                             <div class="row">
-                                <div class="col-md-6 col-12">
-                                    <div class="axil-product product-style-eight product-list-style-3">
-                                        <div class="thumbnail">
-                                            <a href="single-product-8.html">
-                                                <img class="main-img" src="assets/images/product/fashion/product-34.png"
-                                                    alt="Product Images">
-                                            </a>
-                                        </div>
-                                        <div class="product-content">
-                                            <div class="inner">
-                                                <div class="product-cate"><a href="#">KIDS’ DOLLS</a></div>
-                                                <div class="color-variant-wrapper">
-                                                    <ul class="color-variant">
+                                @if ($produits)
+                                    @foreach ($produits as $key => $produit)
+                                        @if ($produit->inPromotion())
+                                            <div class="col-md-6 col-12">
+                                                <div class="axil-product product-style-eight product-list-style-3">
+                                                    <div class="thumbnail">
+                                                        <a
+                                                            href="{{ route('details-produits', ['id' => $produit->id, 'slug' => Str::slug(Str::limit($produit->nom, 10))]) }}">
+                                                            <img class="main-img" width="300" height="300"
+                                                                src="{{ Storage::url($produit->photo) }}"
+                                                                alt="Product Images">
+                                                        </a>
+                                                    </div>
+                                                    <div class="product-content">
+                                                        <div class="inner">
+                                                            <div class="product-cate"><a
+                                                                    href="{{ route('details-produits', ['id' => $produit->id, 'slug' => Str::slug(Str::limit($produit->nom, 10))]) }}">{{ $produit->nom }}</a>
+                                                            </div>
+                                                            <div class="color-variant-wrapper">
+                                                                {{--     <ul class="color-variant">
                                                         <li class="color-extra-01 active"><span><span
                                                                     class="color"></span></span>
                                                         </li>
@@ -747,528 +441,251 @@
                                                         <li class="color-extra-05"><span><span
                                                                     class="color"></span></span>
                                                         </li>
-                                                    </ul>
-                                                </div>
-                                                <h5 class="title"><a href="single-product-8.html">Manhattan Toy Wee
-                                                        Baby Stella Peach 12" Soft Baby Doll</a></h5>
-                                                <div class="product-rating">
-                                                    <span class="icon">
+                                                    </ul> --}}
+                                                            </div>
+                                                            <h5 class="title"><a
+                                                                    href="{{ route('details-produits', ['id' => $produit->id, 'slug' => Str::slug(Str::limit($produit->nom, 10))]) }}">{{ Str::limit($produit->description, 20) }}
+                                                                </a></h5>
+                                                            <div class="product-rating">
+                                                                {{--      <span class="icon">
                                                         <i class="fas fa-star"></i>
                                                         <i class="fas fa-star"></i>
                                                         <i class="fas fa-star"></i>
                                                         <i class="fas fa-star"></i>
                                                         <i class="fas fa-star"></i>
                                                     </span>
-                                                    <span class="rating-number">1540</span>
-                                                </div>
-                                                <div class="product-price-variant">
-                                                    <span class="price-text">Price</span>
-                                                    <span class="price current-price">$59.00</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="label-block label-right">
-                                            <div class="product-badget sold-out">SOLD OUT</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-12">
-                                    <div class="axil-product product-style-eight product-list-style-3">
-                                        <div class="thumbnail">
-                                            <a href="single-product-8.html">
-                                                <img class="main-img" src="assets/images/product/fashion/product-35.png"
-                                                    alt="Product Images">
-                                            </a>
-                                        </div>
-                                        <div class="product-content">
-                                            <div class="inner">
-                                                <div class="product-cate"><a href="#">KIDS’ DOLLS</a></div>
-                                                <div class="color-variant-wrapper">
-                                                    <ul class="color-variant">
-                                                        <li class="color-extra-01 active"><span><span
-                                                                    class="color"></span></span>
-                                                        </li>
-                                                        <li class="color-extra-02"><span><span
-                                                                    class="color"></span></span>
-                                                        </li>
-                                                        <li class="color-extra-03"><span><span
-                                                                    class="color"></span></span>
-                                                        </li>
-                                                        <li class="color-extra-04"><span><span
-                                                                    class="color"></span></span>
-                                                        </li>
-                                                        <li class="color-extra-04"><span><span
-                                                                    class="color"></span></span>
-                                                        </li>
-                                                        <li class="color-extra-05"><span><span
-                                                                    class="color"></span></span>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <h5 class="title"><a href="single-product-8.html">Business Women Suit
-                                                        Set 3 Pieces Notch Lapel Single Breasted Vest </a></h5>
-                                                <div class="product-rating">
-                                                    <span class="icon">
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                    </span>
-                                                    <span class="rating-number">563</span>
-                                                </div>
-                                                <div class="product-price-variant">
-                                                    <span class="price-text">Price</span>
-                                                    <span class="price current-price">$99.00</span>
+                                                    <span class="rating-number">1540</span> --}}
+                                                            </div>
+                                                            <div class="product-price-variant">
+                                                                <span class="price-text">Prix</span>
+                                                                <span class="price current-price"> <b class="text-success"
+                                                                        style="color: #4169E1">
+                                                                        {{ $produit->getPrice() }} DT
+                                                                    </b></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="label-block label-right">
+                                                        <div class="product-badget sold-out">
+                                                            @if ($produit->stock > 0)
+                                                                <label class="badge bg-success"> Stock disponible</label>
+                                                            @else
+                                                                <label class="badge bg-danger"> Stock non
+                                                                    disponible</label>
+                                                            @endif
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="label-block label-right">
-                                            <div class="product-badget">TOP SELLING</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-12">
-                                    <div class="axil-product product-style-eight product-list-style-3">
-                                        <div class="thumbnail">
-                                            <a href="single-product-8.html">
-                                                <img class="main-img" src="assets/images/product/fashion/product-36.png"
-                                                    alt="Product Images">
-                                            </a>
-                                        </div>
-                                        <div class="product-content">
-                                            <div class="inner">
-                                                <div class="product-cate"><a href="#">KIDS’ DOLLS</a></div>
-                                                <div class="color-variant-wrapper">
-                                                    <ul class="color-variant">
-                                                        <li class="color-extra-01 active"><span><span
-                                                                    class="color"></span></span>
-                                                        </li>
-                                                        <li class="color-extra-02"><span><span
-                                                                    class="color"></span></span>
-                                                        </li>
-                                                        <li class="color-extra-03"><span><span
-                                                                    class="color"></span></span>
-                                                        </li>
-                                                        <li class="color-extra-04"><span><span
-                                                                    class="color"></span></span>
-                                                        </li>
-                                                        <li class="color-extra-04"><span><span
-                                                                    class="color"></span></span>
-                                                        </li>
-                                                        <li class="color-extra-05"><span><span
-                                                                    class="color"></span></span>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <h5 class="title"><a href="single-product-8.html">Skechers Men's Energy
-                                                        Afterburn Lace-Up Sneaker</a></h5>
-                                                <div class="product-rating">
-                                                    <span class="icon">
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                    </span>
-                                                    <span class="rating-number">1,235</span>
-                                                </div>
-                                                <div class="product-price-variant">
-                                                    <span class="price-text">Price</span>
-                                                    <span class="price current-price">$70.00</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="label-block label-right">
-                                            <div class="product-badget">20% OFF</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-12">
-                                    <div class="axil-product product-style-eight product-list-style-3">
-                                        <div class="thumbnail">
-                                            <a href="single-product-8.html">
-                                                <img class="main-img" src="assets/images/product/fashion/product-37.png"
-                                                    alt="Product Images">
-                                            </a>
-                                        </div>
-                                        <div class="product-content">
-                                            <div class="inner">
-                                                <div class="product-cate"><a href="#">KIDS’ DOLLS</a></div>
-                                                <div class="color-variant-wrapper">
-                                                    <ul class="color-variant">
-                                                        <li class="color-extra-01 active"><span><span
-                                                                    class="color"></span></span>
-                                                        </li>
-                                                        <li class="color-extra-02"><span><span
-                                                                    class="color"></span></span>
-                                                        </li>
-                                                        <li class="color-extra-03"><span><span
-                                                                    class="color"></span></span>
-                                                        </li>
-                                                        <li class="color-extra-04"><span><span
-                                                                    class="color"></span></span>
-                                                        </li>
-                                                        <li class="color-extra-04"><span><span
-                                                                    class="color"></span></span>
-                                                        </li>
-                                                        <li class="color-extra-05"><span><span
-                                                                    class="color"></span></span>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <h5 class="title"><a href="single-product-8.html">Men’s Suit Separates
-                                                        with Performance Stretch Fabric</a></h5>
-                                                <div class="product-rating">
-                                                    <span class="icon">
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                    </span>
-                                                    <span class="rating-number">226</span>
-                                                </div>
-                                                <div class="product-price-variant">
-                                                    <span class="price-text">Price</span>
-                                                    <span class="price current-price">$159.00</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="label-block label-right">
-                                            <div class="product-badget sale">SALE</div>
-                                        </div>
-                                    </div>
-                                </div>
+                                        @endif
+                                    @endforeach
+                                @endif
+
                             </div>
                         </div>
-                        <div class="slick-single-layout">
-                            <div class="row">
-                                <div class="col-md-6 col-12">
-                                    <div class="axil-product product-style-eight product-list-style-3">
-                                        <div class="thumbnail">
-                                            <a href="single-product-8.html">
-                                                <img class="main-img" src="assets/images/product/fashion/product-34.png"
-                                                    alt="Product Images">
-                                            </a>
-                                        </div>
-                                        <div class="product-content">
-                                            <div class="inner">
-                                                <div class="product-cate"><a href="#">KIDS’ DOLLS</a></div>
-                                                <div class="color-variant-wrapper">
-                                                    <ul class="color-variant">
-                                                        <li class="color-extra-01 active"><span><span
-                                                                    class="color"></span></span>
-                                                        </li>
-                                                        <li class="color-extra-02"><span><span
-                                                                    class="color"></span></span>
-                                                        </li>
-                                                        <li class="color-extra-03"><span><span
-                                                                    class="color"></span></span>
-                                                        </li>
-                                                        <li class="color-extra-04"><span><span
-                                                                    class="color"></span></span>
-                                                        </li>
-                                                        <li class="color-extra-04"><span><span
-                                                                    class="color"></span></span>
-                                                        </li>
-                                                        <li class="color-extra-05"><span><span
-                                                                    class="color"></span></span>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <h5 class="title"><a href="single-product-8.html">Manhattan Toy Wee
-                                                        Baby Stella Peach 12" Soft Baby Doll</a></h5>
-                                                <div class="product-rating">
-                                                    <span class="icon">
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                    </span>
-                                                    <span class="rating-number">1540</span>
-                                                </div>
-                                                <div class="product-price-variant">
-                                                    <span class="price-text">Price</span>
-                                                    <span class="price current-price">$59.00</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="label-block label-right">
-                                            <div class="product-badget sold-out">SOLD OUT</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-12">
-                                    <div class="axil-product product-style-eight product-list-style-3">
-                                        <div class="thumbnail">
-                                            <a href="single-product-8.html">
-                                                <img class="main-img" src="assets/images/product/fashion/product-35.png"
-                                                    alt="Product Images">
-                                            </a>
-                                        </div>
-                                        <div class="product-content">
-                                            <div class="inner">
-                                                <div class="product-cate"><a href="#">KIDS’ DOLLS</a></div>
-                                                <div class="color-variant-wrapper">
-                                                    <ul class="color-variant">
-                                                        <li class="color-extra-01 active"><span><span
-                                                                    class="color"></span></span>
-                                                        </li>
-                                                        <li class="color-extra-02"><span><span
-                                                                    class="color"></span></span>
-                                                        </li>
-                                                        <li class="color-extra-03"><span><span
-                                                                    class="color"></span></span>
-                                                        </li>
-                                                        <li class="color-extra-04"><span><span
-                                                                    class="color"></span></span>
-                                                        </li>
-                                                        <li class="color-extra-04"><span><span
-                                                                    class="color"></span></span>
-                                                        </li>
-                                                        <li class="color-extra-05"><span><span
-                                                                    class="color"></span></span>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <h5 class="title"><a href="single-product-8.html">Business Women Suit
-                                                        Set 3 Pieces Notch Lapel Single Breasted Vest </a></h5>
-                                                <div class="product-rating">
-                                                    <span class="icon">
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                    </span>
-                                                    <span class="rating-number">563</span>
-                                                </div>
-                                                <div class="product-price-variant">
-                                                    <span class="price-text">Price</span>
-                                                    <span class="price current-price">$99.00</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="label-block label-right">
-                                            <div class="product-badget">TOP SELLING</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-12">
-                                    <div class="axil-product product-style-eight product-list-style-3">
-                                        <div class="thumbnail">
-                                            <a href="single-product-8.html">
-                                                <img class="main-img" src="assets/images/product/fashion/product-36.png"
-                                                    alt="Product Images">
-                                            </a>
-                                        </div>
-                                        <div class="product-content">
-                                            <div class="inner">
-                                                <div class="product-cate"><a href="#">KIDS’ DOLLS</a></div>
-                                                <div class="color-variant-wrapper">
-                                                    <ul class="color-variant">
-                                                        <li class="color-extra-01 active"><span><span
-                                                                    class="color"></span></span>
-                                                        </li>
-                                                        <li class="color-extra-02"><span><span
-                                                                    class="color"></span></span>
-                                                        </li>
-                                                        <li class="color-extra-03"><span><span
-                                                                    class="color"></span></span>
-                                                        </li>
-                                                        <li class="color-extra-04"><span><span
-                                                                    class="color"></span></span>
-                                                        </li>
-                                                        <li class="color-extra-04"><span><span
-                                                                    class="color"></span></span>
-                                                        </li>
-                                                        <li class="color-extra-05"><span><span
-                                                                    class="color"></span></span>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <h5 class="title"><a href="single-product-8.html">Skechers Men's Energy
-                                                        Afterburn Lace-Up Sneaker</a></h5>
-                                                <div class="product-rating">
-                                                    <span class="icon">
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                    </span>
-                                                    <span class="rating-number">1,235</span>
-                                                </div>
-                                                <div class="product-price-variant">
-                                                    <span class="price-text">Price</span>
-                                                    <span class="price current-price">$70.00</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="label-block label-right">
-                                            <div class="product-badget">20% OFF</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-12">
-                                    <div class="axil-product product-style-eight product-list-style-3">
-                                        <div class="thumbnail">
-                                            <a href="single-product-8.html">
-                                                <img class="main-img" src="assets/images/product/fashion/product-37.png"
-                                                    alt="Product Images">
-                                            </a>
-                                        </div>
-                                        <div class="product-content">
-                                            <div class="inner">
-                                                <div class="product-cate"><a href="#">KIDS’ DOLLS</a></div>
-                                                <div class="color-variant-wrapper">
-                                                    <ul class="color-variant">
-                                                        <li class="color-extra-01 active"><span><span
-                                                                    class="color"></span></span>
-                                                        </li>
-                                                        <li class="color-extra-02"><span><span
-                                                                    class="color"></span></span>
-                                                        </li>
-                                                        <li class="color-extra-03"><span><span
-                                                                    class="color"></span></span>
-                                                        </li>
-                                                        <li class="color-extra-04"><span><span
-                                                                    class="color"></span></span>
-                                                        </li>
-                                                        <li class="color-extra-04"><span><span
-                                                                    class="color"></span></span>
-                                                        </li>
-                                                        <li class="color-extra-05"><span><span
-                                                                    class="color"></span></span>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <h5 class="title"><a href="single-product-8.html">Men’s Suit Separates
-                                                        with Performance Stretch Fabric</a></h5>
-                                                <div class="product-rating">
-                                                    <span class="icon">
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                    </span>
-                                                    <span class="rating-number">226</span>
-                                                </div>
-                                                <div class="product-price-variant">
-                                                    <span class="price-text">Price</span>
-                                                    <span class="price current-price">$159.00</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="label-block label-right">
-                                            <div class="product-badget sale">SALE</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>
             <!-- End Expolre Product Area  -->
-         
-        <!-- Start Testimonila Area  -->
-        <div class="axil-testimoial-area axil-section-gap bg-vista-white">
-            <div class="container">
-                <div class="section-title-wrapper">
-                    <span class="title-highlighter highlighter-secondary"> <i class="fal fa-quote-left"></i>Témognages</span>
-                    <h2 class="title">Les retours de nos clients</h2>
-                </div>
-                <!-- End .section-title -->
-                <div class="testimonial-slick-activation testimonial-style-one-wrapper slick-layout-wrapper--20 axil-slick-arrow arrow-top-slide">
-                    <div class="slick-single-layout testimonial-style-one">
-                        <div class="review-speech">
-                            <p>“ It’s amazing how much easier it has been to
-                                meet new people and create instantly non
-                                connections. I have the exact same personal
-                                the only thing that has changed is my mind
-                                set and a few behaviors. “</p>
-                        </div>
-                        <div class="media">
-                            <div class="thumbnail">
-                                <img src="./assets/images/testimonial/image-1.png" alt="testimonial image">
-                            </div>
-                            <div class="media-body">
-                                <span class="designation">Head Of Idea</span>
-                                <h6 class="title">James C. Anderson</h6>
-                            </div>
-                        </div>
-                        <!-- End .thumbnail -->
+
+            <!-- Start Testimonila Area  -->
+            <div class="axil-testimoial-area axil-section-gap bg-vista-white">
+                <div class="container">
+                    <div class="section-title-wrapper">
+                        <span class="title-highlighter highlighter-secondary"> <i
+                                class="fal fa-quote-left"></i>Témognages</span>
+                        <h2 class="title">Les retours de nos clients</h2>
                     </div>
-                    <!-- End .slick-single-layout -->
-                    <div class="slick-single-layout testimonial-style-one">
-                        <div class="review-speech">
-                            <p>“ It’s amazing how much easier it has been to
-                                meet new people and create instantly non
-                                connections. I have the exact same personal
-                                the only thing that has changed is my mind
-                                set and a few behaviors. “</p>
-                        </div>
-                        <div class="media">
-                            <div class="thumbnail">
-                                <img src="./assets/images/testimonial/image-2.png" alt="testimonial image">
-                            </div>
-                            <div class="media-body">
-                                <span class="designation">Head Of Idea</span>
-                                <h6 class="title">James C. Anderson</h6>
-                            </div>
-                        </div>
-                        <!-- End .thumbnail -->
+                    <!-- End .section-title -->
+                    <div
+                        class="testimonial-slick-activation testimonial-style-one-wrapper slick-layout-wrapper--20 axil-slick-arrow arrow-top-slide">
+
+                        @if ($testimonials->isEmpty())
+                            <p>Aucun témoignage disponible.</p>
+                        @else
+                            @foreach ($testimonials as $testimonial)
+                                <div class="slick-single-layout testimonial-style-one">
+                                    <div class="review-speech">
+                                        <p>“{!! $testimonial->message !!} “</p>
+                                    </div>
+                                    <div class="media">
+                                        <div class="thumbnail">
+                                            @if ($testimonial->photo)
+                                                <img src="{{ asset('uploads/testimonials/' . $testimonial->photo) }}"
+                                                    alt="Photo Témoignage" width="100" height="100">
+                                            @else
+                                                <img src="./assets/images/testimonial/image-1.png"
+                                                    alt="testimonial image">
+                                            @endif
+
+                                        </div>
+                                        <div class="media-body">
+                                            <span class="designation">{{ $testimonial->name }}</span>
+                                            {{-- <h6 class="title">James C. Anderson</h6> --}}
+                                        </div>
+                                    </div>
+                                    <!-- End .thumbnail -->
+                                </div>
+                            @endforeach
+                        @endif
+
+                        <!-- End .slick-single-layout -->
+
                     </div>
-                    <!-- End .slick-single-layout -->
-                    <div class="slick-single-layout testimonial-style-one">
-                        <div class="review-speech">
-                            <p>“ It’s amazing how much easier it has been to
-                                meet new people and create instantly non
-                                connections. I have the exact same personal
-                                the only thing that has changed is my mind
-                                set and a few behaviors. “</p>
-                        </div>
-                        <div class="media">
-                            <div class="thumbnail">
-                                <img src="./assets/images/testimonial/image-3.png" alt="testimonial image">
-                            </div>
-                            <div class="media-body">
-                                <span class="designation">Head Of Idea</span>
-                                <h6 class="title">James C. Anderson</h6>
-                            </div>
-                        </div>
-                        <!-- End .thumbnail -->
-                    </div>
-                    <!-- End .slick-single-layout -->
-                    <div class="slick-single-layout testimonial-style-one">
-                        <div class="review-speech">
-                            <p>“ It’s amazing how much easier it has been to
-                                meet new people and create instantly non
-                                connections. I have the exact same personal
-                                the only thing that has changed is my mind
-                                set and a few behaviors. “</p>
-                        </div>
-                        <div class="media">
-                            <div class="thumbnail">
-                                <img src="./assets/images/testimonial/image-2.png" alt="testimonial image">
-                            </div>
-                            <div class="media-body">
-                                <span class="designation">Head Of Idea</span>
-                                <h6 class="title">James C. Anderson</h6>
-                            </div>
-                        </div>
-                        <!-- End .thumbnail -->
-                    </div>
-                    <!-- End .slick-single-layout -->
 
                 </div>
             </div>
-        </div>
-        <!-- End Testimonila Area  -->
+
+            <div class="col-12 d-flex justify-content-center">
+                <div class="form-group mb--0">
+                    <button class="axil-btn btn-bg-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                        type="submit">
+                        <span>Laisser un témognage</span>
+                    </button>
+                </div>
+
+            </div>
+            <div id="successMessage" class="alert alert-success" style="display:none;"></div>
+            <div id="errorMessage" class="alert alert-danger" style="display:none;"></div>
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Témoignage</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+
+
+
+                        <div class="modal-body">
+                            <form id="testimonialForm" action="{{ route('testimonial.store') }}" method="POST"
+                                class="testimonial-form p-4 rounded shadow-sm bg-light">
+                                @csrf
+                                <div class="form-group mb-4">
+                                    <label for="name" class="form-label text-muted">Nom</label>
+                                    <input type="text" class="form-control border-0 rounded-pill shadow-sm"
+                                        id="name" name="name" required>
+                                </div>
+                                <div class="form-group mb-4">
+                                    <label for="testimonial" class="form-label text-muted">Message</label>
+                                    <textarea class="form-control border-0 rounded-3 shadow-sm" id="testimonial" name="message" rows="8" required></textarea>
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary rounded-pill shadow">Envoyer</button>
+                                </div>
+                            </form>
+
+                            @if ($errors->any())
+                                <div class="alert alert-danger mt-4">
+                                    <ul class="mb-0">
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+
+                            @if (session('success'))
+                                <div class="alert alert-success mt-4">
+                                    {{ session('success') }}
+                                </div>
+                            @endif
+                            <style>
+                                .testimonial-form {
+                                    max-width: 600px;
+                                    margin: 0 auto;
+                                    background-color: #f8f9fa;
+                                }
+
+                                .form-group {
+                                    margin-bottom: 1.5rem;
+                                }
+
+                                .form-label {
+                                    font-weight: 600;
+                                    font-size: 1rem;
+                                }
+
+                                .form-control {
+                                    padding: 0.75rem 1rem;
+                                    font-size: 1rem;
+                                    color: #495057;
+                                    background-color: #fff;
+                                    border-radius: 25px;
+                                }
+
+                                textarea.form-control {
+                                    border-radius: 15px;
+                                }
+
+                                button.btn {
+                                    padding: 0.5rem 2rem;
+                                    font-size: 1.125rem;
+                                    transition: background-color 0.3s ease;
+                                }
+
+                                button.btn-primary {
+                                    background-color: #007bff;
+                                    border-color: #007bff;
+                                }
+
+                                button.btn-primary:hover {
+                                    background-color: #0056b3;
+                                    border-color: #0056b3;
+                                }
+
+                                .alert {
+                                    max-width: 600px;
+                                    margin: 1rem auto;
+                                }
+                            </style>
+
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <script>
+                $(document).ready(function() {
+                    $('#testimonialForm').on('submit', function(e) {
+                        e.preventDefault(); // Empêcher l'envoi classique du formulaire
+
+                        $.ajax({
+                            url: $(this).attr('action'),
+                            method: $(this).attr('method'),
+                            data: $(this).serialize(),
+                            success: function(response) {
+                                // Afficher le message de succès
+                                $('#testimonialModal').modal('hide'); // Fermer le modal
+
+                                $('#successMessage').text(
+                                    'Témoignage créé avec succès! Il sera valide après confirmation des administrateurs'
+                                ).show();
+
+                                setTimeout(function() {
+                                    location.reload();
+                                }, 5000);
+                            },
+                            error: function(response) {
+                                // Afficher un message d'erreur si nécessaire
+                                $('#errorMessage').text('Une erreur est survenue.')
+                                    .show(); // Afficher le message d'erreur
+                            }
+                        });
+                    });
+                });
+            </script>
+
         </main>
 
 

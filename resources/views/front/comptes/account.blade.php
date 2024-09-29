@@ -219,7 +219,7 @@
                                 <div class="col-lg-12">
                                     <div class="row">
 
-                                        <div class="col-xl-7">
+                                        <div class="col-xl-8">
 
                                             <div class=" mb-4">
                                                 <div class="card-header">Mon profile</div>

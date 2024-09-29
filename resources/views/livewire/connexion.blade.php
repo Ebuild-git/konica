@@ -24,6 +24,52 @@
     </div>
     <div class="form-group position-relative">
         <label>Mot de passe</label>
+        <input 
+            type="password" 
+            id="password" 
+            class="form-control" 
+            wire:model="password" 
+            placeholder="Votre mot de passe"
+        >
+        <span 
+            class="position-absolute" 
+            style="right: 10px; top: 35px; cursor: pointer;" 
+            onclick="togglePassword()"
+        >
+            <i id="toggleIcon" class="ri-eye-line"></i>
+        </span>
+        
+        @error('password')
+        <span class="text-danger small">
+            {{ $message }}
+        </span>
+        @enderror
+    </div>
+
+    
+    
+    <script>
+        function togglePassword() {
+            var passwordInput = document.getElementById('password');
+            var toggleIcon = document.getElementById('toggleIcon');
+    
+            if (passwordInput.type === 'password') {
+                // Afficher le mot de passe
+                passwordInput.type = 'text';
+                toggleIcon.classList.remove('ri-eye-line');
+                toggleIcon.classList.add('ri-eye-off-line');
+            } else {
+                // Masquer le mot de passe
+                passwordInput.type = 'password';
+                toggleIcon.classList.remove('ri-eye-off-line');
+                toggleIcon.classList.add('ri-eye-line');
+            }
+        }
+    </script>
+    
+    
+  {{--   <div class="form-group position-relative">
+        <label>Mot de passe</label>
         <input type="password" id="password" class="form-control" wire:model="password" placeholder="Votre mot de passe">
         <span class="position-absolute" style="right: 10px; top: 35px; cursor: pointer;" onclick="togglePassword()">
             <i id="toggleIcon" class="ri-eye-line"></i>
@@ -33,17 +79,8 @@
             {{ $message }}
         </span>
         @enderror
-    </div>
-    {{-- <div class="form-group">
-        <label>Mot de passe</label>
-        <input type="password" class="form-control"  wire:model="password" placeholder="Votre mot de passe">
-        @error('password')
-        <span class="text-danger small">
-            {{ $message }}
-        </span>
-    @enderror
-  
     </div> --}}
+ 
     <div class="form-group d-flex align-items-center justify-content-between">
         <button type="submit" class="axil-btn btn-bg-primary submit-btn">
             <span wire:loading>
@@ -56,23 +93,7 @@
 </form>
 
 
-<script>
-    function togglePassword() {
-        var passwordField = document.getElementById('password');
-        var toggleIcon = document.getElementById('toggleIcon');
-        
-        // Toggle the type attribute
-        if (passwordField.type === "password") {
-            passwordField.type = "text";
-            toggleIcon.classList.remove('ri-eye-line');
-            toggleIcon.classList.add('ri-eye-off-line'); // Icone pour masquer
-        } else {
-            passwordField.type = "password";
-            toggleIcon.classList.remove('ri-eye-off-line');
-            toggleIcon.classList.add('ri-eye-line'); // Icone pour afficher
-        }
-    }
-</script>
+
 
 {{-- 
  <form wire:submit='connexion'>

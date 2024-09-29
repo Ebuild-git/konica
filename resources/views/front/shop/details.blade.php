@@ -42,66 +42,62 @@
                         <div class="col-lg-6">
                             <div class="shop-details-img">
                                 <div class="tab-content" id="v-pills-tabContent">
-        
-                                   {{--  <div class="shop-details-tab-img product-img--main" data-scale="1.4" data-image="{{ Storage::url($produit->photo) }}">
-                                        <img id="mainImage" src="{{ Storage::url($produit->photo) }}" alt="Product image" />
-        
-        
-        
-        
-                                    </div> --}}
-                                    <div class="shop-details-tab-img product-img--main" id="zoomContainer" data-scale="1.4" style="overflow: hidden; position: relative;">
-                                        <!-- Image principale -->
-                                        <img id="mainImage" src="{{ Storage::url($produit->photo) }}" height="600" width="600" alt="Product image" style="transition: transform 0.3s ease;" />
+
+                                    <div class="shop-details-tab-img product-img--main" id="zoomContainers"
+                                        data-scale="1.4" style="overflow: hidden; position: relative;">
+
+                                        <img id="mainImage" src="{{ Storage::url($produit->photo) }}" height="600"
+                                            width="600" alt="Product image"
+                                            style="transition: transform 0.3s ease;" />
                                     </div>
-        
-        
+
+
                                 </div>
                                 <br><br>
-        
+
                                 <div class="nav nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                                     @foreach (json_decode($produit->photos) ?? [] as $image)
-                                    <div class="slider__item">
-                                        <img onclick="changeMainImage('{{ Storage::url($image) }}')" src="{{ Storage::url($image) }}" width="100" height="100" style="border-radius: 8px;" alt="Additional product image" />
-                                    </div>
+                                        <div class="slider__item">
+                                            <img onclick="changeMainImage('{{ Storage::url($image) }}')"
+                                                src="{{ Storage::url($image) }}" width="100" height="100"
+                                                style="border-radius: 8px;" alt="Additional product image" />
+                                        </div>
                                     @endforeach
                                 </div>
                             </div>
-        
+
                             <script>
                                 function changeMainImage(imageUrl) {
                                     document.getElementById('mainImage').src = imageUrl;
                                 }
-        
                             </script>
-        
-        <script>
-            // Zoom on hover
-            const zoomContainer = document.getElementById('zoomContainer');
-            const mainImage = document.getElementById('mainImage');
-            const scale = zoomContainer.getAttribute('data-scale') || 1.4; // Utilise l'attribut data-scale
-        
-            // Fonction pour zoomer lorsque la souris entre
-            zoomContainer.addEventListener('mouseover', function () {
-                mainImage.style.transform = `scale(${scale})`; // Applique le zoom selon data-scale
-                mainImage.style.cursor = "zoom-in";
-            });
-        
-            // Fonction pour réinitialiser le zoom lorsque la souris sort
-            zoomContainer.addEventListener('mouseout', function () {
-                mainImage.style.transform = "scale(1)"; // Réinitialise l'échelle
-            });
-        
-            // Fonction pour changer l'image principale
-            function changeMainImage(imageUrl) {
-                mainImage.src = imageUrl;
-                mainImage.style.transform = "scale(1)"; // Réinitialise le zoom lors du changement d'image
-            }
-        </script>
-        
-        
-        
-        
+
+                            <script>
+                                const zoomContainers = document.getElementById('zoomContainers');
+                                const mainImage = document.getElementById('mainImage');
+                                const scale = zoomContainers.getAttribute('data-scale') || 1.4;
+
+
+                                zoomContainers.addEventListener('mouseover', function() {
+                                    mainImage.style.transform = `scale(${scale})`;
+                                    mainImage.style.cursor = "zoom-in";
+                                });
+
+
+                                zoomContainers.addEventListener('mouseout', function() {
+                                    mainImage.style.transform = "scale(1)";
+                                });
+
+
+                                function changeMainImage(imageUrl) {
+                                    mainImage.src = imageUrl;
+                                    mainImage.style.transform = "scale(1)";
+                                }
+                            </script>
+
+
+
+
                         </div>
 
                         <div class="col-lg-5 mb--40">

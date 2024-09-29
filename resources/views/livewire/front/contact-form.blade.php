@@ -1,5 +1,3 @@
-
-
 <div>
 
     @livewireStyles
@@ -13,7 +11,7 @@
             {{ session('success') }}
         </div>
     @endif
-    <form wire:submit="save"   class="axil-contact-form">
+    <form wire:submit="save" class="axil-contact-form">
         <div class="row row--10">
             <div class="col-lg-4">
                 <div class="form-group">
@@ -64,18 +62,18 @@
                 <div class="form-group mb--0">
 
 
-                        <button class="axil-btn btn-bg-primary" type="submit">
-                            <span wire:loading>
-                                <img src="/icons/kOnzy.gif" height="20" width="20" alt="" srcset="">
-                            </span>
-                            <span>Envoyer</span>
-                        </button>
-                    </div>
+                    <button class="axil-btn btn-bg-primary" type="submit">
+                        <span wire:loading>
+                            <img src="/icons/kOnzy.gif" height="20" width="20" alt="" srcset="">
+                        </span>
+                        <span>Envoyer</span>
+                    </button>
                 </div>
-            
+            </div>
+
 
 
 
         </div>
-    </form> 
+    </form>
 </div>

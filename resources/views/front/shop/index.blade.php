@@ -159,7 +159,8 @@
                                 <div class="axil-product product-style-one mb--30">
                                     <div class="thumbnail">
                                         <a  href="{{ route('details-produits', ['id' => $produit->id, 'slug' => Str::slug(Str::limit($produit->nom, 10))]) }}">
-                                            <img src="{{ Storage::url($produit->photo) }}" alt="Product Images">
+                                            <img src="{{ Storage::url($produit->photo) }}" alt="{{ $produit->nom }}" style="max-width: 300px; max-height: 300px;">
+
                                         </a>
                                         <style>
                                                           
@@ -181,9 +182,15 @@
                                         @endif
                                         <div class="product-hover-action">
                                             <ul class="cart-action">
-                                                <li class="wishlist"><a onclick="AddFavoris({{ $produit->id }})"><i class="far fa-heart"></i></a></li>
+                                                @if (Auth()->user())
+                                                <li class="wishlist">
+
+                                                    <a onclick="AddFavoris({{ $produit->id }})"
+                                                        class="axil-btn wishlist-btn"><i class="far fa-heart"></i></a>
+                                                </li>
+                                            @endif
                                                 <li class="select-option"><a onclick="AddToCart( {{ $produit->id }} )">Ajouter au panier</a></li>
-                                                <li class="quickview"><a href="#" data-bs-toggle="modal" data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a></li>
+                                                <li class="quickview"><a href="#" data-bs-toggle="modal" data-bs-target="#{{ $produit->id }}"><i class="far fa-eye"></i></a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -306,137 +313,189 @@
     </div>
   
     <!-- Product Quick View Modal Start -->
-    <div class="modal fade quick-view-product" id="quick-view-modal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="far fa-times"></i></button>
-                </div>
-                <div class="modal-body">
-                    <div class="single-product-thumb">
-                        <div class="row">
-                            <div class="col-lg-7 mb--40">
-                                <div class="row">
-                                    <div class="col-lg-10 order-lg-2">
-                                        <div class="single-product-thumbnail product-large-thumbnail axil-product thumbnail-badge zoom-gallery">
-                                            <div class="thumbnail">
-                                                <img src="assets/images/product/product-big-01.png" alt="Product Images">
-                                                <div class="label-block label-right">
-                                                    <div class="product-badget">20% OFF</div>
-                                                </div>
-                                                <div class="product-quick-view position-view">
-                                                    <a href="assets/images/product/product-big-01.png" class="popup-zoom">
-                                                        <i class="far fa-search-plus"></i>
-                                                    </a>
-                                                </div>
+    @if ($produits)
+    @foreach ($produits as $key => $produit)
+        <div class="modal fade quick-view-product" id="{{ $produit->id }}" tabindex="-1"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"><i class="far fa-times"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="single-product-thumb">
+                            <div class="row">
+                                <div class="col-lg-7 mb--40">
+                                    {{--  <div class="col-lg-6"> --}}
+                                    <div class="shop-details-img">
+                                        <div class="tab-content" id="v-pills-tabContent">
+
+                                            <div class="shop-details-tab-img product-img--main"
+                                               data-scale="1.4"
+                                                style="overflow: hidden; position: relative;">
+
+                                                <img id="mainImage" src="{{ Storage::url($produit->photo) }}"
+                                                    height="600" width="600" alt="Product image"
+                                                    style="transition: transform 0.3s ease;" />
                                             </div>
-                                            <div class="thumbnail">
-                                                <img src="assets/images/product/product-big-02.png" alt="Product Images">
-                                                <div class="label-block label-right">
-                                                    <div class="product-badget">20% OFF</div>
+
+
+                                        </div>
+                                        <br><br>
+
+                                        <div class="nav nav-pills" id="v-pills-tab" role="tablist"
+                                            aria-orientation="vertical">
+                                            @foreach (json_decode($produit->photos) ?? [] as $image)
+                                                <div class="slider__item">
+                                                    <img onclick="changeMainImage('{{ Storage::url($image) }}')"
+                                                        src="{{ Storage::url($image) }}" width="100"
+                                                        height="100" style="border-radius: 8px;"
+                                                        alt="Additional product image" />
                                                 </div>
-                                                <div class="product-quick-view position-view">
-                                                    <a href="assets/images/product/product-big-02.png" class="popup-zoom">
-                                                        <i class="far fa-search-plus"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="thumbnail">
-                                                <img src="assets/images/product/product-big-03.png" alt="Product Images">
-                                                <div class="label-block label-right">
-                                                    <div class="product-badget">20% OFF</div>
-                                                </div>
-                                                <div class="product-quick-view position-view">
-                                                    <a href="assets/images/product/product-big-03.png" class="popup-zoom">
-                                                        <i class="far fa-search-plus"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
+                                            @endforeach
                                         </div>
                                     </div>
-                                    <div class="col-lg-2 order-lg-1">
-                                        <div class="product-small-thumb small-thumb-wrapper">
-                                            <div class="small-thumb-img">
-                                                <img src="assets/images/product/product-thumb/thumb-08.png" alt="thumb image">
-                                            </div>
-                                            <div class="small-thumb-img">
-                                                <img src="assets/images/product/product-thumb/thumb-07.png" alt="thumb image">
-                                            </div>
-                                            <div class="small-thumb-img">
-                                                <img src="assets/images/product/product-thumb/thumb-09.png" alt="thumb image">
-                                            </div>
-                                        </div>
+
+                                    <script>
+                                        function changeMainImage(imageUrl) {
+                                            document.getElementById('mainImage').src = imageUrl;
+                                        }
+                                    </script>
+
+                               
+
+
+
+                                </div>
+                                {{--  <div class="col-lg-7 mb--40">
+                    <div class="row">
+                        <div class="col-lg-10 order-lg-2">
+                            <div class="single-product-thumbnail product-large-thumbnail axil-product thumbnail-badge zoom-gallery">
+                                <div class="thumbnail">
+                                    <img src="assets/images/product/product-big-01.png" alt="Product Images">
+                                    <div class="label-block label-right">
+                                        <div class="product-badget">20% OFF</div>
+                                    </div>
+                                    <div class="product-quick-view position-view">
+                                        <a href="assets/images/product/product-big-01.png" class="popup-zoom">
+                                            <i class="far fa-search-plus"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="thumbnail">
+                                    <img src="assets/images/product/product-big-02.png" alt="Product Images">
+                                    <div class="label-block label-right">
+                                        <div class="product-badget">20% OFF</div>
+                                    </div>
+                                    <div class="product-quick-view position-view">
+                                        <a href="assets/images/product/product-big-02.png" class="popup-zoom">
+                                            <i class="far fa-search-plus"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="thumbnail">
+                                    <img src="assets/images/product/product-big-03.png" alt="Product Images">
+                                    <div class="label-block label-right">
+                                        <div class="product-badget">20% OFF</div>
+                                    </div>
+                                    <div class="product-quick-view position-view">
+                                        <a href="assets/images/product/product-big-03.png" class="popup-zoom">
+                                            <i class="far fa-search-plus"></i>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-5 mb--40">
-                                <div class="single-product-content">
-                                    <div class="inner">
-                                        <div class="product-rating">
-                                            <div class="star-rating">
-                                                <img src="assets/images/icons/rate.png" alt="Rate Images">
-                                            </div>
-                                            <div class="review-link">
-                                                <a href="#">(<span>1</span> customer reviews)</a>
-                                            </div>
-                                        </div>
-                                        <h3 class="product-title">Serif Coffee Table</h3>
-                                        <span class="price-amount">$155.00 - $255.00</span>
-                                        <ul class="product-meta">
-                                            <li><i class="fal fa-check"></i>In stock</li>
-                                            <li><i class="fal fa-check"></i>Free delivery available</li>
-                                            <li><i class="fal fa-check"></i>Sales 30% Off Use Code: MOTIVE30</li>
-                                        </ul>
-                                        <p class="description">In ornare lorem ut est dapibus, ut tincidunt nisi pretium. Integer ante est, elementum eget magna. Pellentesque sagittis dictum libero, eu dignissim tellus.</p>
+                        </div>
+                        <div class="col-lg-2 order-lg-1">
+                            <div class="product-small-thumb small-thumb-wrapper">
+                                <div class="small-thumb-img">
+                                    <img src="assets/images/product/product-thumb/thumb-08.png" alt="thumb image">
+                                </div>
+                                <div class="small-thumb-img">
+                                    <img src="assets/images/product/product-thumb/thumb-07.png" alt="thumb image">
+                                </div>
+                                <div class="small-thumb-img">
+                                    <img src="assets/images/product/product-thumb/thumb-09.png" alt="thumb image">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> --}}
+                                <div class="col-lg-5 mb--40">
+                                    <div class="single-product-content">
+                                        <div class="inner">
 
-                                        <div class="product-variations-wrapper">
+                                            <h3 class="product-title">{{ $produit->nom }}</h3>
+                                            <span class="price-amount">
+                                                @if ($produit->inPromotion())
+                                                    <b class="text-success" style="color: #4169E1">
+                                                        {{ $produit->getPrice() }} DT
+                                                    </b>
 
-                                            <!-- Start Product Variation  -->
-                                            <div class="product-variation">
-                                                <h6 class="title">Colors:</h6>
-                                                <div class="color-variant-wrapper">
-                                                    <ul class="color-variant mt--0">
-                                                        <li class="color-extra-01 active"><span><span class="color"></span></span>
-                                                        </li>
-                                                        <li class="color-extra-02"><span><span class="color"></span></span>
-                                                        </li>
-                                                        <li class="color-extra-03"><span><span class="color"></span></span>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <!-- End Product Variation  -->
 
-                                            <!-- Start Product Variation  -->
-                                            <div class="product-variation">
-                                                <h6 class="title">Size:</h6>
-                                                <ul class="range-variant">
-                                                    <li>xs</li>
-                                                    <li>s</li>
-                                                    <li>m</li>
-                                                    <li>l</li>
-                                                    <li>xl</li>
-                                                </ul>
-                                            </div>
-                                            <!-- End Product Variation  -->
 
-                                        </div>
 
-                                        <!-- Start Product Action Wrapper  -->
-                                        <div class="product-action-wrapper d-flex-center">
-                                            <!-- Start Quentity Action  -->
-                                            <div class="pro-qty"><input type="text" value="1"></div>
-                                            <!-- End Quentity Action  -->
 
-                                            <!-- Start Product Action  -->
-                                            <ul class="product-action d-flex-center mb--0">
-                                                <li class="add-to-cart"><a href="cart.html" class="axil-btn btn-bg-primary">Add to Cart</a></li>
-                                                <li class="wishlist"><a href="wishlist.html" class="axil-btn wishlist-btn"><i class="far fa-heart"></i></a></li>
+                                                    <span
+                                                        style="position: relative; font-size: 1.2rem; color: #dc3545; font-weight: bold;">
+                                                        {{ $produit->prix }} DT
+                                                        <span
+                                                            style="position: absolute; top: 50%; left: 0; width: 100%; height: 2px; background-color: black;"></span>
+                                                    </span>
+                                                @else
+                                                    {{ $produit->getPrice() }}DT
+                                                @endif
+                                            </span>
+                                            <ul class="product-meta">
+                                                @if ($produit->stock > 0)
+                                                    <label class="badge bg-success"> Stock disponible</label>
+                                                @else
+                                                    <label class="badge bg-danger"> Stock non
+                                                        disponible</label>
+                                                @endif
+
+                                                <li>Categorie:<span>
+                                                        {{ Str::limit($produit->categories->nom, 30) }}</span>
+                                                </li>
+                                                <li> <span>Reference:</span> {{ $produit->reference }}</li>
                                             </ul>
-                                            <!-- End Product Action  -->
+                                            <p class="description">In ornare lorem ut est dapibus, ut tincidunt
+                                                nisi pretium. Integer ante est, elementum eget magna.
+                                                Pellentesque sagittis dictum libero, eu dignissim tellus.</p>
 
+                                            <div class="product-variations-wrapper">
+
+
+                                            </div>
+
+
+                                            <div class="product-action-wrapper d-flex-center">
+
+                                                <div class="pro-qty">
+                                                    <span class="quantity-control minus"></span>
+                                                    <input type="number" class="input-text qty text"
+                                                        name="quantite" min="1" value="1"
+                                                        id="qte-{{ $produit->id }}" autocomplete="off">
+                                                    <span class="quantity-control plus"></i></span>
+                                                </div>
+
+                                                <ul class="product-action d-flex-center mb--0">
+                                                    <li class="add-to-cart"><a
+                                                            onclick="AddToCart( {{ $produit->id }} )"
+                                                            class="axil-btn btn-bg-primary">Ajouter au
+                                                            panier</a></li>
+                                                    @if (Auth()->user())
+                                                        <li class="wishlist"><a
+                                                                onclick="AddFavoris({{ $produit->id }})"><i
+                                                                    class="far fa-heart"></i></a></li>
+                                                    @endif
+                                                </ul>
+                                                <!-- End Product Action  -->
+
+                                            </div>
+                                            <!-- End Product Action Wrapper  -->
                                         </div>
-                                        <!-- End Product Action Wrapper  -->
                                     </div>
                                 </div>
                             </div>
@@ -445,7 +504,8 @@
                 </div>
             </div>
         </div>
-    </div>
+    @endforeach
+@endif
     <!-- Product Quick View Modal End -->
 
 

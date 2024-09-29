@@ -66,25 +66,12 @@ $produit = DB::table('produits')->get();
             <div class="col-lg-6 offset-xl-2">
                 <div class="axil-signin-form-wrap">
                     <div class="axil-signin-form">
-                        <h3 class="title">Sign in to eTrade.</h3>
-                        <p class="b2 mb--55">Enter your detail below</p>
+                        <h3 class="title">Connectez-vous à KONICA</h3>
+                        <p class="b2 mb--55">Entrez vos coordonnées ci-dessous</p>
 
 
                         @livewire('connexion')
-                      {{--   <form class="singin-form">
-                            <div class="form-group">
-                                <label>Email</label>
-                                <input type="email" class="form-control" name="email" value="annie@example.com">
-                            </div>
-                            <div class="form-group">
-                                <label>Password</label>
-                                <input type="password" class="form-control" name="password" value="123456789">
-                            </div>
-                            <div class="form-group d-flex align-items-center justify-content-between">
-                                <button type="submit" class="axil-btn btn-bg-primary submit-btn">Connexion</button>
-                                <a href="forgot-password.html" class="forgot-btn">Forget password?</a>
-                            </div>
-                        </form> --}}
+                   
                     </div>
                 </div>
             </div>

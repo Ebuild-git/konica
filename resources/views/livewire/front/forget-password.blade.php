@@ -24,12 +24,19 @@
                 </div>
                 <br>
                 <br>
-                <button class="btn -green w-20" type="submit">
+               {{--  <button class="btn -green w-20" type="submit">
                     <span wire:loading>
                         <img src="/icons/kOnzy.gif" height="20" width="20" alt="" srcset="">
                     </span>
                     <span>Envoyer le code de verification</span>
                 </button>
+ --}}
+                <button type="submit" class="axil-btn btn-bg-primary submit-btn">
+                    <span wire:loading>
+                        <img src="https://i.gifer.com/ZKZg.gif" height="15" alt="" srcset="">
+                    </span>
+                    <i class="ri-git-repository-private-line"></i>
+                    <span>Envoyer le code de verification</span></button>
             </div>
         </form>
     @endif
@@ -62,12 +69,12 @@
                     @enderror
                 </div>
                 <br>
-                <button class="tp-btn-theme w-100" type="submit">
+                <button type="submit" class="axil-btn btn-bg-primary submit-btn">
                     <span wire:loading>
-                        <img src="/icons/kOnzy.gif" height="20" width="20" alt="" srcset="">
+                        <img src="https://i.gifer.com/ZKZg.gif" height="15" alt="" srcset="">
                     </span>
-                    <span>Vérifier</span>
-                </button>
+                    <i class="ri-git-repository-private-line"></i>
+                    <span>Vérifier</span></button>
             </form>
         </div>
     @endif
@@ -117,14 +124,12 @@
                     @enderror
                 </div>
                 <br>
-                <button class="tp-btn-theme w-100" type="submit">
+                <button type="submit" class="axil-btn btn-bg-primary submit-btn">
                     <span wire:loading>
-                        <img src="/icons/kOnzy.gif" height="20" width="20" alt="" srcset="">
+                        <img src="https://i.gifer.com/ZKZg.gif" height="15" alt="" srcset="">
                     </span>
-                    <span>
-                        Enregistrer
-                    </span>
-                </button>
+                    <i class="ri-git-repository-private-line"></i>
+                    <span>Enregistrer</span></button>
             </form>
         </div>
     @endif
