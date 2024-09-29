@@ -19,10 +19,11 @@
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <div class="content" data-sal="slide-up" data-sal-duration="800" data-sal-delay="400">
-                        <span class="title-highlighter highlighter-secondary"> <i class="fal fa-exclamation-circle"></i> Oops! Somthing's missing.</span>
-                        <h1 class="title">Page not found</h1>
-                        <p>It seems like we dont find what you searched. The page you were looking for doesn't exist, isn't available loading incorrectly.</p>
-                        <a href="index.html" class="axil-btn btn-bg-secondary right-icon">Back To Home <i class="fal fa-long-arrow-right"></i></a>
+                        <span class="title-highlighter highlighter-secondary"> <i class="fal fa-exclamation-circle"></i> 
+                            Oups ! Il manque quelque chose</span>
+                        <h1 class="title">Page non trouvée</h1>
+                        <p>Il semble que nous ne trouvions pas ce que vous recherchez. La page que vous recherchez n'existe pas, n'est pas disponible et se charge de manière incorrecte.</p>
+                        <a href="{{ route('home') }}" class="axil-btn btn-bg-secondary right-icon">Retournez à la page d'accueil <i class="fal fa-long-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-6">

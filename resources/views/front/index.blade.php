@@ -8,11 +8,11 @@
             $produit = DB::table('produits')->get();
         @endphp
 
-{{--         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
- --}}
+
 
         <main class="main-wrapper">
             <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="3000">
@@ -650,6 +650,95 @@
 
 
 
+                    </div>
+                </div>
+            </div>
+            <br> <br>
+            <div class="axil-team-area bg-wild-sand">
+                <div class="team-left-fullwidth">
+                    <div class="container ml--xxl-0">
+                        <div class="section-title-wrapper">
+                            <span class="title-highlighter highlighter-primary"> <i class="fas fa-users"></i>Nos marques</span>
+                            <h3 class="title">Recherchez les produits par marque</h3>
+                        </div>
+                        <div class="team-slide-activation slick-layout-wrapper--20 axil-slick-arrow  arrow-top-slide">
+@foreach ($marques as $marque) 
+<div class="slick-single-layout">
+    <div class="axil-team-member">
+        <div class="thumbnail">
+            <a href="/marque/{{ $marque->id }}"
+                class="{{ isset($current_marque) && $current_marque->id === $marque->id ? 'selected' : '' }}">
+                <img  src="{{ Storage::url($marque->image) }}" alt="Cody Fisher">
+                </a>
+           
+        
+        </div>
+        <div class="team-content">
+           {{--  <span class="subtitle">Founder</span>
+            <h5 class="title">Rosalina D. Willson</h5> --}}
+            <a href="/marque/{{ $marque->id }}"
+                class="{{ isset($current_marque) && $current_marque->id === $marque->id ? 'selected' : '' }}">{{ $marque->nom }}
+                </a>
+        </div>
+    </div>
+</div>
+@endforeach
+                            
+                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+<br><br><br>
+
+            <div class="service-area">
+                <div class="container">
+                    <div class="row row-cols-xl-4 row-cols-sm-2 row-cols-1 row--20">
+                        <div class="col">
+                            <div class="service-box service-style-2">
+                                <div class="icon">
+                                    <img src="./assets/images/icons/service1.png" alt="Service">
+                                </div>
+                                <div class="content">
+                                    <h6 class="title">Livraison  &amp;rapide et sécurisée</h6>
+                                    <p>Parlez de votre service.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="service-box service-style-2">
+                                <div class="icon">
+                                    <img src="./assets/images/icons/service2.png" alt="Service">
+                                </div>
+                                <div class="content">
+                                    <h6 class="title">Garantie de remboursement
+                                    </h6>
+                                    <p>Dans les 10 jours.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="service-box service-style-2">
+                                <div class="icon">
+                                    <img src="./assets/images/icons/service3.png" alt="Service">
+                                </div>
+                                <div class="content">
+                                    <h6 class="title">Politique de retour de 24 heures</h6>
+                                    <p>Ne posez aucune question.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="service-box service-style-2">
+                                <div class="icon">
+                                    <img src="./assets/images/icons/service4.png" alt="Service">
+                                </div>
+                                <div class="content">
+                                    <h6 class="title">Assistance de qualité professionnelle</h6>
+                                    <p>Assistance en direct 24h/24 et 7j/7.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

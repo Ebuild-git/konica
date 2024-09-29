@@ -7,62 +7,214 @@
     $config = DB::table('configs')->first();
 @endphp
 
-  
-    <!-- Start Breadcrumb Section -->
-    <div class="breadcrumb-section">
-        <div class="container">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">About Us</li>
-                </ol>
-              </nav>
+<div class="axil-breadcrumb-area">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-8">
+                <div class="inner">
+                    <ul class="axil-breadcrumb">
+                        <li class="axil-breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+                        <li class="separator"></li>
+                        <li class="axil-breadcrumb-item active" aria-current="page">A Propos de Nous</li>
+                    </ul>
+                    <h1 class="title">A Propos de notre Boutique</h1>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-4">
+               {{--  <div class="inner">
+                    <div class="bradcrumb-thumb">
+                        <img src="/assets/images/product/product-45.png" alt="Image">
+                    </div>
+                </div> --}}
+            </div>
         </div>
     </div>
-    <!-- End Breadcrumb Section section -->
+</div>
+<!-- End Breadcrumb Area  -->
 
-   
-        
-
-    <!-- Start Makeup section -->
-    <div class="makeup-section mb-110">
-        <div class="container">
-            <div class="makeup-top-item">
-                <div class="row align-items-center justify-content-center g-0 gy-4">
-                    <div class="col-lg-6">
-                        <div class="makeup-img hover-img">
-                            <img src="assets/img/home1/makeup-img1.png" alt="">
-                        </div>
+<!-- Start About Area  -->
+<div class="axil-about-area about-style-1 axil-section-gap ">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-xl-4 col-lg-6">
+                <div class="about-thumbnail">
+                    <div class="thumbnail">
+                        <img src="/assets/images/about/about-01.png" alt="About Us">
                     </div>
-                    <div class="col-lg-6">
-                        <div class="makeup-content">
-                            <span>BROW BESTSELLERS</span>
-                            <h2>They’re kinda our Best thing!</h2>
-                            <p>Whatever your summer looks like, bring your own heat with up to 25% off Lumin Brand.Pellentesque ipsum dui, laoreet vitae ex in, pellentesque aliquam leo.</p>
-                            <a href="" class="primary-btn1 style-2 hover-btn3">*Shop All Brows*</a>
+                </div>
+            </div>
+            <div class="col-xl-8 col-lg-6">
+                <div class="about-content content-right">
+                    <span class="title-highlighter highlighter-primary2"> <i class="far fa-shopping-basket"></i>About Store</span>
+                    <h3 class="title">Online shopping includes both buying things online.</h3>
+                    <span class="text-heading">Salesforce B2C Commerce can help you create unified, intelligent digital commerce
+                        experiences — both online and in the store.</span>
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <p>Empower your sales teams with industry tailored
+                                solutions that support manufacturers as they go
+                                digital, and adapt to changing markets & customers
+                                faster by creating new business.</p>
+                        </div>
+                        <div class="col-xl-6">
+                            <p class="mb--0">Salesforce B2B Commerce offers buyers the
+                                seamless, self-service experience of online
+                                shopping with all the B2B</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row align-items-center justify-content-center g-0 gy-4">
-                <div class="col-lg-6 order-lg-1 order-2">
-                    <div class="makeup-content">
-                        <h2>Try on your perfect Best Makeup!</h2>
-                        <p>Whatever your summer looks like, bring your own heat with up to 25% off Lumin Brand.Pellentesque ipsum dui, laoreet vitae ex in, pellentesque aliquam leo.</p>
-                        <a href="" class="primary-btn1 style-2 hover-btn3">*Try It Now*</a>
+        </div>
+    </div>
+</div>
+<!-- End About Area  -->
+
+<!-- Start About Area  -->
+<div class="about-info-area">
+    <div class="container">
+        <div class="row row--20">
+            <div class="col-lg-4">
+                <div class="about-info-box">
+                    <div class="thumb">
+                        <img src="/assets/images/about/shape-01.png" alt="Shape">
+                    </div>
+                    <div class="content">
+                        <h6 class="title">40,000+ Happy Customer</h6>
+                        <p>Empower your sales teams with industry
+                            tailored solutions that support.</p>
                     </div>
                 </div>
-                <div class="col-lg-6 order-lg-2 order-1">
-                    <div class="makeup-img hover-img">
-                        <img src="assets/img/home1/makeup-img2.png" alt="">
+            </div>
+            <div class="col-lg-4">
+                <div class="about-info-box">
+                    <div class="thumb">
+                        <img src="assets/images/about/shape-02.png" alt="Shape">
+                    </div>
+                    <div class="content">
+                        <h6 class="title">16 Years of Experiences</h6>
+                        <p>Empower your sales teams with industry
+                            tailored solutions that support.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="about-info-box">
+                    <div class="thumb">
+                        <img src="/assets/images/about/shape-03.png" alt="Shape">
+                    </div>
+                    <div class="content">
+                        <h6 class="title">12 Awards Won</h6>
+                        <p>Empower your sales teams with industry
+                            tailored solutions that support.</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- End Makeup section -->
+</div>
+<!-- End About Area  -->
 
 
+<!-- Start About Area  -->
+<div class="axil-about-area about-style-2">
+    <div class="container">
+        <div class="row align-items-center mb--80 mb_sm--60">
+            <div class="col-lg-5">
+                {{-- <div class="about-thumbnail">
+                    <img src="assets/images/about/about-02.png" alt="about">
+                </div> --}}
+            </div>
+            <div class="col-lg-7">
+                <div class="about-content content-right">
+                    <span class="subtitle">Features #01</span>
+                    <h4 class="title">Solutions that work together</h4>
+                    <p>Publish your eCommerce site quickly with our easy-to-use store builder— no
+                        coding required. Migrate your items from your point of sale system or turn your
+                        Instagram feed into a shopping site and start selling fast. Square Online works
+                        for all kinds of businesses—retail, restaurants, services.</p>
+                    <a href="contact.html" class="axil-btn btn-outline">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col-lg-5 order-lg-2">
+                <div class="about-thumbnail">
+                    <img src="/assets/images/about/about-03.png" alt="about">
+                </div>
+            </div>
+            <div class="col-lg-7 order-lg-1">
+                <div class="about-content content-left">
+                    <span class="subtitle">Features #01</span>
+                    <h4 class="title">Solutions that work together</h4>
+                    <p>Publish your eCommerce site quickly with our easy-to-use store builder— no
+                        coding required. Migrate your items from your point of sale system or turn your
+                        Instagram feed into a shopping site and start selling fast. Square Online works
+                        for all kinds of businesses—retail, restaurants, services.</p>
+                    <a href="contact.html" class="axil-btn btn-outline">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End About Area  -->
+
+
+<!-- End Axil Newsletter Area  -->
+</main>
+
+<br><br>
+
+<div class="service-area">
+    <div class="container">
+        <div class="row row-cols-xl-4 row-cols-sm-2 row-cols-1 row--20">
+            <div class="col">
+                <div class="service-box service-style-2">
+                    <div class="icon">
+                        <img src="./assets/images/icons/service1.png" alt="Service">
+                    </div>
+                    <div class="content">
+                        <h6 class="title">Livraison  &amp;rapide et sécurisée</h6>
+                        <p>Parlez de votre service.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="service-box service-style-2">
+                    <div class="icon">
+                        <img src="./assets/images/icons/service2.png" alt="Service">
+                    </div>
+                    <div class="content">
+                        <h6 class="title">Garantie de remboursement
+                        </h6>
+                        <p>Dans les 10 jours.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="service-box service-style-2">
+                    <div class="icon">
+                        <img src="./assets/images/icons/service3.png" alt="Service">
+                    </div>
+                    <div class="content">
+                        <h6 class="title">Politique de retour de 24 heures</h6>
+                        <p>Ne posez aucune question.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="service-box service-style-2">
+                    <div class="icon">
+                        <img src="./assets/images/icons/service4.png" alt="Service">
+                    </div>
+                    <div class="content">
+                        <h6 class="title">Assistance de qualité professionnelle</h6>
+                        <p>Assistance en direct 24h/24 et 7j/7.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
         
     </main>

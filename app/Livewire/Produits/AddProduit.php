@@ -22,7 +22,7 @@ class AddProduit extends Component
             $this->nom = $produit->nom;
             $this->tags = $produit->tags;
             $this->category_id = $produit->category_id;
-          //  $this->marque_id = $produit->marque_id;
+            $this->marque_id = $produit->marque_id;
             $this->reference = $produit->reference;
             $this->prix = $produit->prix;
             $this->prix_achat = $produit->prix_achat;
@@ -85,7 +85,7 @@ class AddProduit extends Component
         // $produit->category = $this->category;
 
         $produit->category_id = $this->category_id;
-    //    $produit->marque_id = $this->marque_id;
+        $produit->marque_id = $this->marque_id;
 
 
 
@@ -149,7 +149,7 @@ class AddProduit extends Component
         
             $this->produit->prix = $this->prix;
             $this->produit->prix_achat = $this->prix_achat;
-         //   $this->produit->marque_id = $this->marque_id;
+            $this->produit->marque_id = $this->marque_id;
             $this->produit->category_id = $this->category_id;
           //  $produit->category_id = $this->category_id;
 

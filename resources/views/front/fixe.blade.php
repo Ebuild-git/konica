@@ -55,16 +55,16 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6 col-md-6 col-12">
                         <div class="header-top-text">
-                            <p><i class="fas fa-star"></i> Free Shipping on Orders Over $150</p>
+                            <p><i class="fas fa-star"></i> Livraison gratuite pour les commandes de plus de 100 DT</p>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-12">
                         <div class="header-top-link">
                             <ul class="quick-link">
-                                <li><a href="about-us.html">Our Story</a></li>
+                               
                                 <li><a href="contact-us.html">Contact</a></li>
-                                <li><a href="#">FAQ</a></li>
-                                <li><a href="blog.html">Blog</a></li>
+                                <li><a href="#">A propos de nous</a></li>
+                               
                             </ul>
                         </div>
                     </div>
@@ -122,6 +122,7 @@
 
 
                                 <li><a href="{{ route('contact') }}">Contact</a></li>
+                                <li><a href="{{ route('about') }}">A Propos </a></li>
 
                                 @guest
 

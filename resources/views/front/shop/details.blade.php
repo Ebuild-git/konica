@@ -9,9 +9,10 @@
     <head>
     @section('header')
         <meta name="description" content="{{ $produit->description ?? ' ' }}">
-        <meta name="author" content="youthkey.store">
+        <meta name="author" content="konica.store">
         <meta property="og:title" content="{{ $produit->nom }}">
         <meta property="og:description" content="{{ $produit->description ?? '' }}">
+        <meta property="og:brand" content="{{ $produit->marques->nom ?? '' }}">
         <meta property="og:image" content="{{ $produit->photo }}">
         <meta property="og:type" content="product">
         <meta property="og:price:amount" content="{{ $produit->prix }} DT">
