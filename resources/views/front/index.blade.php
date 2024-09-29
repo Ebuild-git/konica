@@ -8,11 +8,11 @@
             $produit = DB::table('produits')->get();
         @endphp
 
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+{{--         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+ --}}
 
         <main class="main-wrapper">
             <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="3000">
@@ -150,7 +150,7 @@
                                                     </div>
                                                     <div class="product-hover-action">
                                                         <ul class="cart-action">
-                                                           {{--  <li class="quickview"><a href="#" data-bs-toggle="modal"
+                                                         {{--     <li class="quickview"><a href="#" data-bs-toggle="modal"
                                                                     data-bs-target="#{{ $produit->id }}"><i
                                                                         class="far fa-eye"></i></a></li> --}}
                                                             <li class="select-option">

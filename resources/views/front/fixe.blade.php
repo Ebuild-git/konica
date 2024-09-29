@@ -88,9 +88,11 @@
                         <nav class="mainmenu-nav">
                             <button class="mobile-close-btn mobile-nav-toggler"><i class="fas fa-times"></i></button>
                             <div class="mobile-nav-brand">
-                                <a href="index.html" class="logo">
-                                    <img src="assets/images/logo/logo.png" alt="Site Logo">
-                                </a>
+                               
+                                    <a href="{{ route('home') }}" class="logo">
+                                        <img src="{{ Storage::url($config->logo) }}" width="50" height="50" alt="Site Logo">
+                                    </a>
+                                
                             </div>
                             <ul class="mainmenu">
                                 <li class="dropdown">
