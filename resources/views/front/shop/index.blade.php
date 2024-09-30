@@ -4,7 +4,11 @@
 
 
     <main>
-
+        @php
+        $config = DB::table('configs')->first();
+        $service = DB::table('services')->get();
+        $produit = DB::table('produits')->get();
+    @endphp
 
         <body class="sticky-header">
             <!--[if lte IE 9]>
@@ -29,9 +33,9 @@
                             </div>
                             <div class="col-lg-6 col-md-4">
                                 <div class="inner">
-                                    {{-- <div class="bradcrumb-thumb">
-                                        <img src="/assets/images/product/product-45.png" alt="Image">
-                                    </div> --}}
+                                     <div class="bradcrumb-thumb">
+                                        <img src="{{ Storage::url($config->image_shop) }}" alt="Image">
+                                    </div> 
                                 </div>
                             </div>
                         </div>

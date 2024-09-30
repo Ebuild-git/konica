@@ -60,6 +60,36 @@
                     @enderror
                 </div>
             </div>
+
+            <div class="col-sm-6">
+                <div class="mb-3">
+                    <label for="">Image entête A propos angle droit (126*120)</label>
+                    <input type="file" wire:model="image_about" accept="image/*" class="form-control">
+                    @error('image_about')
+                        <span class="text-danger small"> {{ $message }} </span>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="mb-3">
+                    <label for="">Image entête Boutique angle droit (126*120)</label>
+                    <input type="file" wire:model="image_shop" accept="image/*" class="form-control">
+                    @error('image_shop')
+                        <span class="text-danger small"> {{ $message }} </span>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="mb-3">
+                    <label for="">Image entête Contact angle droit (126*120)</label>
+                    <input type="file" wire:model="image_contact" accept="image/*" class="form-control">
+                    @error('image_contact')
+                        <span class="text-danger small"> {{ $message }} </span>
+                    @enderror
+                </div>
+            </div>
             <div class="col-sm-6">
                 <div class="mb-3">
                     <label for="">Frais de livraison</label>

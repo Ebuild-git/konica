@@ -28,6 +28,7 @@ class AdminContact extends Component
     public function mount(){
         $config = config::first();
         $this->icone_annee2 = $config->icone_annee;
+        $this->image_shop2 = $config->image_shop;
         $this->icon_satisfaction2 = $config->icon_satisfaction;
         $this->icone_prix2 = $config->icone_prix;
         $this->image_apropos0 = $config->image_apropos;
