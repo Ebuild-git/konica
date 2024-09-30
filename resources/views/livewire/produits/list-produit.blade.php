@@ -133,13 +133,13 @@
                         <td style="text-align: right;">
                             <div class="btn-group">
 
-                                @if ($produit->stock > 20)
-                                    <b title="Historique"
+                                @if ($produit->stock < 20)
+                    {{--                 <b title="Historique"
                                         onclick="window.location.href='{{ route('produits.historique', ['id' => $produit->id]) }}'">
 
                                         <i class="fas fa-history"></i>
-                                    </b>
-                                @else
+                                    </b --}}
+                              
                                     <button class="btn btn-primary btn-sm" title="Ajouter Stock"
                                         wire:click="openModal({{ $produit->id }})">
                                         <i class="fas fa-plus"></i>
@@ -156,9 +156,9 @@
                                         <i class="ri-discount-percent-fill"></i>
                                     </button>
                                 @endcan
-                                <button class="btn btn-sm btn-info">
+                              {{--   <button class="btn btn-sm btn-info">
                                     <i class="ri-links-line"></i>
-                                </button>
+                                </button> --}}
                                 @can('product_delete')
                                     <button class="btn btn-sm btn-danger"
                                         onclick="toggle_confirmation({{ $produit->id }})">
