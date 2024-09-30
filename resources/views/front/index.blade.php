@@ -8,7 +8,7 @@
             $produit = DB::table('produits')->get();
         @endphp
 
-         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -102,7 +102,7 @@
                     </div>
                 </div>
             </div>
-         
+
 
             <div class="axil-product-area bg-color-white axil-section-gap">
                 <div class="container">
@@ -129,7 +129,7 @@
                                                         <img class="hover-img" border-radius="8px"
                                                             src="{{ Storage::url($produit->photo) }}" alt="Product Images">
                                                     </a>
-                                            
+
                                                     <style>
                                                         .top-left {
                                                             position: absolute;
@@ -150,7 +150,7 @@
                                                     </div>
                                                     <div class="product-hover-action">
                                                         <ul class="cart-action">
-                                                         {{--     <li class="quickview"><a href="#" data-bs-toggle="modal"
+                                                            {{--     <li class="quickview"><a href="#" data-bs-toggle="modal"
                                                                     data-bs-target="#{{ $produit->id }}"><i
                                                                         class="far fa-eye"></i></a></li> --}}
                                                             <li class="select-option">
@@ -169,9 +169,9 @@
                                                 <div class="product-content">
                                                     <div class="inner">
                                                         <div class="product-rating">
-                                                     
+
                                                         </div>
-                                          
+
                                                         <div class="">
                                                             <h5 class="title"><a
                                                                     href="{{ route('details-produits', ['id' => $produit->id, 'slug' => Str::slug(Str::limit($produit->nom, 10))]) }}">{{ Str::limit($produit->nom, 15) }}</a>
@@ -220,7 +220,7 @@
 
                             </div>
                         </div>
-                        
+
                     </div>
                     <div class="row">
                         <div class="col-lg-12 text-center mt--20 mt_sm--0">
@@ -312,7 +312,7 @@
 
 
                                             </div>
-                                 
+
                                             <div class="col-lg-5 mb--40">
                                                 <div class="single-product-content">
                                                     <div class="inner">
@@ -394,49 +394,49 @@
             <br><br>
 
             <!-- Start About Area  -->
-<div class="about-info-area">
-    <div class="container">
-        <div class="row row--20">
-            <div class="col-lg-4">
-                <div class="about-info-box">
-                    <div class="thumb">
-                        <img src="/assets/images/about/shape-01.png" alt="Shape">
-                    </div>
-                    <div class="content">
-                        <h6 class="title">{{ $config->satisfaction ?? '' }}+ Clients satisfaits</h6>
-                        <p style="text-align: justify">{!! $config->des_satisfaction ?? ' ' !!}</p>
+            <div class="about-info-area">
+                <div class="container">
+                    <div class="row row--20">
+                        <div class="col-lg-4">
+                            <div class="about-info-box">
+                                <div class="thumb">
+                                    <img src="/assets/images/about/shape-01.png" alt="Shape">
+                                </div>
+                                <div class="content">
+                                    <h6 class="title">{{ $config->satisfaction ?? '' }}+ Clients satisfaits</h6>
+                                    <p style="text-align: justify">{!! $config->des_satisfaction ?? ' ' !!}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="about-info-box">
+                                <div class="thumb">
+                                    <img src="assets/images/about/shape-02.png" alt="Shape">
+                                </div>
+                                <div class="content">
+                                    <h6 class="title">{{ $config->annee ?? ' ' }} d'années d'expériences.</h6>
+                                    <p style="text-align: justify">{!! $config->des_annee ?? ' ' !!}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="about-info-box">
+                                <div class="thumb">
+                                    <img src="/assets/images/about/shape-03.png" alt="Shape">
+                                </div>
+                                <div class="content">
+                                    <h6 class="title">{{ $config->prix ?? ' ' }} Prix remportés.</h6>
+                                    <p style="text-align: justify">{!! $config->des_prix ?? ' ' !!}.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4">
-                <div class="about-info-box">
-                    <div class="thumb">
-                        <img src="assets/images/about/shape-02.png" alt="Shape">
-                    </div>
-                    <div class="content">
-                        <h6 class="title">{{ $config->annee ?? ' ' }} d'années d'expériences.</h6>
-                        <p style="text-align: justify">{!! $config->des_annee ?? ' ' !!}</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="about-info-box">
-                    <div class="thumb">
-                        <img src="/assets/images/about/shape-03.png" alt="Shape">
-                    </div>
-                    <div class="content">
-                        <h6 class="title">{{ $config->prix ?? ' ' }} Prix remportés.</h6>
-                        <p style="text-align: justify">{!! $config->des_prix ?? ' ' !!}.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End About Area  -->
+            <!-- End About Area  -->
 
-<br><br>
-            
+            <br><br>
+
 
             <!-- Start Expolre Product Area  -->
             <div class="axil-product-area bg-color-white axil-section-gapcommon">
@@ -703,47 +703,81 @@
                 <div class="team-left-fullwidth">
                     <div class="container ml--xxl-0">
                         <div class="section-title-wrapper">
-                            <span class="title-highlighter highlighter-primary"> <i class="fas fa-users"></i>Nos marques</span>
+                            <span class="title-highlighter highlighter-primary"> <i class="fas fa-users"></i>Nos
+                                marques</span>
                             <h3 class="title">Recherchez les produits par marque</h3>
                         </div>
-                        <div class="team-slide-activation slick-layout-wrapper--20 axil-slick-arrow  arrow-top-slide">
-@foreach ($marques as $marque) 
-<div class="slick-single-layout">
-    <div class="axil-team-member">
-        <div class="thumbnail">
-            <a href="/marque/{{ $marque->id }}"
-                class="{{ isset($current_marque) && $current_marque->id === $marque->id ? 'selected' : '' }}">
-                <img  src="{{ Storage::url($marque->image) }}" alt="Cody Fisher">
-                </a>
-           
-        
-        </div>
-        <div class="team-content">
-         <style>
-            .fixed-size {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 8px; /* Facultatif pour des coins arrondis */
-}
+                        <style>
+                            .fixed-size {
+                                width: 200px;
+                                height: 200px;
+                                object-fit: cover;
+                                border-radius: 8px;
+                               
+                            }
+                        </style>
+                        <div class="team-slide-activation">
+                            @foreach ($marques as $marque)
+                                <div class="slick-single-layout">
+                                    <div class="axil-team-member">
+                                        <div class="thumbnail">
+                                            <a href="/marque/{{ $marque->id }}"
+                                                class="{{ isset($current_marque) && $current_marque->id === $marque->id ? 'selected' : '' }}">
+                                                <img src="{{ Storage::url($marque->image) }}" class="fixed-size" 
+                                                     alt="Image de la marque {{ $marque->name }}">
+                                            </a>
+                                        </div>
+                                        <div class="team-content">
+                                            <h5>{{ $marque->name }}</h5>
+                                            <p>{{ $marque->description }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
 
-         </style>
-            <a href="/marque/{{ $marque->id }}"
-                class="{{ isset($current_marque) && $current_marque->id === $marque->id ? 'selected' : '' }}">
-                <img src="{{ Storage::url($marque->image) }}" alt="Image de la marque {{ $marque->name }}" class="fixed-size">
-             </a>
-             
-        </div>
-    </div>
-</div>
-@endforeach
                             
-                         
                         </div>
+                        
+                       {{--  <div class="team-slide-activation slick-layout-wrapper--20 axil-slick-arrow  arrow-top-slide">
+                            @foreach ($marques as $marque)
+                                <div class="slick-single-layout">
+                                    <div class="axil-team-member">
+                                        <div class="thumbnail">
+                                            <style>
+                                                .fixed-size {
+                                                    width: 200px;
+                                                    height: 200px;
+                                                    object-fit: cover;
+                                                    border-radius: 8px;
+                                                   
+                                                }
+                                            </style>
+                                            <a href="/marque/{{ $marque->id }}"
+                                                class="{{ isset($current_marque) && $current_marque->id === $marque->id ? 'selected' : '' }}">
+                                                <img src="{{ Storage::url($marque->image) }}" class="fixed-size" alt="Cody Fisher">
+                                            </a>
+
+
+                                        </div>
+                                        <div class="team-content">
+                                          
+                                            <a href="/marque/{{ $marque->id }}"
+                                                class="{{ isset($current_marque) && $current_marque->id === $marque->id ? 'selected' : '' }}">
+                                                <img src="{{ Storage::url($marque->image) }}"
+                                                    alt="Image de la marque {{ $marque->name }}" class="fixed-size">
+                                            </a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+
+
+                        </div> --}}
                     </div>
                 </div>
             </div>
-<br><br><br>
+            <br><br><br>
 
             <div class="service-area">
                 <div class="container">
@@ -754,7 +788,7 @@
                                     <img src="./assets/images/icons/service1.png" alt="Service">
                                 </div>
                                 <div class="content">
-                                    <h6 class="title">Livraison  &amp;rapide et sécurisée</h6>
+                                    <h6 class="title">Livraison &amp;rapide et sécurisée</h6>
                                     <p>Parlez de votre service.</p>
                                 </div>
                             </div>
