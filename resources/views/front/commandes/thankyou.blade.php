@@ -24,17 +24,28 @@
                                  <h3>  Félicitation pour votre commande !</h3>  
                                 </b>
                             </h5>
-                            <br><br>
+                            
                             <p>
                                 <h3> Votre commande a été enregistrée avec succès.</h3>
                             </p>
-                            <br>
-                            <br>
-                            <div class="order-id">
+                           
+                        {{--     <div class="order-id">
                                 <a href="/shop" class="btn btn"  style=" background-color: #b2e21522;">
                                     Continuer les achats
                                 </a>
+                            </div> --}}
+                            <style>
+                                .btn-small-width {
+                                    width: 300px; /* Ajustez la largeur selon vos besoins */
+                                }
+                            </style>
+                            
+                            <div class="form-group mb--0">
+                                <a href="/shop" class="axil-btn btn-bg-primary btn-small-width">
+                                    <span> Continuer les achats</span>
+                                </a>
                             </div>
+                            
                         </div>
                     </div>
                 </div>
