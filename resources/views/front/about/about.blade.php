@@ -65,21 +65,7 @@
 <!-- Start About Area  -->
 <div class="axil-about-area about-style-2">
     <div class="container">
-        <div class="row align-items-center mb--80 mb_sm--60">
-            <div class="col-lg-5">
-                 <div class="about-thumbnail">
-                    <img src="{{ Storage::url($config->image_apropos2) }}" alt="about">
-                </div> 
-            </div>
-            <div class="col-lg-7">
-                <div class="about-content content-right">
-                   
-                  <h4 class="title">{{ $config->titre_apropos1 }}</h4>
-                    <p>{!! $config->des_apropos1 ?? ' ' !!}</p>
-                    <a href="{{ route('shop') }}" class="axil-btn btn-outline">Voir Boutique</a>
-                </div>
-            </div>
-        </div>
+
         <div class="row align-items-center">
             <div class="col-lg-5 order-lg-2">
                 <div class="about-thumbnail">
@@ -95,6 +81,22 @@
                 </div>
             </div>
         </div>
+        <div class="row align-items-center mb--80 mb_sm--60">
+            <div class="col-lg-5">
+                 <div class="about-thumbnail">
+                    <img src="{{ Storage::url($config->image_apropos2) }}" alt="about">
+                </div> 
+            </div>
+            <div class="col-lg-7">
+                <div class="about-content content-right">
+                   
+                  <h4 class="title">{{ $config->titre_apropos1 }}</h4>
+                    <p>{!! $config->des_apropos1 ?? ' ' !!}</p>
+                    <a href="{{ route('shop') }}" class="axil-btn btn-outline">Voir Boutique</a>
+                </div>
+            </div>
+        </div>
+       
     </div>
 </div>
 <!-- End About Area  -->
