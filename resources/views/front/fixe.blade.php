@@ -250,6 +250,13 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="axil-footer-widget">
                             <h5 class="widget-title"></h5>
+                            <style>
+                                .logo {
+    position: relative;
+    top: -30px; /* Déplace le logo de 30px vers le haut */
+}
+
+                            </style>
                             <div class="logo mb--30">
                                 <a href="{{ route('home') }}">
                                     <img class="light-logo" src="{{ Storage::url($config->logofooter) }}"
@@ -257,7 +264,7 @@
                                 </a>
                             </div>
 
-                            <p style="font-size: 18px; line-height: 1.6; text-align: justify;">
+                            <p class="logo" style="font-size: 18px; line-height: 1.6; text-align: justify;">
                                 {!! $config->description !!}
                             </p>
 
