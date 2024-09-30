@@ -68,11 +68,39 @@
 
                             {{ $produit->nom }}
                         </td>
+                       
                         <td class="cusor">
-                            <b onclick="url('{{ route('produits.historique', ['id' => $produit->id]) }}')">
-                                {{ $produit->stock }} U.
-                            </b>
+                            {{--   <span class="badge {{ $produit->stock > 0 ? 'bg-success' : 'bg-danger' }}">
+                                {{ $produit->stock > 0 ? 'En stock' : 'Rupture' }}
+                            </span> --}}
+
+                            @if ($produit->stock > 20)
+                                <!-- Icône pour en stock -->
+                                <span class="text-success" title="En Stock">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span class="badge badge-success">En Stock</span>
+                                </span>
+                            @endif
+
+                            @if ($produit->stock < 20 && $produit->stock > 0)
+                                <!-- Seuil pour l'alerte -->
+                                <span class="badge badge-yellow" title="{{ $produit->stock }} Produit(s) en stock pour le moment"  style="background-color: rgb(222, 222, 19) ;  color: rgb(252, 253, 251);">Alerte Stock Bas</span>
+                            @endif
+
+
+                            @if ($produit->stock == 0)
+                                <!-- Icône pour rupture de stock -->
+                                <span class="text-danger" title="Rupture de Stock">
+                                    <i class="fas fa-times-circle"></i>
+                                    <span class="badge badge-danger">Rupture</span>
+                                </span>
+                            @endif
                         </td>
+
+
+
+
+
                         <td>
                             @if ($produit->inPromotion())
                                 <span class=" small">
@@ -104,6 +132,20 @@
                         <td>{{ $produit->created_at->format('d/m/Y') }} </td>
                         <td style="text-align: right;">
                             <div class="btn-group">
+
+                                @if ($produit->stock > 20)
+                                    <b title="Historique"
+                                        onclick="window.location.href='{{ route('produits.historique', ['id' => $produit->id]) }}'">
+
+                                        <i class="fas fa-history"></i>
+                                    </b>
+                                @else
+                                    <button class="btn btn-primary btn-sm" title="Ajouter Stock"
+                                        wire:click="openModal({{ $produit->id }})">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                @endif
+
                                 <button class="btn btn-sm btn-dark"
                                     onclick="url(' {{ route('produits.update', ['id' => $produit->id]) }} ')">
                                     <i class="ri-edit-box-line"></i>
@@ -114,8 +156,7 @@
                                         <i class="ri-discount-percent-fill"></i>
                                     </button>
                                 @endcan
-                                <button class="btn btn-sm btn-info"
-                                   >
+                                <button class="btn btn-sm btn-info">
                                     <i class="ri-links-line"></i>
                                 </button>
                                 @can('product_delete')
@@ -152,7 +193,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td>Réference :</td>
-                                                    <td> 
+                                                    <td>
                                                         {{ $produit->reference }}
                                                     </td>
                                                 </tr>
@@ -215,5 +256,72 @@
             </a>
         </div>
     @endrole
+    <script>
+        function handleSelectChange(productId, value) {
+            if (value === 'historique') {
+                // Rediriger vers la page de l'historique du produit
+                window.location.href = `{{ route('produits.historique', ['id' => $produit->id]) }}${productId}`;
+            } else {
+                updateStockStatus(productId, value);
+            }
+        }
+    </script>
+
+
+    <style>
+        .badge {
+            padding: 5px 10px;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .badge-success {
+            background-color: green;
+        }
+
+        .badge-danger {
+            background-color: red;
+        }
+    </style>
+
+
+
+
+    @if ($showModal)
+        <div class="modal fade show" style="display: block;" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Ajouter Stock pour {{ $selectedProduit }}</h5>
+                        <button type="button" class="btn-close" wire:click="$set('showModal', false)"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form wire:submit.prevent="addStock">
+                            <div class="mb-3">
+                                <label for="stock" class="form-label">Quantité à ajouter</label>
+                                <input type="number" id="stock" wire:model="stock" class="form-control"
+                                    min="1">
+                                @error('stock')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <button type="submit" class="btn btn-primary">Ajouter</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+    <script>
+        document.addEventListener('livewire:load', function() {
+            Livewire.on('openModal', () => {
+                var modal = new bootstrap.Modal(document.getElementById('add-stock-modal'));
+                modal.show();
+            });
+        });
+    </script>
+
 
 </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\commandes;
+use App\Models\historiques_stock;
 use App\Models\config;
 use App\Models\historiques_connexion;
 use App\Models\{produits, Category,Marque, Contact, favoris, Service, Coupon, Testimonial};
@@ -448,7 +449,39 @@ public function testimonials()
         return view('admin.produits.update', compact('produit'));
     }
 
+    public function ajouterStock(Request $request, $id)
+    {
+    
+          $request->validate([
+            'quantite' => 'required|integer|min:1',
+        ]);
 
+        /* $pro = produits::findOrFail($id);
+      
+        $pro->stock = $pro->stock + $request->quantite;
+       
+        $pro->save();
+ */
+       
+        $produit = produits::findOrFail($id);
+        dd($produit);
+        $produit->stock = $produit->stock + $request->quantite; 
+       // $produit->updated_at = Carbon::now();  // Met à jour la date de modification du produit
+        // Ajoute la quantité au stock actuel
+        $produit->save();
+
+        //enregistrer lhistorique du stock 
+      ////  $historique_stock = new historiques_stock();
+       // $historique_stock->quantite = $request->quantite;
+      //  $historique_stock->id_produit = $pro->id;
+      //  $historique_stock->save();
+
+
+       
+        return redirect()->route('produits', ['id' => $produit->id])
+                         ->with('success', 'Stock ajouté avec succès!');
+    }
+    
     public function historique($id)
     {
         $produit = produits::find($id);

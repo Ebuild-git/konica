@@ -2,6 +2,9 @@
 
     @include('components.alert')
 
+ 
+    
+
     <div class="mb-3">
         <label for="">
             Recherche du produit
@@ -53,5 +56,5 @@
                 </div>
             </div>
         </form>
-    @endif
+    @endif 
 </div>

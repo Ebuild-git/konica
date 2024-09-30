@@ -459,7 +459,28 @@
                                                             <img class="main-img" width="300" height="300"
                                                                 src="{{ Storage::url($produit->photo) }}"
                                                                 alt="Product Images">
+
+                                                                <style>
+                                                                    .top-left {
+                                                                        position: absolute;
+                                                                        top: 8px;
+                                                                        right: 18px;
+                                                                        color: red;
+                                                                    }
+                                                                </style>
+            
+                                                                <div class="top-left"
+                                                                    style="background-color: rgb(237, 16, 16);color: white;">
+                                                                    <span>
+                                                                        @if ($produit->inPromotion())
+                                                                            <span>
+                                                                                -{{ $produit->inPromotion()->pourcentage }}%</span>
+                                                                        @endif
+                                                                    </span>
+                                                                </div>
                                                         </a>
+
+                                                        
                                                     </div>
                                                     <div class="product-content">
                                                         <div class="inner">
@@ -467,39 +488,13 @@
                                                                     href="{{ route('details-produits', ['id' => $produit->id, 'slug' => Str::slug(Str::limit($produit->nom, 10))]) }}">{{ $produit->nom }}</a>
                                                             </div>
                                                             <div class="color-variant-wrapper">
-                                                                {{--     <ul class="color-variant">
-                                                        <li class="color-extra-01 active"><span><span
-                                                                    class="color"></span></span>
-                                                        </li>
-                                                        <li class="color-extra-02"><span><span
-                                                                    class="color"></span></span>
-                                                        </li>
-                                                        <li class="color-extra-03"><span><span
-                                                                    class="color"></span></span>
-                                                        </li>
-                                                        <li class="color-extra-04"><span><span
-                                                                    class="color"></span></span>
-                                                        </li>
-                                                        <li class="color-extra-04"><span><span
-                                                                    class="color"></span></span>
-                                                        </li>
-                                                        <li class="color-extra-05"><span><span
-                                                                    class="color"></span></span>
-                                                        </li>
-                                                    </ul> --}}
+                                                        
                                                             </div>
                                                             <h5 class="title"><a
                                                                     href="{{ route('details-produits', ['id' => $produit->id, 'slug' => Str::slug(Str::limit($produit->nom, 10))]) }}">{{ Str::limit($produit->description, 20) }}
                                                                 </a></h5>
                                                             <div class="product-rating">
-                                                                {{--      <span class="icon">
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                    </span>
-                                                    <span class="rating-number">1540</span> --}}
+                                                        
                                                             </div>
                                                             <div class="product-price-variant">
                                                                 <span class="price-text">Prix</span>
@@ -510,7 +505,8 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="label-block label-right">
+                                                   
+                                                 {{--    <div class="label-block label-right">
                                                         <div class="product-badget sold-out">
                                                             @if ($produit->stock > 0)
                                                                 <label class="badge bg-success"> Stock disponible</label>
@@ -519,7 +515,7 @@
                                                                     disponible</label>
                                                             @endif
                                                         </div>
-                                                    </div>
+                                                    </div> --}}
                                                 </div>
                                             </div>
                                         @endif
@@ -598,22 +594,10 @@
             <div id="errorMessage" class="alert alert-danger" style="display:none;"></div>
 
 
-                {{-- <div class="col-12 d-flex justify-content-center">
-                    <div class="form-group mb--0">
-                        <button class="axil-btn btn-bg-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                            type="submit">
-                            <span>Laisser un témognage</span>
-                        </button>
-                    </div>
-    
-                </div> --}}
+           
             </div>
 
-            
-           {{--  <div id="successMessage" class="alert alert-success" style="display:none;"></div>
-            <div id="errorMessage" class="alert alert-danger" style="display:none;"></div>
- --}}
-
+ 
             <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">

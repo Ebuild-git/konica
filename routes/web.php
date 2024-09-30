@@ -237,6 +237,9 @@ Route::post('import', [CustomerController::class, 'importExcelData']);
             ->name('promotions_produit');
         Route::get('/commande/{id}', [AdminController::class, 'details_commande'])
             ->name('details_commande');
+
+            Route::post('/produits/{id}/ajouter-stock', [AdminController::class, 'ajouterStock'])->name('produits.ajouterStock');
+
     });
 
 
