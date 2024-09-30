@@ -745,7 +745,11 @@
     background: none; /* Élimine tout fond dans l'élément */
 }
 
-
+.thumbnails a {
+    display: block; /* Assure que le lien s'étend complètement autour de l'image */
+    padding: 0;
+    margin: 0;
+}
 
 
                         </style>
@@ -753,7 +757,7 @@
                             @foreach ($marques as $marque)
                                 <div class="slick-single-layout">
                                     <div class="axil-team-member">
-                                        <div class="thumbnail">
+                                        <div class="thumbnails">
                                             <a href="/marque/{{ $marque->id }}"
                                                 class="{{ isset($current_marque) && $current_marque->id === $marque->id ? 'selected' : '' }}">
                                                 <img src="{{ Storage::url($marque->image) }}" class="fixed-size" 
