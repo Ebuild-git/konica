@@ -391,6 +391,54 @@
                     </div>
                 @endforeach
             @endif
+            <br><br>
+
+            <!-- Start About Area  -->
+<div class="about-info-area">
+    <div class="container">
+        <div class="row row--20">
+            <div class="col-lg-4">
+                <div class="about-info-box">
+                    <div class="thumb">
+                        <img src="/assets/images/about/shape-01.png" alt="Shape">
+                    </div>
+                    <div class="content">
+                        <h6 class="title">{{ $config->satisfaction ?? '' }}+ Clients satisfaits</h6>
+                        <p>Empower your sales teams with industry
+                            tailored solutions that support.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="about-info-box">
+                    <div class="thumb">
+                        <img src="assets/images/about/shape-02.png" alt="Shape">
+                    </div>
+                    <div class="content">
+                        <h6 class="title">{{ $config->annee ?? ' ' }} d'années d'expériences.</h6>
+                        <p>Empower your sales teams with industry
+                            tailored solutions that support.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="about-info-box">
+                    <div class="thumb">
+                        <img src="/assets/images/about/shape-03.png" alt="Shape">
+                    </div>
+                    <div class="content">
+                        <h6 class="title">{{ $config->prix ?? ' ' }} Prix remportés.</h6>
+                        <p>Empower your sales teams with industry
+                            tailored solutions that support.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End About Area  -->
+
+<br><br>
             
 
             <!-- Start Expolre Product Area  -->

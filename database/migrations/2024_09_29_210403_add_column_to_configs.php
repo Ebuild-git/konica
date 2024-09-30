@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\config;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,20 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('configs', function (Blueprint $table) {
-            $table->id();
-            $table->string('logo')->nullable()->default(null);
-            $table->string('logoHeader')->nullable()->default(null);
-            $table->string('logofooter')->nullable()->default(null);
-            $table->string('telephone')->nullable()->default(null);
-            $table->string('addresse')->nullable()->default(null);
-            $table->string('email')->nullable()->default(null);
-            $table->string('description')->nullable()->default(null);
-            $table->decimal("frais", 10,3)->nullable();
-            $table->string('icon')->nullable()->default(null);
-
-
-            
+        Schema::table('configs', function (Blueprint $table) {
+          
             $table->integer("satisfaction")->nullable();
             $table->string('icone_satisfaction')->nullable();
             $table->string("des_satisfaction")->nullable();
@@ -55,15 +42,11 @@ return new class extends Migration
             $table->string('image_about')->nullable();
             $table->string('image_login')->nullable();
             $table->string('image_register')->nullable();
-            $table->timestamps();
+
+
+           
+
         });
-
-
-       // $config = new config();
-       // $config->logo=null;
-       // $config->save();
-
-
     }
 
     /**
@@ -71,6 +54,40 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('configs');
+        Schema::table('configs', function (Blueprint $table) {
+            $table->dropColumn('satisfaction');
+            $table->dropColumn('icone_satisfaction');
+            $table->dropColumn('des_satisfaction');
+
+            $table->dropColumn('annee');
+            $table->dropColumn('icone_annee');
+            $table->dropColumn('des_annee');
+
+            $table->dropColumn('prix');
+            $table->dropColumn('icone_prix');
+            $table->dropColumn('des_prix');
+
+            $table->dropColumn('titre_apropos');
+            $table->dropColumn('des_apropos');
+            $table->dropColumn('image_apropos');
+
+            $table->dropColumn('titre_apropos1');
+            $table->dropColumn('des_apropos1');
+            $table->dropColumn('image_apropos1');
+
+            $table->dropColumn('titre_apropos2');
+            $table->dropColumn('des_apropos2');
+            $table->dropColumn('image_apropos2');
+            
+            $table->dropColumn('image_contact');
+            $table->dropColumn('image_shop');
+            $table->dropColumn('image_about');
+            $table->dropColumn('image_login');
+            $table->dropColumn('image_register');
+           
+
+            
+           
+        });
     }
 };

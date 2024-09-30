@@ -10,10 +10,37 @@ use Livewire\WithFileUploads;
 class AdminContact extends Component
 {
     use WithFileUploads;
-    public $logo,$icon,$logo2,$icon2,$frais, $logoHeader, $telephone,$addresse, $email,$description, $logofooter, $logofooter2; 
 
+    public $logo,$icon,$logo2,$icon2,$frais, $logoHeader, $telephone,$addresse, $email,$description, $logofooter, $logofooter2,
+   $satisfaction, $icon_satisfaction, $icon_satisfaction2, $des_satisfaction,
+   $annee, $icone_annee, $icone_annee2, $des_annee,
+   $prix, $icone_prix, $des_prix,$icone_prix2,
+   $titre_apropos, $des_apropos, $image_apropos,$image_apropos0,
+   $titre_apropos1, $des_apropos1, $image_apropos1, $image_apropos12,
+   $titre_apropos2, $des_apropos2, $image_apropos2, $image_apropos22,
+   $image_contact, $image_shop, $image_about,
+   $image_contact2, $image_shop2, $image_about2,
+   $image_login, $image_register,
+   $image_login2, $image_register2; 
+
+
+  
     public function mount(){
         $config = config::first();
+        $this->icone_annee2 = $config->icone_annee;
+        $this->icon_satisfaction2 = $config->icon_satisfaction;
+        $this->icone_prix2 = $config->icone_prix;
+        $this->image_apropos0 = $config->image_apropos;
+        $this->image_apropos12 = $config->image_apropos1;
+        $this->image_apropos12 = $config->image_apropos1;
+        $this->titre_apropos22 = $config->titre_apropos2;
+        $this->image_contact2 = $config->image_contact;
+        $this->image_shop2 = $config->image_shop;
+        $this->image_about2 = $config->image_about;
+        $this->image_login2 = $config->image_login;
+        $this->image_register2 = $config->image_register;
+       
+      
         $this->logo2 = $config->logo;
         $this->logofooter2 = $config->logofooter;
         $this->icon2 = $config->icon;
@@ -23,6 +50,25 @@ class AdminContact extends Component
         $this->telephone=$config->telephone;
         $this->addresse=$config->addresse;
         $this->description=$config->description;
+       // $this->logofooter= $config->logofooter;
+
+        $this->annee=$config->annee;
+        $this->des_annee = $config->des_annee;
+        $this->satisfaction=$config->satisfaction;
+        $this->des_satisfaction = $config->des_satisfaction;
+        $this->prix = $config->prix;
+        $this->des_prix = $config->des_prix;
+
+        $this->titre_apropos = $config->titre_apropos;
+        $this->des_apropos = $config->des_apropos;
+       
+        $this->titre_apropos1 = $config->titre_apropos1;  
+        $this->des_apropos1 = $config->des_apropos1; 
+
+        $this->titre_apropos2 = $config->titre_apropos2;
+        $this->des_apropos2 = $config->des_apropos2;
+
+
 
     }
 
@@ -79,11 +125,88 @@ class AdminContact extends Component
         }
 
 
+        if($this->image_apropos) {
+            //delete old image
+            if ($this->image_apropos0) {
+                Storage::disk('public')->delete($this->image_apropos0);
+            }
+            $config->image_apropos= $this->image_apropos->store('image_apropos', 'public');
+        }
+        if($this->image_apropos1) {
+            //delete old image
+            if ($this->image_apropos12) {
+                Storage::disk('public')->delete($this->image_apropos12);
+            }
+            $config->image_apropos1= $this->image_apropos1->store('image_apropos1', 'public');
+        }
+        if($this->image_apropos2) {
+            //delete old image
+            if ($this->image_apropos22) {
+                Storage::disk('public')->delete($this->image_apropos22);
+            }
+            $config->image_apropos2= $this->image_apropos2->store('image_apropos2', 'public');
+        }
+        if($this->image_contact) {
+            //delete old image
+            if ($this->image_contact2) {
+                Storage::disk('public')->delete($this->image_contact2);
+            }
+            $config->image_contact= $this->image_contact->store('image_contact', 'public');
+        }
+        if($this->image_shop) {
+            //delete old image
+            if ($this->image_shop2) {
+                Storage::disk('public')->delete($this->image_shop2);
+            }
+            $config->image_shop= $this->image_shop->store('image_shop', 'public');
+        }
+        if($this->image_about) {
+            //delete old image
+            if ($this->image_about2) {
+                Storage::disk('public')->delete($this->image_about2);
+            }
+            $config->image_about= $this->image_about->store('image_about', 'public');
+        }
+        if($this->image_login) {
+            //delete old image
+            if ($this->image_login2) {
+                Storage::disk('public')->delete($this->image_login2);
+            }
+            $config->image_login= $this->image_login->store('image_login', 'public');
+        }
+        if($this->image_register) {
+            //delete old image
+            if ($this->image_register2) {
+                Storage::disk('public')->delete($this->image_register2);
+            }
+            $config->image_register= $this->image_register->store('image_register', 'public');
+        }
+        
+
+
         $config->frais = $this->frais;
         $config->telephone = $this->telephone;
         $config->email = $this->email;
         $config->addresse = $this->addresse;
         $config->description = $this->description;
+
+        $config->annee = $this->annee;
+        $config->des_annee = $this->des_annee;
+        $config->satisfaction = $this->satisfaction;
+        $config->des_satisfaction = $this->des_satisfaction;
+        $config->prix = $this->prix;
+        $config->des_prix = $this->des_prix;
+
+        $config->titre_apropos = $this->titre_apropos;
+        $config->des_apropos = $this->des_apropos;
+
+        $config->titre_apropos1 = $this->titre_apropos1;
+        $config->des_apropos1 = $this->des_apropos1;
+
+        $config->titre_apropos2 = $this->titre_apropos2;
+        $config->des_apropos2 = $this->des_apropos2;
+
+       
 
         if($config->save()){
             //flash message

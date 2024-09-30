@@ -60,6 +60,27 @@ $produit = DB::table('produits')->get();
 
         <div class="row">
             <div class="col-xl-4 col-lg-6">
+                <style>
+                    .bg_image--10 {
+    background-image: url('{{ Storage::url($config->image_register) }}'); /* Remplacez par le chemin de votre image */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+
+    
+}
+.axil-signin-banner .title {
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0;
+    position: relative;
+    z-index: 2;
+    color: #e3340c; /* Exemple : couleur orange/rouge */
+}
+
+
+                </style>
                 <div class="axil-signin-banner bg_image bg_image--10">
                     <h3 class="title">Nous offrons les mellieurs produits.</h3>
                 </div>

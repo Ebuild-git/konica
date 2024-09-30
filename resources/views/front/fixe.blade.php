@@ -62,8 +62,8 @@
                         <div class="header-top-link">
                             <ul class="quick-link">
                                
-                                <li><a href="contact-us.html">Contact</a></li>
-                                <li><a href="#">A propos de nous</a></li>
+                                <li><a  href="{{ route('contact') }}">Contact</a></li>
+                                <li><a  href="{{ route('about') }}">A propos de nous</a></li>
                                
                             </ul>
                         </div>
@@ -124,23 +124,7 @@
                                 <li><a href="{{ route('contact') }}">Contact</a></li>
                                 <li><a href="{{ route('about') }}">A Propos </a></li>
 
-                                @guest
-
-                                    {{--    <li class="current">
-                                     <a href="{{ route('register') }}">Inscription</a>
-                                 </li>
-             
-                                 <li>
-                                     <a href="{{ url('login') }}">Connexion</a>
-                                 </li> --}}
-                                @else
-                                   {{--  @if (auth()->user()->role != 'client')
-                                        <li><a href="{{ url('dashboard') }}">Dashboard</a>
-                                        </li>
-                                    @endif --}}
-
-
-                                @endguest
+                            
 
                             </ul>
                         </nav>
@@ -148,7 +132,7 @@
                     <div class="header-action">
                         <ul class="action-list">
 
-                            <li class="axil-search d-xl-block d-none">
+                            <li class="axil-search d-xl-block d-none w-20000">
                                 <input type="search" class="placeholder product-search-input" name="search2"
                                     id="search2" value="" maxlength="128"
                                     placeholder="Rechercher un produit......" autocomplete="off">
@@ -162,7 +146,7 @@
                                     <i class="far fa-search"></i>
                                 </button>
                             </li> --}}
-                            <li class="axil-search d-none-desktop">
+                            <li class="axil-search d-none-desktop w-1000">
                                 <a href="javascript:void(0)" class="header-search-icon" title="Search">
                                     <i class="far fa-search"></i>
                                 </a>
@@ -264,7 +248,7 @@
                     <!-- Start Single Widget  -->
                     <div class="col-lg-3 col-sm-6">
                         <div class="axil-footer-widget">
-                            <h5 class="widget-title">Support</h5>
+                            <h5 class="widget-title"></h5>
                             <div class="logo mb--30">
                                 <a href="{{ route('home') }}">
                                     <img class="light-logo" src="{{ Storage::url($config->logofooter) }}"
