@@ -114,6 +114,8 @@
                                     <a href="{{ route('home') }}">Accueil</a>
 
                                 </li>
+                                <li><a href="{{ route('about') }}">A Propos </a></li>
+
 
 
                                 <li class="menu-item">
@@ -122,8 +124,7 @@
 
 
                                 <li><a href="{{ route('contact') }}">Contact</a></li>
-                                <li><a href="{{ route('about') }}">A Propos </a></li>
-
+                               
                             
 
                             </ul>
@@ -287,6 +288,8 @@
                             <div class="inner">
                                 <ul>
                                     <li><a href="{{ route('home') }}">Accueill</a></li>
+                                    <li><a href="{{ route('about') }}">A Propos </a></li>
+
                                     <li><a href="{{ route('shop') }}">Shop</a></li>
                                     <li><a href="{{ route('contact') }}">Contact</a></li>
                                 </ul>
