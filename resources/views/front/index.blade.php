@@ -467,6 +467,13 @@
                                                                         right: 18px;
                                                                         color: red;
                                                                     }
+
+                                                                    .top-right {
+                                                                        position: absolute;
+                                                                        top: -30px;
+                                                                        right: 18px;
+                                                                        color: red;
+                                                                    }
                                                                 </style>
             
                                                                 <div class="top-left"
@@ -484,6 +491,16 @@
                                                     </div>
                                                     <div class="product-content">
                                                         <div class="inner">
+                                                            <div class="top-right">
+                                                                @if ($produit->stock > 0)
+                                                                <label class="badge bg-success"> Stock disponible</label>
+                                                            @else
+                                                                <label class="badge bg-danger"> Stock non disponible</label>
+                                                            @endif
+                    
+                                                           
+                                                            </div>
+
                                                             <div class="product-cate"><a
                                                                     href="{{ route('details-produits', ['id' => $produit->id, 'slug' => Str::slug(Str::limit($produit->nom, 10))]) }}">{{ $produit->nom }}</a>
                                                             </div>
@@ -505,6 +522,18 @@
                                                             </div>
                                                         </div>
                                                     </div>
+
+                                                {{--     <ul class="product-meta">
+                                                        @if ($produit->stock > 0)
+                                                            <label class="badge bg-success"> Stock disponible</label>
+                                                        @else
+                                                            <label class="badge bg-danger"> Stock non disponible</label>
+                                                        @endif
+                
+                                                        <li>Categorie:<span> {{ Str::limit($produit->categories->nom, 30) }}</span>
+                                                        </li>
+                                                        <li> <span>Reference:</span> {{ $produit->reference }}</li>
+                                                    </ul> --}}
                                                    
                                                  {{--    <div class="label-block label-right">
                                                         <div class="product-badget sold-out">
