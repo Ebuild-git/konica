@@ -734,6 +734,20 @@
                                 border-radius: 8px;
                                
                             }
+
+                            
+
+.slick-single-layout {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    padding: 0; /* Supprime les padding dans l'élément */
+    margin: 0; /* Supprime les marges externes */
+    background: none; /* Élimine tout fond dans l'élément */
+}
+
+
+
+
                         </style>
                         <div class="team-slide-activation">
                             @foreach ($marques as $marque)
