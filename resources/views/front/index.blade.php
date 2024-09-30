@@ -542,6 +542,7 @@
                                 class="fal fa-quote-left"></i>Témognages</span>
                         <h2 class="title">Les retours de nos clients</h2>
                     </div>
+                    
                     <!-- End .section-title -->
                     <div
                         class="testimonial-slick-activation testimonial-style-one-wrapper slick-layout-wrapper--20 axil-slick-arrow arrow-top-slide">
@@ -580,20 +581,38 @@
                     </div>
 
                 </div>
-            </div>
-
-            <div class="col-12 d-flex justify-content-center">
-                <div class="form-group mb--0">
-                    <button class="axil-btn btn-bg-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                        type="submit">
-                        <span>Laisser un témognage</span>
-                    </button>
+                <br><br>
+                <br>
+                <div class="col-12 d-flex justify-content-center">
+                    <div class="form-group mb--0">
+                        <button class="axil-btn btn-bg-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                            type="submit">
+                            <span>Laisser un témognage</span>
+                        </button>
+                    </div>
+    
                 </div>
 
-            </div>
+                  
             <div id="successMessage" class="alert alert-success" style="display:none;"></div>
             <div id="errorMessage" class="alert alert-danger" style="display:none;"></div>
 
+
+                {{-- <div class="col-12 d-flex justify-content-center">
+                    <div class="form-group mb--0">
+                        <button class="axil-btn btn-bg-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                            type="submit">
+                            <span>Laisser un témognage</span>
+                        </button>
+                    </div>
+    
+                </div> --}}
+            </div>
+
+            
+           {{--  <div id="successMessage" class="alert alert-success" style="display:none;"></div>
+            <div id="errorMessage" class="alert alert-danger" style="display:none;"></div>
+ --}}
 
             <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -698,7 +717,7 @@
                     </div>
                 </div>
             </div>
-            <br> <br>
+          
             <div class="axil-team-area bg-wild-sand">
                 <div class="team-left-fullwidth">
                     <div class="container ml--xxl-0">
