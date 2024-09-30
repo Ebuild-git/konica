@@ -50,7 +50,7 @@
                     
                     <div class="row">
                         <div class="col-xl-12">
-                            <p>{!! $config->des_apropos ?? ' ' !!}</p>
+                            <p style="text-align: justify">{!! $config->des_apropos ?? ' ' !!}</p>
                         </div>
                        
                     </div>
@@ -76,7 +76,7 @@
                 <div class="about-content content-left">
                    
                     <h4 class="title">{{ $config->titre_apropos2 }}</h4>
-                    <p>{!! $config->des_apropos2 !!}</p>
+                    <p style="text-align: justify">{!! $config->des_apropos2 !!}</p>
                     <a href="{{ route('shop') }}"  class="axil-btn btn-outline">Voir Boutique</a>
                 </div>
             </div>
@@ -91,7 +91,7 @@
                 <div class="about-content content-right">
                    
                   <h4 class="title">{{ $config->titre_apropos1 }}</h4>
-                    <p>{!! $config->des_apropos1 ?? ' ' !!}</p>
+                    <p style="text-align: justify">{!! $config->des_apropos1 ?? ' ' !!}</p>
                     <a href="{{ route('shop') }}" class="axil-btn btn-outline">Voir Boutique</a>
                 </div>
             </div>

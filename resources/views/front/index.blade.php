@@ -404,8 +404,7 @@
                     </div>
                     <div class="content">
                         <h6 class="title">{{ $config->satisfaction ?? '' }}+ Clients satisfaits</h6>
-                        <p>Empower your sales teams with industry
-                            tailored solutions that support.</p>
+                        <p style="text-align: justify">{!! $config->des_satisfaction ?? ' ' !!}</p>
                     </div>
                 </div>
             </div>
@@ -416,8 +415,7 @@
                     </div>
                     <div class="content">
                         <h6 class="title">{{ $config->annee ?? ' ' }} d'années d'expériences.</h6>
-                        <p>Empower your sales teams with industry
-                            tailored solutions that support.</p>
+                        <p style="text-align: justify">{!! $config->des_annee ?? ' ' !!}</p>
                     </div>
                 </div>
             </div>
@@ -428,8 +426,7 @@
                     </div>
                     <div class="content">
                         <h6 class="title">{{ $config->prix ?? ' ' }} Prix remportés.</h6>
-                        <p>Empower your sales teams with industry
-                            tailored solutions that support.</p>
+                        <p style="text-align: justify">{!! $config->des_prix ?? ' ' !!}.</p>
                     </div>
                 </div>
             </div>
