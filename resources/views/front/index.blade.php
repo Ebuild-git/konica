@@ -719,11 +719,20 @@
         
         </div>
         <div class="team-content">
-           {{--  <span class="subtitle">Founder</span>
-            <h5 class="title">Rosalina D. Willson</h5> --}}
+         <style>
+            .fixed-size {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px; /* Facultatif pour des coins arrondis */
+}
+
+         </style>
             <a href="/marque/{{ $marque->id }}"
-                class="{{ isset($current_marque) && $current_marque->id === $marque->id ? 'selected' : '' }}">{{ $marque->nom }}
-                </a>
+                class="{{ isset($current_marque) && $current_marque->id === $marque->id ? 'selected' : '' }}">
+                <img src="{{ Storage::url($marque->image) }}" alt="Image de la marque {{ $marque->name }}" class="fixed-size">
+             </a>
+             
         </div>
     </div>
 </div>
