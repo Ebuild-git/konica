@@ -93,7 +93,7 @@
                             <img src="{{ Storage::url($config->logo) }}"alt="Site Logo">
                         </a> 
 
-                        <style>
+                      {{--   <style>
                         
                          
                             .nav-brand img {
@@ -109,7 +109,7 @@
                             }
 
                            
-                        </style>
+                        </style> --}}
                     </div>
                     <div class=" header-main-nav">
                         <nav class="mainmenu-nav">
