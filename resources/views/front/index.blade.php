@@ -731,7 +731,7 @@
                 </div>
             </div>
           
-            <div class="axil-team-area bg-wild-sand">
+           {{--  <div class="axil-team-area bg-wild-sand">
                 <div class="team-left-fullwidth">
                     <div class="container ml--xxl-0">
                         <div class="section-title-wrapper">
@@ -791,7 +791,7 @@
                       
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <br><br><br>
 
             <div class="service-area">
