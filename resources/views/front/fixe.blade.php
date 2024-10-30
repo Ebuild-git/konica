@@ -77,15 +77,15 @@
             <div class="container-fluid">
                 <div class="header-navbar">
 
-                  {{--   <div class="header-brand">
+                    <div class="header-brand">
                         <a href="{{ route('home') }}" class="logo logo-dark">
                             <img src="assets/images/logo/logo.png" alt="Site Logo">
                         </a>
                         <a  href="{{ route('home') }}" class="logo logo-light">
                             <img src="assets/images/logo/logo-light.png" alt="Site Logo">
                         </a>
-                    </div> --}}
-                     <div class=" header-brand nav-brand">
+                    </div> 
+                 {{--     <div class=" header-brand nav-brand">
                          <a href="{{ route('home') }}" class="logo logo-dark">
                             <img src="{{ Storage::url($config->logo) }}"  alt="Site Logo">
                         </a>
@@ -98,8 +98,8 @@
                          
                             .nav-brand img {
                                
-                              /*   object-fit: contain;
-                                transition: transform 0.3s ease; */
+                                 object-fit: contain;
+                                transition: transform 0.3s ease; 
                                 margin-top: 35px;
                             } 
 
@@ -110,7 +110,7 @@
 
                            
                         </style> 
-                    </div>
+                    </div> --}}
                     <div class=" header-main-nav">
                         <nav class="mainmenu-nav">
                             <button class="mobile-close-btn mobile-nav-toggler"><i class="fas fa-times"></i></button>
