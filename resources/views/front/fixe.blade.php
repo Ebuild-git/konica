@@ -132,13 +132,23 @@
                     <div class=" header-main-nav">
                         <nav class="mainmenu-nav">
                             <button class="mobile-close-btn mobile-nav-toggler"><i class="fas fa-times"></i></button>
-                            <div class="mobile-nav-brand header-brand">
+                           {{--  <div class="mobile-nav-brand header-brand">
                                
                                     <a href="{{ route('home') }}" class="logo">
                                         <img src="{{ Storage::url($config->logo) }}" width="100" height="200" alt="Site Logo">
                                     </a>
                                 
+                            </div> --}}
+
+                            <div class="mobile-nav-brand header-brands">
+                                <a href="{{ route('home') }}" class="logo logo-dark">
+                                    <img src="{{ Storage::url($config->logo ?? ' ') }}" alt="Site Logo">
+                                </a>
+                                <a  href="{{ route('home') }}" class="logo logo-light">
+                                    <img src="{{ Storage::url($config->logo ?? ' ') }}" alt="Site Logo">
+                                </a>
                             </div>
+        
                             <ul class="mainmenu">
                                 <li class="dropdown">
                                     <a class="dropdown-toggle" href="#" role="button" id="dropdown-header-menu"
