@@ -256,10 +256,10 @@
             </a>
         </div>
     @endrole
-    <script>
+  {{--   <script>
         function handleSelectChange(productId, value) {
             if (value === 'historique') {
-                // Rediriger vers la page de l'historique du produit
+               
                
 
                 window.location.href = `{{ route('produits.historique', ['id' => $produit->id]) }}${productId}`;   
@@ -269,7 +269,7 @@
                 updateStockStatus(productId, value);
             }
         }
-    </script>
+    </script> --}}
 
 
     <style>

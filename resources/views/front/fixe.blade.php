@@ -76,21 +76,48 @@
         <div class="axil-mainmenu">
             <div class="container-fluid">
                 <div class="header-navbar">
-                    <div class="header-brand">
+
+                  {{--   <div class="header-brand">
                         <a href="{{ route('home') }}" class="logo logo-dark">
-                            <img src="{{ Storage::url($config->logo) }}" width="50" height="50" alt="Site Logo">
+                            <img src="assets/images/logo/logo.png" alt="Site Logo">
+                        </a>
+                        <a  href="{{ route('home') }}" class="logo logo-light">
+                            <img src="assets/images/logo/logo-light.png" alt="Site Logo">
+                        </a>
+                    </div> --}}
+                     <div class=" header-brand nav-brand">
+                         <a href="{{ route('home') }}" class="logo logo-dark">
+                            <img src="{{ Storage::url($config->logo) }}"  alt="Site Logo">
                         </a>
                         <a href="{{ route('home') }}" class="logo logo-light">
-                            <img src="{{ Storage::url($config->logo) }}" width="50" height="50" alt="Site Logo">
-                        </a>
+                            <img src="{{ Storage::url($config->logo) }}"alt="Site Logo">
+                        </a> 
+
+                        <style>
+                        
+                         
+                            .nav-brand img {
+                               
+                                object-fit: contain;
+                                transition: transform 0.3s ease;
+                                margin-top: 35px;
+                            } 
+
+                          
+                            .nav-brand:hover img {
+                                transform: scale(1.5);
+                            }
+
+                           
+                        </style>
                     </div>
-                    <div class="header-main-nav">
+                    <div class=" header-main-nav">
                         <nav class="mainmenu-nav">
                             <button class="mobile-close-btn mobile-nav-toggler"><i class="fas fa-times"></i></button>
-                            <div class="mobile-nav-brand">
+                            <div class="mobile-nav-brand nav-brand">
                                
                                     <a href="{{ route('home') }}" class="logo">
-                                        <img src="{{ Storage::url($config->logo) }}" width="50" height="50" alt="Site Logo">
+                                        <img src="{{ Storage::url($config->logo) }}" width="100" height="100" alt="Site Logo">
                                     </a>
                                 
                             </div>
@@ -113,7 +140,7 @@
                                 <li class="menu-item">
                                     <a href="{{ route('home') }}">Accueil</a>
 
-                                </li>
+                                </li class="menu-item">
                                 <li><a href="{{ route('about') }}">A Propos </a></li>
 
 
@@ -123,7 +150,7 @@
                                 </li>
 
 
-                                <li><a href="{{ route('contact') }}">Contact</a></li>
+                                <li class="menu-item"><a href="{{ route('contact') }}">Contact</a></li>
                                
                             
 
@@ -133,7 +160,7 @@
                     <div class="header-action">
                         <ul class="action-list">
 
-                            <li class="axil-search d-xl-block d-none w-20000">
+                            <li class="axil-search d-xl-block d-none w-20">
                                 <input type="search" class="placeholder product-search-input" name="search2"
                                     id="search2" value="" maxlength="128"
                                     placeholder="Rechercher un produit......" autocomplete="off">
@@ -141,12 +168,7 @@
                                     <i class="flaticon-magnifying-glass"></i>
                                 </button>
                             </li>
-                            {{--   <li class="axil-search d-none-laptop">
-                                <input type="search" class="placeholder product-search-input" name="search2" id="search2" value="" maxlength="128" placeholder="Search" autocomplete="off">
-                                <button type="submit" class="icon wooc-btn-search">
-                                    <i class="far fa-search"></i>
-                                </button>
-                            </li> --}}
+                          
                             <li class="axil-search d-none-desktop w-1000">
                                 <a href="javascript:void(0)" class="header-search-icon" title="Search">
                                     <i class="far fa-search"></i>

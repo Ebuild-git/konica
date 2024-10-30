@@ -425,7 +425,7 @@
                                     <img src="{{ Storage::url($config->icone_prix ?? ' ') }}" height="100" width="100" alt="Shape">
                                 </div>
                                 <div class="content">
-                                    <h3 class="title">{{ $config->prix ?? ' ' }} {{ $config->titre_prix ?? ' ' }}.</h6>
+                                    <h3 class="title">{{ $config->prix ?? ' ' }} {{ $config->titre_prix ?? ' ' }}.</h3>
                                     <p style="text-align: justify">{!! $config->des_prix ?? ' ' !!}.</p>
                                 </div>
                             </div>
@@ -793,7 +793,7 @@
                 </div>
             </div> --}}
             <br><br><br>
-
+{{-- 
             <div class="service-area">
                 <div class="container">
                     <div class="row row-cols-xl-4 row-cols-sm-2 row-cols-1 row--20">
@@ -804,7 +804,7 @@
                                 </div>
                                 <div class="content">
                                     <h6 class="title">Livraison &amp;rapide et sécurisée</h6>
-                                   {{--  <p>Parlez de votre service.</p> --}}
+                                    <p>Parlez de votre service.</p> 
                                 </div>
                             </div>
                         </div>
@@ -816,7 +816,7 @@
                                 <div class="content">
                                     <h6 class="title">Garantie de remboursement
                                     </h6>
-                                   {{--  <p>Dans les 10 jours.</p> --}}
+                                    <p>Dans les 10 jours.</p> 
                                 </div>
                             </div>
                         </div>
@@ -827,7 +827,7 @@
                                 </div>
                                 <div class="content">
                                     <h6 class="title">Politique de retour de 24 heures</h6>
-                                   {{--  <p>Ne posez aucune question.</p> --}}
+                                    <p>Ne posez aucune question.</p> 
                                 </div>
                             </div>
                         </div>
@@ -838,14 +838,14 @@
                                 </div>
                                 <div class="content">
                                     <h6 class="title">Assistance de qualité professionnelle</h6>
-                                   {{--  <p>Assistance en direct 24h/24 et 7j/7.</p> --}}
+                                    <p>Assistance en direct 24h/24 et 7j/7.</p> 
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
+ --}}
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
             <script>
                 $(document).ready(function() {
