@@ -9,6 +9,7 @@ use App\Models\config;
 use App\Models\contenu_commande;
 use App\Models\packs;
 use App\Models\produits;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Livewire\Component;
@@ -33,7 +34,7 @@ class AjouterCommande extends Component
     public function updatedRecherche($recherche)
     {
         if (strlen($recherche) > 0) {
-            $this->clients = clients::where('nom', 'like', '%' . $recherche . '%')
+            $this->clients = User::where('nom', 'like', '%' . $recherche . '%')
                 ->orWhere('prenom', 'like', '%' . $recherche . '%')
                 ->orWhere('phone', 'like', '%' . $recherche . '%')
                 ->take(10)
@@ -49,8 +50,8 @@ class AjouterCommande extends Component
         $this->prenom = $client["prenom"];
         $this->adresse = $client["adresse"];
         $this->phone = $client["phone"];
-        $this->gouvernorat = $client["gouvernorat"];
-        $this->pays = $client["pays"];
+      //  $this->gouvernorat = $client["gouvernorat"];
+      //  $this->pays = $client["pays"];
 
         $this->recherche = "";
         $this->clients = [];

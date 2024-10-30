@@ -260,7 +260,11 @@
         function handleSelectChange(productId, value) {
             if (value === 'historique') {
                 // Rediriger vers la page de l'historique du produit
-                window.location.href = `{{ route('produits.historique', ['id' => $produit->id]) }}${productId}`;
+               
+
+                window.location.href = `{{ route('produits.historique', ['id' => $produit->id]) }}${productId}`;   
+              
+              
             } else {
                 updateStockStatus(productId, value);
             }

@@ -753,13 +753,13 @@
 .slick-single-layout {
     flex: 0 0 auto;
     scroll-snap-align: start;
-    padding: 0; /* Supprime les padding dans l'élément */
-    margin: 0; /* Supprime les marges externes */
-    background: none; /* Élimine tout fond dans l'élément */
+    padding: 0; 
+    margin: 0; 
+    background: none; 
 }
 
 .thumbnails a {
-    display: block; /* Assure que le lien s'étend complètement autour de l'image */
+    display: block; 
     padding: 0;
     margin: 0;
 }
@@ -788,42 +788,7 @@
                             
                         </div>
                         
-                       {{--  <div class="team-slide-activation slick-layout-wrapper--20 axil-slick-arrow  arrow-top-slide">
-                            @foreach ($marques as $marque)
-                                <div class="slick-single-layout">
-                                    <div class="axil-team-member">
-                                        <div class="thumbnail">
-                                            <style>
-                                                .fixed-size {
-                                                    width: 200px;
-                                                    height: 200px;
-                                                    object-fit: cover;
-                                                    border-radius: 8px;
-                                                   
-                                                }
-                                            </style>
-                                            <a href="/marque/{{ $marque->id }}"
-                                                class="{{ isset($current_marque) && $current_marque->id === $marque->id ? 'selected' : '' }}">
-                                                <img src="{{ Storage::url($marque->image) }}" class="fixed-size" alt="Cody Fisher">
-                                            </a>
-
-
-                                        </div>
-                                        <div class="team-content">
-                                          
-                                            <a href="/marque/{{ $marque->id }}"
-                                                class="{{ isset($current_marque) && $current_marque->id === $marque->id ? 'selected' : '' }}">
-                                                <img src="{{ Storage::url($marque->image) }}"
-                                                    alt="Image de la marque {{ $marque->name }}" class="fixed-size">
-                                            </a>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-
-
-                        </div> --}}
+                      
                     </div>
                 </div>
             </div>
@@ -839,7 +804,7 @@
                                 </div>
                                 <div class="content">
                                     <h6 class="title">Livraison &amp;rapide et sécurisée</h6>
-                                    <p>Parlez de votre service.</p>
+                                   {{--  <p>Parlez de votre service.</p> --}}
                                 </div>
                             </div>
                         </div>
@@ -851,7 +816,7 @@
                                 <div class="content">
                                     <h6 class="title">Garantie de remboursement
                                     </h6>
-                                    <p>Dans les 10 jours.</p>
+                                   {{--  <p>Dans les 10 jours.</p> --}}
                                 </div>
                             </div>
                         </div>
@@ -862,7 +827,7 @@
                                 </div>
                                 <div class="content">
                                     <h6 class="title">Politique de retour de 24 heures</h6>
-                                    <p>Ne posez aucune question.</p>
+                                   {{--  <p>Ne posez aucune question.</p> --}}
                                 </div>
                             </div>
                         </div>
@@ -873,7 +838,7 @@
                                 </div>
                                 <div class="content">
                                     <h6 class="title">Assistance de qualité professionnelle</h6>
-                                    <p>Assistance en direct 24h/24 et 7j/7.</p>
+                                   {{--  <p>Assistance en direct 24h/24 et 7j/7.</p> --}}
                                 </div>
                             </div>
                         </div>
