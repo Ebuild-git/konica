@@ -111,24 +111,6 @@ class AddProduit extends Component
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public function update_produit()
     {
         if ($this->produit) {
@@ -139,7 +121,7 @@ class AddProduit extends Component
                 'prix_achat' => 'required|numeric',
                 'photo' => 'nullable|image|mimes:jpg,jpeg,png,webp',
                 'photos.*' => 'nullable|image|mimes:jpg,jpeg,png,webp',
-                'marque_id' => 'nullable|integer|exists:marques,id',
+              //  'marque_id' => 'nullable|integer|exists:marques,id',
                 'category_id' => 'required|integer|exists:categories,id',
             ]);
 
@@ -149,7 +131,7 @@ class AddProduit extends Component
         
             $this->produit->prix = $this->prix;
             $this->produit->prix_achat = $this->prix_achat;
-            $this->produit->marque_id = $this->marque_id;
+          //  $this->produit->marque_id = $this->marque_id;
             $this->produit->category_id = $this->category_id;
           //  $produit->category_id = $this->category_id;
 
