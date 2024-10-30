@@ -93,23 +93,23 @@
                             <img src="{{ Storage::url($config->logo) }}"alt="Site Logo">
                         </a> 
 
-                      {{--   <style>
+                        <style>
                         
                          
                             .nav-brand img {
                                
-                                object-fit: contain;
-                                transition: transform 0.3s ease;
+                              /*   object-fit: contain;
+                                transition: transform 0.3s ease; */
                                 margin-top: 35px;
                             } 
 
                           
                             .nav-brand:hover img {
-                                transform: scale(1.5);
+                                transform: scale(1.1);
                             }
 
                            
-                        </style> --}}
+                        </style> 
                     </div>
                     <div class=" header-main-nav">
                         <nav class="mainmenu-nav">
