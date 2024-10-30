@@ -77,7 +77,7 @@
             <div class="container-fluid">
                 <div class="header-navbar">
 
-                    <div class="header-brand">
+                    <div class="header-brands">
                         <a href="{{ route('home') }}" class="logo logo-dark">
                             <img src="{{ Storage::url($config->logo ?? ' ') }}" alt="Site Logo">
                         </a>
@@ -88,7 +88,7 @@
                         <style>
                         
                          
-                            .header-brand img {
+                            .header-brands img {
                                
                                  object-fit: contain;
                                 transition: transform 0.3s ease; 
