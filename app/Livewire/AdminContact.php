@@ -21,8 +21,12 @@ class AdminContact extends Component
    $image_contact, $image_shop, $image_about,
    $image_contact2, $image_shop2, $image_about2,
    $image_login, $image_register,
-   $image_login2, $image_register2; 
+   $image_login2, $image_register2,
+   $titre_annee, $titre_prix, $titre_satisfaction; 
 
+
+
+  
 
   
     public function mount(){
@@ -54,11 +58,15 @@ class AdminContact extends Component
        // $this->logofooter= $config->logofooter;
 
         $this->annee=$config->annee;
+        $this->titre_annee=$config->titre_annee;
         $this->des_annee = $config->des_annee;
         $this->satisfaction=$config->satisfaction;
+        $this->titre_satisfaction=$config->titre_satisfaction;
+
         $this->des_satisfaction = $config->des_satisfaction;
         $this->prix = $config->prix;
         $this->des_prix = $config->des_prix;
+        $this->titre_prix = $config->titre_prix;
 
         $this->titre_apropos = $config->titre_apropos;
         $this->des_apropos = $config->des_apropos;
@@ -68,6 +76,7 @@ class AdminContact extends Component
 
         $this->titre_apropos2 = $config->titre_apropos2;
         $this->des_apropos2 = $config->des_apropos2;
+
 
 
 
@@ -193,10 +202,13 @@ class AdminContact extends Component
 
         $config->annee = $this->annee;
         $config->des_annee = $this->des_annee;
+        $config->titre_annee = $this->titre_annee;
         $config->satisfaction = $this->satisfaction;
         $config->des_satisfaction = $this->des_satisfaction;
+        $config->titre_satisfaction = $this->titre_satisfaction;
         $config->prix = $this->prix;
         $config->des_prix = $this->des_prix;
+        $config->titre_prix = $this->titre_prix;
 
         $config->titre_apropos = $this->titre_apropos;
         $config->des_apropos = $this->des_apropos;

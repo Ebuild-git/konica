@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col-sm-6">
                 <div class="mb-3">
-                    <label for="">Logo </label>
+                    <label for="">Logo(157*40) </label>
                     <input type="file" wire:model="logo" accept="image/*" class="form-control">
                     @error('logo')
                         <span class="text-danger small"> {{ $message }} </span>
@@ -24,7 +24,7 @@
 
             <div class="col-sm-6">
                 <div class="mb-3">
-                    <label for="">Icone</label>
+                    <label for="">Icone(157*40)</label>
                     <input type="file" wire:model="icon" accept="image/*" class="form-control">
                     @error('icon')
                         <span class="text-danger small"> {{ $message }} </span>
@@ -271,7 +271,16 @@
                 </h6>
             </div>
             <div class="row g-6">
-                <div class="col-md-4">
+                <div class="col-md-3">
+                    <label class="form-label" for="multicol-username">Titre</label>
+
+                    <input type="text" wire:model="titre_annee" placeholder="Titre " rows="3"
+                        class="form-control">
+                    @error('titre_annee')
+                        <span class="text-danger small"> {{ $message }} </span>
+                    @enderror
+                </div>
+                <div class="col-md-3">
                     <label class="form-label" for="multicol-username">Nombres d'années</label>
 
                     <input type="number" wire:model="annee" placeholder="Nombre " rows="3"
@@ -281,7 +290,7 @@
                     @enderror
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <label class="form-label" for="multicol-username">Description </label>
 
                     <textarea type="text" wire:model="des_annee" placeholder="La description" rows="3" class="form-control"> </textarea>
@@ -289,7 +298,7 @@
                         <span class="text-danger small"> {{ $message }} </span>
                     @enderror
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <label class="form-label" for="multicol-username">Icone(100*100) </label>
 
                     <input type="file" wire:model="image_apropos" accept="image/*" placeholder="Cargez les images"
@@ -306,7 +315,18 @@
                     </h6>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-3">
+                    <label class="form-label" for="multicol-username">Titre</label>
+
+                    <input type="text" wire:model="titre_satisfaction" placeholder="Nombre " rows="3"
+                        class="form-control">
+                    @error('titre_satisfation')
+                        <span class="text-danger small"> {{ $message }} </span>
+                    @enderror
+                </div>
+
+
+                <div class="col-md-3">
                     <label class="form-label" for="multicol-username">Nombres</label>
 
                     <input type="number" wire:model="satisfaction" placeholder="Nombre " rows="3"
@@ -316,7 +336,7 @@
                     @enderror
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <label class="form-label" for="multicol-username">Description </label>
 
                     <textarea type="text" wire:model="des_satisfaction" placeholder="La description" rows="3"
@@ -325,7 +345,7 @@
                         <span class="text-danger small"> {{ $message }} </span>
                     @enderror
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <label class="form-label" for="multicol-username">Icone(100*100) </label>
 
                     <input type="file" wire:model="image_apropos1" accept="image/*"
@@ -343,7 +363,17 @@
                     </h6>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-3">
+                    <label class="form-label" for="multicol-username">Titre</label>
+
+                    <input type="text" wire:model="titre_prix" placeholder="Le titre " rows="3"
+                        class="form-control">
+                    @error('titre_prix')
+                        <span class="text-danger small"> {{ $message }} </span>
+                    @enderror
+                </div>
+
+                <div class="col-md-3">
                     <label class="form-label" for="multicol-username">Nombre</label>
 
                     <input type="number" wire:model="prix" placeholder="Le nombre " rows="3"
@@ -353,7 +383,7 @@
                     @enderror
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <label class="form-label" for="multicol-username">Description </label>
 
                     <textarea type="text" wire:model="des_prix" placeholder="La description" rows="3"
@@ -362,7 +392,7 @@
                         <span class="text-danger small"> {{ $message }} </span>
                     @enderror
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <label class="form-label" for="multicol-username">Icone(100*100) </label>
 
                     <input type="file" wire:model="icone_prix" accept="image/*"

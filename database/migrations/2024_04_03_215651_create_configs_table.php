@@ -24,7 +24,9 @@ return new class extends Migration
             $table->decimal("frais", 10,3)->nullable();
             $table->string('icon')->nullable()->default(null);
 
-
+            $table->text('titre_annee')->nullable();
+            $table->text('titre_prix')->nullable();
+            $table->text('titre_satisfaction')->nullable();
             
             $table->integer("satisfaction")->nullable();
             $table->string('icone_satisfaction')->nullable();

@@ -403,7 +403,7 @@
                                     <img src="/assets/images/about/shape-01.png" alt="Shape">
                                 </div>
                                 <div class="content">
-                                    <h6 class="title">{{ $config->satisfaction ?? '' }}+ Clients satisfaits</h6>
+                                    <h6 class="title">{{ $config->satisfaction ?? '' }}+ {{ $config->titre_satisfaction ?? ' ' }}</h6>
                                     <p style="text-align: justify">{!! $config->des_satisfaction ?? ' ' !!}</p>
                                 </div>
                             </div>
@@ -414,7 +414,7 @@
                                     <img src="assets/images/about/shape-02.png" alt="Shape">
                                 </div>
                                 <div class="content">
-                                    <h6 class="title">{{ $config->annee ?? ' ' }} d'années d'expériences.</h6>
+                                    <h6 class="title">{{ $config->annee ?? ' ' }} {{ $config->titre_annee ?? ' ' }}.</h6>
                                     <p style="text-align: justify">{!! $config->des_annee ?? ' ' !!}</p>
                                 </div>
                             </div>
@@ -425,7 +425,7 @@
                                     <img src="/assets/images/about/shape-03.png" alt="Shape">
                                 </div>
                                 <div class="content">
-                                    <h6 class="title">{{ $config->prix ?? ' ' }} Prix remportés.</h6>
+                                    <h6 class="title">{{ $config->prix ?? ' ' }} {{ $config->titre_prix ?? ' ' }}.</h6>
                                     <p style="text-align: justify">{!! $config->des_prix ?? ' ' !!}.</p>
                                 </div>
                             </div>
