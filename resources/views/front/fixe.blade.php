@@ -299,7 +299,7 @@
                             </style>
                             <div class="logo mb--30">
                                 <a href="{{ route('home') }}">
-                                    <img class="light-logo" src="{{ Storage::url($config->logofooter) }}"
+                                    <img class="light-logo"src="{{ Storage::url($config->logofooter ?? ' ') }}"
                                         alt="Logo" height="200" width="200">
                                 </a>
                             </div>
