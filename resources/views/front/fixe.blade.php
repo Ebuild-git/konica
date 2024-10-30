@@ -79,10 +79,10 @@
 
                     <div class="header-brand">
                         <a href="{{ route('home') }}" class="logo logo-dark">
-                            <img src="assets/images/logo/logo.png" alt="Site Logo">
+                            <img src="{{ Storage::url($config->logo ?? ' ') }}" alt="Site Logo">
                         </a>
                         <a  href="{{ route('home') }}" class="logo logo-light">
-                            <img src="assets/images/logo/logo-light.png" alt="Site Logo">
+                            <img src="{{ Storage::url($config->logo ?? ' ') }}" alt="Site Logo">
                         </a>
 
                         <style>
@@ -132,10 +132,10 @@
                     <div class=" header-main-nav">
                         <nav class="mainmenu-nav">
                             <button class="mobile-close-btn mobile-nav-toggler"><i class="fas fa-times"></i></button>
-                            <div class="mobile-nav-brand nav-brand">
+                            <div class="mobile-nav-brand header-brand">
                                
                                     <a href="{{ route('home') }}" class="logo">
-                                        <img src="{{ Storage::url($config->logo) }}" width="100" height="100" alt="Site Logo">
+                                        <img src="{{ Storage::url($config->logo) }}" width="100" height="200" alt="Site Logo">
                                     </a>
                                 
                             </div>
