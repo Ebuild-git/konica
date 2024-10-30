@@ -50,6 +50,10 @@ class config extends Model
         'image_about',
         'image_login',
         'image_register',
+
+        'titre_annee',
+        'titre_prix',
+        'titre_satisfaction',
         
     ];
 }
