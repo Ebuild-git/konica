@@ -191,7 +191,7 @@
                     </ul>
                 </li>
 
-                  <li>
+              {{--     <li>
                     <a href="{{ route('marques') }}">
                         <div class="parent-icon icon-color-3"> <i class="ri-boxing-fill"></i>
                         </div>
@@ -199,7 +199,7 @@
                             Les marques
                         </div>
                     </a>
-                </li>  
+                </li>  --}} 
 
              {{--    <li>
                     <a href="javascript:;" class="has-arrow">
