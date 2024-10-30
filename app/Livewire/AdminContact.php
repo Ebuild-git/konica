@@ -12,7 +12,7 @@ class AdminContact extends Component
     use WithFileUploads;
 
     public $logo,$icon,$logo2,$icon2,$frais, $logoHeader, $telephone,$addresse, $email,$description, $logofooter, $logofooter2,
-   $satisfaction, $icon_satisfaction, $icon_satisfaction2, $des_satisfaction,
+   $satisfaction, $icone_satisfaction, $icone_satisfaction2, $des_satisfaction,
    $annee, $icone_annee, $icone_annee2, $des_annee,
    $prix, $icone_prix, $des_prix,$icone_prix2,
    $titre_apropos, $des_apropos, $image_apropos,$image_apropos0,
@@ -33,7 +33,7 @@ class AdminContact extends Component
         $config = config::first();
         $this->icone_annee2 = $config->icone_annee;
         $this->image_shop2 = $config->image_shop;
-        $this->icon_satisfaction2 = $config->icon_satisfaction;
+        $this->icone_satisfaction2 = $config->icone_satisfaction;
         $this->icone_prix2 = $config->icone_prix;
         $this->image_apropos0 = $config->image_apropos;
         $this->image_apropos12 = $config->image_apropos1;
@@ -190,6 +190,30 @@ class AdminContact extends Component
                 Storage::disk('public')->delete($this->image_register2);
             }
             $config->image_register= $this->image_register->store('image_register', 'public');
+        }
+
+        if($this->icone_annee){
+            //delete old icon
+            if ($this->icone_annee2) {
+                Storage::disk('public')->delete($this->icone_annee2);
+            }
+            $config->icone_annee= $this->icone_annee->store('icon', 'public');
+        }
+
+        if($this->icone_satisfaction){
+            //delete old icon
+            if ($this->icone_satisfaction2) {
+                Storage::disk('public')->delete($this->icone_satisfaction2);
+            }
+            $config->icone_satisfaction= $this->icone_satisfaction->store('icon', 'public');
+        }
+
+        if($this->icone_prix){
+            //delete old icon
+            if ($this->icone_prix2) {
+                Storage::disk('public')->delete($this->icone_prix2);
+            }
+            $config->icone_prix= $this->icone_prix->store('icon', 'public');
         }
         
 

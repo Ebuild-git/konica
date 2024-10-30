@@ -400,7 +400,7 @@
                         <div class="col-lg-4">
                             <div class="about-info-box">
                                 <div class="thumb">
-                                    <img src="/assets/images/about/shape-01.png" alt="Shape">
+                                    <img src="{{ Storage::url($config->icone_satisfaction ?? '') }}" width="100" height="100" alt="Shape">
                                 </div>
                                 <div class="content">
                                     <h6 class="title">{{ $config->satisfaction ?? '' }}+ {{ $config->titre_satisfaction ?? ' ' }}</h6>
@@ -411,7 +411,7 @@
                         <div class="col-lg-4">
                             <div class="about-info-box">
                                 <div class="thumb">
-                                    <img src="assets/images/about/shape-02.png" alt="Shape">
+                                    <img src="{{ Storage::url($config->icone_annee ?? ' ')  }}" height="100" width="100" alt="Shape">
                                 </div>
                                 <div class="content">
                                     <h6 class="title">{{ $config->annee ?? ' ' }} {{ $config->titre_annee ?? ' ' }}.</h6>
@@ -422,7 +422,7 @@
                         <div class="col-lg-4">
                             <div class="about-info-box">
                                 <div class="thumb">
-                                    <img src="/assets/images/about/shape-03.png" alt="Shape">
+                                    <img src="{{ Storage::url($config->icone_prix ?? ' ') }}" height="100" width="100" alt="Shape">
                                 </div>
                                 <div class="content">
                                     <h6 class="title">{{ $config->prix ?? ' ' }} {{ $config->titre_prix ?? ' ' }}.</h6>

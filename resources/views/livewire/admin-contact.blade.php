@@ -301,9 +301,9 @@
                 <div class="col-md-3">
                     <label class="form-label" for="multicol-username">Icone(100*100) </label>
 
-                    <input type="file" wire:model="image_apropos" accept="image/*" placeholder="Cargez les images"
+                    <input type="file" wire:model="icone_annee" accept="image/*" placeholder="Cargez les images"
                         class="form-control">
-                    @error('image_apropos')
+                    @error('icone_annee')
                         <span class="text-danger small"> {{ $message }} </span>
                     @enderror
                 </div>
@@ -348,9 +348,9 @@
                 <div class="col-md-3">
                     <label class="form-label" for="multicol-username">Icone(100*100) </label>
 
-                    <input type="file" wire:model="image_apropos1" accept="image/*"
+                    <input type="file" wire:model="icone_satisfaction" accept="image/*"
                         placeholder="Cargez les images" class="form-control">
-                    @error('image_apropos1')
+                    @error('icone_satisfaction')
                         <span class="text-danger small"> {{ $message }} </span>
                     @enderror
                 </div>
