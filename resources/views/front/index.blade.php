@@ -403,7 +403,7 @@
                                     <img src="{{ Storage::url($config->icone_satisfaction ?? '') }}" width="100" height="100" alt="Shape">
                                 </div>
                                 <div class="content">
-                                    <h6 class="title">{{ $config->satisfaction ?? '' }}+ {{ $config->titre_satisfaction ?? ' ' }}</h6>
+                                    <h3 class="title">{{ $config->satisfaction ?? '' }}+ {{ $config->titre_satisfaction ?? ' ' }}</h3>
                                     <p style="text-align: justify">{!! $config->des_satisfaction ?? ' ' !!}</p>
                                 </div>
                             </div>
@@ -414,7 +414,7 @@
                                     <img src="{{ Storage::url($config->icone_annee ?? ' ')  }}" height="100" width="100" alt="Shape">
                                 </div>
                                 <div class="content">
-                                    <h6 class="title">{{ $config->annee ?? ' ' }} {{ $config->titre_annee ?? ' ' }}.</h6>
+                                    <h3 class="title">{{ $config->annee ?? ' ' }} {{ $config->titre_annee ?? ' ' }}.</h3>
                                     <p style="text-align: justify">{!! $config->des_annee ?? ' ' !!}</p>
                                 </div>
                             </div>
@@ -425,7 +425,7 @@
                                     <img src="{{ Storage::url($config->icone_prix ?? ' ') }}" height="100" width="100" alt="Shape">
                                 </div>
                                 <div class="content">
-                                    <h6 class="title">{{ $config->prix ?? ' ' }} {{ $config->titre_prix ?? ' ' }}.</h6>
+                                    <h3 class="title">{{ $config->prix ?? ' ' }} {{ $config->titre_prix ?? ' ' }}.</h6>
                                     <p style="text-align: justify">{!! $config->des_prix ?? ' ' !!}.</p>
                                 </div>
                             </div>
