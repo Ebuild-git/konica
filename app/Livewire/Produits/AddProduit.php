@@ -128,6 +128,7 @@ class AddProduit extends Component
 
 
             $this->produit->nom = $this->nom;
+            $this->produit->description = $this->description;
         
             $this->produit->prix = $this->prix;
             $this->produit->prix_achat = $this->prix_achat;
