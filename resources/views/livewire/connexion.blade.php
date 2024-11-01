@@ -88,7 +88,7 @@
             </span>
             <i class="ri-git-repository-private-line"></i>
             Connexion</button>
-        <a href="{{ route('forgot-password') }}" class="forgot-btn">Mot de passe oublié?</a>
+        <a href="{{ route('forgot_password') }}" class="forgot-btn">Mot de passe oublié?</a>
     </div>
 
     <style>

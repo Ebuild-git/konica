@@ -31,7 +31,7 @@
                     <span>Envoyer le code de verification</span>
                 </button>
  --}}
-                <button type="submit" class="axil-btn btn-bg-primary submit-btn">
+                <button type="submit" class="axil-btn btn-bg-primary2 submit-btn">
                     <span wire:loading>
                         <img src="https://i.gifer.com/ZKZg.gif" height="15" alt="" srcset="">
                     </span>
@@ -69,7 +69,7 @@
                     @enderror
                 </div>
                 <br>
-                <button type="submit" class="axil-btn btn-bg-primary submit-btn">
+                <button type="submit" class="axil-btn btn-bg-primary2 submit-btn">
                     <span wire:loading>
                         <img src="https://i.gifer.com/ZKZg.gif" height="15" alt="" srcset="">
                     </span>
@@ -124,7 +124,7 @@
                     @enderror
                 </div>
                 <br>
-                <button type="submit" class="axil-btn btn-bg-primary submit-btn">
+                <button type="submit" class="axil-btn btn-bg-primary2 submit-btn">
                     <span wire:loading>
                         <img src="https://i.gifer.com/ZKZg.gif" height="15" alt="" srcset="">
                     </span>
@@ -135,4 +135,14 @@
     @endif
 
 
+    <style>
+        .btn-bg-primary2 {
+            background-color: #5EA13C;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+    </style>
 </div>
