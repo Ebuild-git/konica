@@ -7394,8 +7394,8 @@ Header Styles
 }
 .header-action .shopping-cart .cart-dropdown-btn .cart-count {
   text-align: center;
-  background-color: var(--color-primary);
-  border: 2px solid var(--color-white);
+  background-color: #5EA13C;
+  border: 2px solid #5EA13C;
   font-size: 12px;
   font-weight: 500;
   color: var(--color-white);

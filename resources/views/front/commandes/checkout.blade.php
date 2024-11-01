@@ -151,7 +151,7 @@
                                     </table>
                                 </div>
                                 
-                                <button type="submit" class="axil-btn btn-bg-primary checkout-btn">Confirmation</button>
+                                <button type="submit" class="axil-btn btn-bg-primary2 checkout-btn">Confirmation</button>
                             </div>
                         </div>
                     </div>
@@ -159,7 +159,25 @@
             </div>
         </div>
         <!-- End Checkout Area  -->
-
+        <style>
+            .btn-bg-primary2 {
+                background-color: #5EA13C;
+                color: #ffffff;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                text-decoration: none;
+            }
+    
+            .btn-bg-secondary2 {
+            background-color: #EFB121; /* Couleur de fond, bleu dans cet exemple */
+            color: #ffffff; /* Couleur du texte, blanc dans cet exemple */
+            border: none;
+            padding: 10px 20px; /* Optionnel, ajuste la taille */
+            border-radius: 5px; /* Optionnel, arrondit les coins */
+            text-decoration: none; /* Supprime le soulignement */
+        }
+        </style>
     </main>
 
 </main>

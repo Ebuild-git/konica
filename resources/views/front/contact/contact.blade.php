@@ -15,8 +15,22 @@
                             <ul class="axil-breadcrumb">
                                 <li class="axil-breadcrumb-item"><a href="{{ route('home') }}">Accueil</a></li>
                                 <li class="separator"></li>
-                                <li class="axil-breadcrumb-item active" aria-current="page">Contact</li>
+                                <li class="axil-breadcrumb-item1 active" aria-current="page">Contact</li>
                             </ul>
+
+                            <style>
+                                .axil-breadcrumb-item1 {
+        font-size: 14px;
+        color: #EFB121; /* Default breadcrumb color */
+    }
+    
+    .axil-breadcrumb-item.active {
+        font-weight: bold;
+        color: #EFB121; /* Distinct color for active item */
+    }
+    
+  
+                            </style>
                             <h1 class="title">Contactez-nous</h1>
                         </div>
                     </div>

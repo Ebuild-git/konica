@@ -168,11 +168,16 @@
                                                     <td data-label="Status" class="text-green"> {{ $commande->statut }}
                                                     </td>
                                                     <td>
-                                                        <a href="{{ route('print_commande', ['id' => $commande->id]) }}"
+                                                        {{-- <a href="{{ route('print_commande', ['id' => $commande->id]) }}"
                                                             class="axil-btn view-btn">
                                                          
                                                             <span>Facture</span>
-                                                        </a>
+                                                        </a> --}}
+
+                                                        <a  href="{{ route('print_commande',['id'=> $commande->id ]) }}" class="axil-btn btn-bg-primary2">
+                                                                            
+                                                          
+                                                            Facture</a>
                                                     </td>
                                                 </tr>
                                                 @empty

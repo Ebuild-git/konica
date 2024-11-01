@@ -82,7 +82,7 @@
     </div> --}}
  
     <div class="form-group d-flex align-items-center justify-content-between">
-        <button type="submit" class="axil-btn btn-bg-primary submit-btn">
+        <button type="submit" class="axil-btn btn-bg-primary2 submit-btn">
             <span wire:loading>
                 <img src="https://i.gifer.com/ZKZg.gif" height="15" alt="" srcset="">
             </span>
@@ -90,6 +90,26 @@
             Connexion</button>
         <a href="{{ route('forgot-password') }}" class="forgot-btn">Mot de passe oublié?</a>
     </div>
+
+    <style>
+        .btn-bg-primary2 {
+            background-color: #5EA13C;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .btn-bg-secondary2 {
+        background-color: #EFB121; /* Couleur de fond, bleu dans cet exemple */
+        color: #ffffff; /* Couleur du texte, blanc dans cet exemple */
+        border: none;
+        padding: 10px 20px; /* Optionnel, ajuste la taille */
+        border-radius: 5px; /* Optionnel, arrondit les coins */
+        text-decoration: none; /* Supprime le soulignement */
+    }
+    </style>
 </form>
 
 

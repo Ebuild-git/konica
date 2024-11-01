@@ -46,12 +46,29 @@ $produit = DB::table('produits')->get();
         <div class="signin-header">
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <a href="{{ route('home') }}" class="site-logo"><img src="{{ Storage::url($config->logo) }}" width="50" height="50" alt="logo"></a>
-                </div>
+                  {{--   <a href="{{ route('home') }}" class="site-logo"><img src="{{ Storage::url($config->logo) }}" width="50" height="50" alt="logo"></a>
+              --}}   </div>
                 <div class="col-md-6">
                     <div class="singin-header-btn">
                         <p>Vous avez un compte?</p>
-                        <a href="{{ url('login') }}" class="axil-btn btn-bg-secondary sign-up-btn">Connexion</a>
+                        <a href="{{ url('login') }}" class="axil-btn btn-bg-secondary2 sign-up-btn">Connexion</a>
+
+                        <style>
+                            .btn-bg-secondary2 {
+        background-color: #5EA13C; /* Couleur de fond, bleu dans cet exemple */
+        color: #ffffff; /* Couleur du texte, blanc dans cet exemple */
+        border: none;
+        padding: 10px 20px; /* Optionnel, ajuste la taille */
+        border-radius: 5px; /* Optionnel, arrondit les coins */
+        text-decoration: none; /* Supprime le soulignement */
+    }
+    
+    .btn-bg-secondary2:hover {
+        background-color: #5EA13C; /* Couleur au survol */
+        color: #ffffff; /* Couleur du texte au survol */
+    }
+    
+                           </style>
                     </div>
                 </div>
             </div>
@@ -62,7 +79,7 @@ $produit = DB::table('produits')->get();
             <div class="col-xl-4 col-lg-6">
                 <style>
                     .bg_image--10 {
-    background-image: url('{{ Storage::url($config->image_register) }}'); /* Remplacez par le chemin de votre image */
+    background-image: url('{{ Storage::url($config->image_register) }}'); 
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -76,13 +93,13 @@ $produit = DB::table('produits')->get();
     margin: 0;
     position: relative;
     z-index: 2;
-    color: #e3340c; /* Exemple : couleur orange/rouge */
+    color: #EFB121; /* Exemple : couleur orange/rouge */
 }
 
 
                 </style>
                 <div class="axil-signin-banner bg_image bg_image--10">
-                    <h3 class="title">Nous offrons les mellieurs produits.</h3>
+                     <h3 class="title">Nous offrons les mellieurs produits.</h3> 
                 </div>
             </div>
             <div class="col-lg-6 offset-xl-2">

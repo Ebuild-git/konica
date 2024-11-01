@@ -121,7 +121,7 @@
 
 
                                                     <span
-                                                        style="position: relative; font-size: 1.2rem; color: #dc3545; font-weight: bold;">
+                                                        style="position: relative; font-size: 1.7rem; color: #dc3545; font-weight: bold;">
                                                         {{ $produit->prix }} DT
                                                         <span
                                                             style="position: absolute; top: 50%; left: 0; width: 100%; height: 2px; background-color: black;"></span>
@@ -130,7 +130,12 @@
 
                                                 </div>
                                             @else
-                                                {{ $produit->getPrice() }}DT
+                                            
+                                            <span class="price current-price"> 
+                                               
+                                                {{ $produit->getPrice() }} DT
+                                            </b></span>
+                                               
                                         @endif
                                     </span>
                                     <div class="product-rating">
@@ -138,7 +143,7 @@
                                     </div>
                                     <ul class="product-meta">
                                         @if ($produit->stock > 0)
-                                            <label class="badge bg-success"> Stock disponible</label>
+                                            <label class="badge btn-bg-primary2"> Stock disponible</label>
                                         @else
                                             <label class="badge bg-danger"> Stock non disponible</label>
                                         @endif
@@ -184,7 +189,7 @@
                                         <!-- Start Product Action  -->
                                         <ul class="product-action d-flex-center mb--0">
                                             <li class="add-to-cart"><a onclick="AddToCart( {{ $produit->id }} )"
-                                                    class="axil-btn btn-bg-primary">Ajouter au panier</a></li>
+                                                    class=" badge  btn-bg-primary2">Ajouter au panier</a></li>
                                             @if (Auth()->user())
                                                 <li class="wishlist">
 
@@ -192,6 +197,17 @@
                                                         class="axil-btn wishlist-btn"><i class="far fa-heart"></i></a>
                                                 </li>
                                             @endif
+
+                                            <style>
+                                                .btn-bg-primary2 {
+                                                    background-color: #5EA13C;
+                                                    color: #ffffff;
+                                                    border: none;
+                                                    padding: 10px 20px;
+                                                    border-radius: 5px;
+                                                    text-decoration: none;
+                                                }
+                                            </style>
                                         </ul>
                                         <!-- End Product Action  -->
 
@@ -294,12 +310,13 @@
                                                             onclick="AddFavoris({{ $produit->id }})"><i
                                                                 class="far fa-heart"></i></a></li>
                                                 @endif
-                                                <li class="select-option"><a
+                                                <li class="btn-bg-primary2"><a
                                                         onclick="AddToCart( {{ $produit->id }} )">Ajouter au
                                                         panier</a></li>
-                                                <li class="quickview"><a href="#" data-bs-toggle="modal"
+                                                {{-- <li class="quickview"><a href="#" data-bs-toggle="modal"
                                                         data-bs-target="#quick-view-modal"><i
-                                                            class="far fa-eye"></i></a></li>
+                                                            class="far fa-eye"></i></a></li> --}}
+
                                             </ul>
                                         </div>
                                     </div>

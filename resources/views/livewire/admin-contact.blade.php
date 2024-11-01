@@ -267,7 +267,7 @@
 
             <div class="text-center  card my-auto p-1 mb-3">
                 <h6 class="text-red">
-                    Années d'expériences
+                    Statistique 1
                 </h6>
             </div>
             <div class="row g-6">
@@ -311,7 +311,7 @@
 
                 <div class="text-center  card my-auto p-1 mb-3">
                     <h6 class="text-red">
-                        Satisfaction des clients
+                        Statistique 2
                     </h6>
                 </div>
 
@@ -359,7 +359,7 @@
 
                 <div class="text-center  card my-auto p-1 mb-3">
                     <h6 class="text-red">
-                        Les prix remportés
+                        Statistique 3
                     </h6>
                 </div>
 

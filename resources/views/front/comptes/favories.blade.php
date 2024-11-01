@@ -9,7 +9,7 @@
         <div class="axil-wishlist-area axil-section-gap">
             <div class="container">
                 <div class="product-table-heading">
-                    <h4 class="title">Liste de mes favoris sur KONICA</h4>
+                    <h4 class="title">Liste de mes favoris sur Ben Mahmoud Market</h4>
                 </div>
                 @livewire('Front.Favoris')
           

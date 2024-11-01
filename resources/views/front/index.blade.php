@@ -8,12 +8,28 @@
             $produit = DB::table('produits')->get();
         @endphp
 
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+ --}}
+ <style>
+    .axil-breadcrumb-item1 {
+font-size: 14px;
+color: #EFB121; /* Default breadcrumb color */
+}
 
+.axil-breadcrumb-item.active {
+font-weight: bold;
+color: #EFB121; /* Distinct color for active item */
+}
 
+.axil-breadcrumb-item:not(.active)::after {
+content: " / "; /* Adds a separator after non-active items */
+color: #EFB121;
+}
+
+</style>
         <main class="main-wrapper">
             <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="3000">
                 <style>
@@ -76,7 +92,8 @@
             <div class="axil-categorie-area bg-color-white axil-section-gapcommon">
                 <div class="container">
                     <div class="section-title-wrapper">
-                        <span class="title-highlighter highlighter-secondary"> <i class="far fa-tags"></i> Categories</span>
+                        <h4>   <span class="axil-breadcrumb-item1 active" aria-current="page"> <i class="far fa-tags"></i> Categories</span> </h4>
+  {{--                       <span class="title-highlighter highlighter-secondary"> <i class="far fa-tags"></i> Categories</span> --}}
                         <h2 class="title">Parcourir par categories</h2>
                     </div>
                     <div class="categrie-product-activation slick-layout-wrapper--15 axil-slick-arrow  arrow-top-slide">
@@ -107,8 +124,9 @@
             <div class="axil-product-area bg-color-white axil-section-gap">
                 <div class="container">
                     <div class="section-title-wrapper">
-                        <span class="title-highlighter highlighter-primary"> <i class="far fa-shopping-basket"></i> Nos
-                            Produits</span>
+                       
+                            <h4>   <span class="axil-breadcrumb-item1 active" aria-current="page"> <i class="far fa-shopping-basket"></i> Nos produits</span> </h4>
+
                         <h2 class="title">Parcourir nos Produits</h2>
                     </div>
                     <div
@@ -153,7 +171,7 @@
                                                             {{--     <li class="quickview"><a href="#" data-bs-toggle="modal"
                                                                     data-bs-target="#{{ $produit->id }}"><i
                                                                         class="far fa-eye"></i></a></li> --}}
-                                                            <li class="select-option">
+                                                            <li class="select-option2">
                                                                 <a onclick="AddToCart( {{ $produit->id }} )">
                                                                     Ajouter au panier
                                                                 </a>
@@ -163,6 +181,17 @@
                                                                         onclick="AddFavoris({{ $produit->id }})"><i
                                                                             class="far fa-heart"></i></a></li>
                                                             @endif
+
+                                                            <style>
+                                                                .select-option2 {
+                                                                    background-color: #5EA13C;
+                                                                    color: #ffffff;
+                                                                    border: none;
+                                                                    padding: 10px 20px;
+                                                                    border-radius: 5px;
+                                                                    text-decoration: none;
+                                                                }
+                                                            </style>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -196,7 +225,7 @@
 
 
                                                                                 <span
-                                                                                    style="font-size: 1.2rem; color: #dc3545; font-weight: bold;">
+                                                                                    style="font-size: 1.7rem; color: #dc3545; font-weight: bold;">
                                                                                     {{ $produit->prix }} DT
                                                                                 </span>
 
@@ -204,9 +233,13 @@
                                                                             </strike>
                                                                         </div>
                                                                     @else
-                                                                        {{ $produit->getPrice() }}DT
-                                                                @endif
+                                                                      {{--   {{ $produit->getPrice() }}DT --}}
 
+                                                                      
+                                                                <span class="price current-price"  style="font-size: 1.7rem;"> 
+                                                                    {{ $produit->getPrice() }} DT
+                                                                </b></span>
+                                                                @endif
 
 
                                                             </h6>
@@ -224,7 +257,7 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-12 text-center mt--20 mt_sm--0">
-                            <a href="{{ route('shop') }}" class="axil-btn btn-bg-lighter btn-load-more">Voir tous les
+                            <a href="{{ route('shop') }}" class="axil-btn btn-bg-primary2 btn-load-more">Voir tous les
                                 Produits</a>
                         </div>
                     </div>
@@ -336,7 +369,7 @@
                                                         </span>
                                                         <ul class="product-meta">
                                                             @if ($produit->stock > 0)
-                                                                <label class="badge bg-success"> Stock disponible</label>
+                                                                <label class="badge btn-bg-primary2"> Stock disponible</label>
                                                             @else
                                                                 <label class="badge bg-danger"> Stock non
                                                                     disponible</label>
@@ -368,7 +401,7 @@
                                                             <ul class="product-action d-flex-center mb--0">
                                                                 <li class="add-to-cart"><a
                                                                         onclick="AddToCart( {{ $produit->id }} )"
-                                                                        class="axil-btn btn-bg-primary">Ajouter au
+                                                                        class="axil-btn btn-bg-primary2">Ajouter au
                                                                         panier</a></li>
                                                                 @if (Auth()->user())
                                                                     <li class="wishlist"><a
@@ -493,7 +526,7 @@
                                                         <div class="inner">
                                                             <div class="top-right">
                                                                 @if ($produit->stock > 0)
-                                                                <label class="badge bg-success"> Stock disponible</label>
+                                                                <label class="badge btn-bg-primary2"> Stock disponible</label>
                                                             @else
                                                                 <label class="badge bg-danger"> Stock non disponible</label>
                                                             @endif
@@ -563,8 +596,10 @@
             <div class="axil-testimoial-area axil-section-gap bg-vista-white">
                 <div class="container">
                     <div class="section-title-wrapper">
-                        <span class="title-highlighter highlighter-secondary"> <i
-                                class="fal fa-quote-left"></i>Témognages</span>
+                        <h4>   <span class="axil-breadcrumb-item1 active" aria-current="page"> <i
+                            class="fal fa-quote-left"></i>  Témoignages</span> </h4>
+
+                        
                         <h2 class="title">Les retours de nos clients</h2>
                     </div>
                     
@@ -610,7 +645,7 @@
                 <br>
                 <div class="col-12 d-flex justify-content-center">
                     <div class="form-group mb--0">
-                        <button class="axil-btn btn-bg-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                        <button class="axil-btn btn-bg-primary2" data-bs-toggle="modal" data-bs-target="#exampleModal"
                             type="submit">
                             <span>Laisser un témognage</span>
                         </button>
@@ -654,7 +689,7 @@
                                     <textarea class="form-control border-0 rounded-3 shadow-sm" id="testimonial" name="message" rows="8" required></textarea>
                                 </div>
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-primary rounded-pill shadow">Envoyer</button>
+                                    <button type="submit" class="btn btn-bg-primary2 rounded-pill shadow">Envoyer</button>
                                 </div>
                             </form>
 
@@ -708,13 +743,13 @@
                                 }
 
                                 button.btn-primary {
-                                    background-color: #007bff;
-                                    border-color: #007bff;
+                                    background-color: #EFB121;
+                                    border-color: #EFB121;
                                 }
 
                                 button.btn-primary:hover {
-                                    background-color: #0056b3;
-                                    border-color: #0056b3;
+                                    background-color: #EFB121;
+                                    border-color: #EFB121;
                                 }
 
                                 .alert {
@@ -877,6 +912,19 @@
                     });
                 });
             </script>
+
+
+
+<style>
+    .btn-bg-primary2 {
+        background-color: #5EA13C;
+        color: #ffffff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+</style>
 
         </main>
 

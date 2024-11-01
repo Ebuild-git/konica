@@ -5,15 +5,15 @@
 
     <main>
         @php
-        $config = DB::table('configs')->first();
-        $service = DB::table('services')->get();
-        $produit = DB::table('produits')->get();
-    @endphp
+            $config = DB::table('configs')->first();
+            $service = DB::table('services')->get();
+            $produit = DB::table('produits')->get();
+        @endphp
 
         <body class="sticky-header">
             <!--[if lte IE 9]>
-        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-    <![endif]-->
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
             <a href="#top" class="back-to-top" id="backto-top"><i class="fal fa-arrow-up"></i></a>
 
             <main class="main-wrapper">
@@ -26,16 +26,31 @@
                                     <ul class="axil-breadcrumb">
                                         <li class="axil-breadcrumb-item"><a href="{{ route('home') }}">Accueil</a></li>
                                         <li class="separator"></li>
-                                        <li class="axil-breadcrumb-item active" aria-current="page">Boutique</li>
+                                        <li class="axil-breadcrumb-item1 active" aria-current="page">Boutique</li>
                                     </ul>
+
+                                    <style>
+                                        .axil-breadcrumb-item1 {
+                font-size: 14px;
+                color: #EFB121; /* Default breadcrumb color */
+            }
+            
+            .axil-breadcrumb-item.active {
+                font-weight: bold;
+                color: #EFB121; /* Distinct color for active item */
+            }
+            
+
+            
+                                    </style>
                                     <h1 class="title">Explorez tous les produits</h1>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-4">
                                 <div class="inner">
-                                     <div class="bradcrumb-thumb">
+                                    <div class="bradcrumb-thumb">
                                         <img src="{{ Storage::url($config->image_shop) }}" alt="Image">
-                                    </div> 
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -67,7 +82,7 @@
                                             </ul>
                                         </div>
                                     </div>
-                                    <div class="toggle-list product-categories product-gender active">
+                                    {{--   <div class="toggle-list product-categories product-gender active">
                                         <h6 class="title">MARQUES</h6>
                                         <div class="shop-submenu">
                                             <ul>
@@ -78,7 +93,7 @@
                                                 @endforeach
                                             </ul>
                                         </div>
-                                    </div>
+                                    </div> --}}
 
 
 
@@ -147,11 +162,21 @@
                                                                             onclick="AddFavoris({{ $produit->id }})"><i
                                                                                 class="far fa-heart"></i></a></li>
                                                                 @endif
-                                                                <li class="select-option"><a
+                                                                <li class="select-option2"><a
                                                                         onclick="AddToCart( {{ $produit->id }} )">Ajouter
                                                                         au panier</a></li>
                                                                 {{--  <li class="quickview"><a href="#" data-bs-toggle="modal" data-bs-target="#{{ $produit->id }}"><i class="far fa-eye"></i></a></li>
                                          --}}
+                                                                <style>
+                                                                    .select-option2 {
+                                                                        background-color: #5EA13C;
+                                                                        color: #ffffff;
+                                                                        border: none;
+                                                                        padding: 10px 20px;
+                                                                        border-radius: 5px;
+                                                                        text-decoration: none;
+                                                                    }
+                                                                </style>
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -228,67 +253,16 @@
 
 
 
-            <div class="service-area">
-                <div class="container">
-                    <div class="row row-cols-xl-4 row-cols-sm-2 row-cols-1 row--20">
-                        <div class="col">
-                            <div class="service-box service-style-2">
-                                <div class="icon">
-                                    <img src="/assets/images/icons/service1.png" alt="Service">
-                                </div>
-                                <div class="content">
-                                    <h6 class="title">Livraison &amp;rapide et sécurisée</h6>
-                                    <p>Parlez de votre service.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="service-box service-style-2">
-                                <div class="icon">
-                                    <img src="/assets/images/icons/service2.png" alt="Service">
-                                </div>
-                                <div class="content">
-                                    <h6 class="title">Garantie de remboursement
-                                    </h6>
-                                    <p>Dans les 10 jours.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="service-box service-style-2">
-                                <div class="icon">
-                                    <img src="/assets/images/icons/service3.png" alt="Service">
-                                </div>
-                                <div class="content">
-                                    <h6 class="title">Politique de retour de 24 heures</h6>
-                                    <p>Ne posez aucune question.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="service-box service-style-2">
-                                <div class="icon">
-                                    <img src="./assets/images/icons/service4.png" alt="Service">
-                                </div>
-                                <div class="content">
-                                    <h6 class="title">Assistance de qualité professionnelle</h6>
-                                    <p>Assistance en direct 24h/24 et 7j/7.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
             <!-- Product Quick View Modal Start -->
             @if ($produits)
                 @foreach ($produits as $key => $produit)
-                    <div class="modal fade quick-view-product" id="{{ $produit->id }}" tabindex="-1"
-                        aria-hidden="true">
+                    <div class="modal fade quick-view-product" id="{{ $produit->id }}" tabindex="-1" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"><i class="far fa-times"></i></button>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i
+                                            class="far fa-times"></i></button>
                                 </div>
                                 <div class="modal-body">
                                     <div class="single-product-thumb">

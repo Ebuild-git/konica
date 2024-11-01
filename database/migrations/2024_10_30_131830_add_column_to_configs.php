@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::table('configs', function (Blueprint $table) {
             //
-            $table->text('titre_annee')->nullable();
-            $table->text('titre_prix')->nullable();
-            $table->text('titre_satisfaction')->nullable();
+           // $table->text('titre_annee')->nullable();
+         //   $table->text('titre_prix')->nullable();
+           // $table->text('titre_satisfaction')->nullable();
         });
     }
 
@@ -26,9 +26,9 @@ return new class extends Migration
     {
         Schema::table('configs', function (Blueprint $table) {
             //
-            $table->dropColumn('titre_annee');
-            $table->dropColumn('titre_prix');
-            $table->dropColumn('titre_satisfaction');
+          //  $table->dropColumn('titre_annee');
+          //  $table->dropColumn('titre_prix');
+           // $table->dropColumn('titre_satisfaction');
         });
     }
 };

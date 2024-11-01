@@ -15,7 +15,19 @@
                     <ul class="axil-breadcrumb">
                         <li class="axil-breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
                         <li class="separator"></li>
-                        <li class="axil-breadcrumb-item active" aria-current="page">A Propos de Nous</li>
+                        <li class="axil-breadcrumb-item1 active" aria-current="page">A Propos de Nous</li>
+                        <style>
+                            .axil-breadcrumb-item1 {
+    font-size: 14px;
+    color: #EFB121; /* Default breadcrumb color */
+}
+
+.axil-breadcrumb-item.active {
+    font-weight: bold;
+    color: #EFB121; /* Distinct color for active item */
+}
+
+                        </style>
                     </ul>
                     <h1 class="title">A Propos de notre Boutique</h1>
                 </div>
@@ -45,8 +57,9 @@
             </div>
             <div class="col-xl-8 col-lg-6">
                 <div class="about-content content-right">
-                    <span class="title-highlighter highlighter-primary2"> <i class="far fa-shopping-basket"></i>A Propos de nous</span>
-                    <h3 class="title">{{ $config->titre_apropos ?? '' }}</h3>
+                 <h4>   <span class="axil-breadcrumb-item1 active" aria-current="page"> <i class="far fa-shopping-basket"></i> A Propos de Nous</span> </h4>
+                   {{--  <span class="title-highlighter highlighter-primary2"> <i class="far fa-shopping-basket"></i>A Propos de nous</span>
+                   --}}  <h3 class="title">{{ $config->titre_apropos ?? '' }}</h3>
                     
                     <div class="row">
                         <div class="col-xl-12">
@@ -77,7 +90,7 @@
                    
                     <h4 class="title">{{ $config->titre_apropos2 }}</h4>
                     <p style="text-align: justify">{!! $config->des_apropos2 !!}</p>
-                    <a href="{{ route('shop') }}"  class="axil-btn btn-outline">Voir Boutique</a>
+                    <a href="{{ route('shop') }}"  class="axil-btn btn-bg-primary2">Voir Boutique</a>
                 </div>
             </div>
         </div>
@@ -92,72 +105,42 @@
                    
                   <h4 class="title">{{ $config->titre_apropos1 }}</h4>
                     <p style="text-align: justify">{!! $config->des_apropos1 ?? ' ' !!}</p>
-                    <a href="{{ route('shop') }}" class="axil-btn btn-outline">Voir Boutique</a>
+                    <a href="{{ route('shop') }}" class="axil-btn  btn-bg-primary2 ">Voir Boutique</a>
                 </div>
             </div>
         </div>
        
     </div>
 </div>
+
+
+<style>
+    .btn-bg-primary2 {
+        background-color: #5EA13C;
+        color: #ffffff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+
+    .btn-bg-secondary2 {
+    background-color: #EFB121; /* Couleur de fond, bleu dans cet exemple */
+    color: #ffffff; /* Couleur du texte, blanc dans cet exemple */
+    border: none;
+    padding: 10px 20px; /* Optionnel, ajuste la taille */
+    border-radius: 5px; /* Optionnel, arrondit les coins */
+    text-decoration: none; /* Supprime le soulignement */
+}
+</style>
 <!-- End About Area  -->
 
 
 <!-- End Axil Newsletter Area  -->
-</main>
+
 
 <br><br>
 
-<div class="service-area">
-    <div class="container">
-        <div class="row row-cols-xl-4 row-cols-sm-2 row-cols-1 row--20">
-            <div class="col">
-                <div class="service-box service-style-2">
-                    <div class="icon">
-                        <img src="./assets/images/icons/service1.png" alt="Service">
-                    </div>
-                    <div class="content">
-                        <h6 class="title">Livraison  &amp;rapide et sécurisée</h6>
-                        <p>Parlez de votre service.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="service-box service-style-2">
-                    <div class="icon">
-                        <img src="./assets/images/icons/service2.png" alt="Service">
-                    </div>
-                    <div class="content">
-                        <h6 class="title">Garantie de remboursement
-                        </h6>
-                        <p>Dans les 10 jours.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="service-box service-style-2">
-                    <div class="icon">
-                        <img src="./assets/images/icons/service3.png" alt="Service">
-                    </div>
-                    <div class="content">
-                        <h6 class="title">Politique de retour de 24 heures</h6>
-                        <p>Ne posez aucune question.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="service-box service-style-2">
-                    <div class="icon">
-                        <img src="./assets/images/icons/service4.png" alt="Service">
-                    </div>
-                    <div class="content">
-                        <h6 class="title">Assistance de qualité professionnelle</h6>
-                        <p>Assistance en direct 24h/24 et 7j/7.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
         
     </main>

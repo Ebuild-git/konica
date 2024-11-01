@@ -11,7 +11,7 @@ $configs = DB::table('configs')->first();
             <div class="axil-product-cart-wrap">
                 <div class="product-table-heading">
                     <h4 class="title">Votre panier</h4>
-                    <a href="#" class="cart-clear">Vider le panier</a>
+                    <a href="#" class="cart-clear"></a>
                 </div>
                 <div class="table-responsive">
                     <table class="table axil-product-table axil-cart-table mb--40">
@@ -112,7 +112,41 @@ $configs = DB::table('configs')->first();
                         
                         <input type="text" name="code" placeholder="Entrez le code du coupon">
                         <div class="product-cupon-btn">
-                            <button type="submit" class="axil-btn btn-outline">Appliquez</button>
+                           <button type="submit" class="axil-btn1  btn-bg-primary1 btn-outline1">Appliquez</button> 
+                           <style>
+                            .axil-btn1 {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-bg-primary1 {
+    background-color: #5EA13C
+    ; /* Example primary color */
+    color: #fff;
+    border: none;
+}
+
+.btn-outline1 {
+    background-color: transparent;
+    color: #5EA13C
+    ;
+    border: 2px solid #5EA13C
+    ;
+}
+
+.axil-btn1.btn-bg-primary1.btn-outline1:hover {
+    background-color: #5EA13C
+    ; /* Darker shade on hover */
+    color: #fff;
+}
+
+                           </style>
+                          {{--   <a type="submit" class="axil-btn btn-bg-primary2 checkout-btn">Commander</a> --}}
+
+                     
                         </div>
                     </div>
                     </form>
@@ -154,7 +188,7 @@ $configs = DB::table('configs')->first();
                                 @endif
                             </div>
                             @if ($total > 0)
-                            <a class="axil-btn btn-bg-primary checkout-btn" href="{{ url('/commander') }}">Commander</a>
+                            <a class="axil-btn btn-bg-primary2 checkout-btn" href="{{ url('/commander') }}">Commander</a>
                             @endif
                           
                         </div>
@@ -165,7 +199,25 @@ $configs = DB::table('configs')->first();
     </div>
     <!-- End Cart Area  -->
 
+    <style>
+        .btn-bg-primary2 {
+            background-color: #5EA13C;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
 
+        .btn-bg-secondary2 {
+        background-color: #EFB121; /* Couleur de fond, bleu dans cet exemple */
+        color: #ffffff; /* Couleur du texte, blanc dans cet exemple */
+        border: none;
+        padding: 10px 20px; /* Optionnel, ajuste la taille */
+        border-radius: 5px; /* Optionnel, arrondit les coins */
+        text-decoration: none; /* Supprime le soulignement */
+    }
+    </style>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 

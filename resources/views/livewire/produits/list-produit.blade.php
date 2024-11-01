@@ -79,11 +79,13 @@
                                 <span class="text-success" title="En Stock">
                                     <i class="fas fa-check-circle"></i>
                                     <span class="badge badge-success">En Stock</span>
+                                    {{ $produit->stock }} U.
                                 </span>
                             @endif
 
                             @if ($produit->stock < 20 && $produit->stock > 0)
                                 <!-- Seuil pour l'alerte -->
+                                {{ $produit->stock }} U.
                                 <span class="badge badge-yellow" title="{{ $produit->stock }} Produit(s) en stock pour le moment"  style="background-color: rgb(222, 222, 19) ;  color: rgb(252, 253, 251);">Alerte Stock Bas</span>
                             @endif
 

@@ -94,13 +94,13 @@
         <thead>
             <tr>
                 <th scope="col" width="5%" class="product-remove"></th>
-                <th scope="col" width="25%" class="product-thumbnail">Produit</th>
+                <th scope="col" width="20%" class="product-thumbnail">Produit</th>
               {{--   <th scope="col" class="product-title"></th> --}}
                 <th scope="col" class="product-title"> Date ajout</th>
            
-                <th scope="col" width="10%" class="product-price">Prix uitaire</th>
+                <th scope="col" width="5%" class="product-price">Prix uitaire</th>
                 <th scope="col" class="product-stock-status"> Statut</th>
-                <th scope="col" width="25%" class="product-add-cart"></th>
+                <th scope="col" width="30%" class="product-add-cart"></th>
             </tr>
         </thead>
         <tbody>
@@ -123,11 +123,13 @@
                 <td>  <p class="date">{{ $favo->created_at->format('d-m-Y') }}</p></td>
                 <td class="product-price" data-title="Price"><span class="currency-symbol"></span>  {{ $favo->produit->getPrice() }} DT</td>
                 <td class="product-stock-status" data-title="Status">   @if ($favo->produit->stock > 0)
-                    <label class="badge bg-success"> Disponible</label>
+                   
+                    <label class="badge btn-bg-primary2"> Stock disponible</label>
                 @else
                     <label class="badge bg-danger"> Indisponible</label>
                 @endif</td>
-                <td class="product-add-cart"><a  onclick="AddToCart( {{ $favo->produit->id }} )" class="axil-btn btn-outline">Ajouter au panier</a></td>
+                <td class="product-add-cart">
+                    <a  onclick="AddToCart( {{ $favo->produit->id }} )" class="axil-btn btn-bg-primary2">Panier</a></td>
             </tr>
             @empty
             <tr>
@@ -149,4 +151,24 @@
         
         </tbody>
     </table>
+
+    <style>
+        .btn-bg-primary2 {
+            background-color: #5EA13C;
+           /*  color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none; */
+        }
+
+        .btn-bg-secondary2 {
+        background-color: #EFB121; /* Couleur de fond, bleu dans cet exemple */
+        color: #ffffff; /* Couleur du texte, blanc dans cet exemple */
+        border: none;
+        padding: 10px 20px; /* Optionnel, ajuste la taille */
+        border-radius: 5px; /* Optionnel, arrondit les coins */
+        text-decoration: none; /* Supprime le soulignement */
+    }
+    </style>
 </div>
