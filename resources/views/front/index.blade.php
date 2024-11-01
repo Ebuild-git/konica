@@ -523,7 +523,7 @@ color: #EFB121;
                                                         
                                                     </div>
                                                     <div class="product-content">
-                                                        <div class="inner">
+                                                        <div class=" col-sm-12 inner">
                                                             <div class="top-right">
                                                                 @if ($produit->stock > 0)
                                                                 <label class="badge btn-bg-primary2"> Stock disponible</label>
