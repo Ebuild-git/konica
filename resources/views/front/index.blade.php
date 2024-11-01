@@ -93,7 +93,6 @@ color: #EFB121;
                 <div class="container">
                     <div class="section-title-wrapper">
                         <h4>   <span class="axil-breadcrumb-item1 active" aria-current="page"> <i class="far fa-tags"></i> Categories</span> </h4>
-  {{--                       <span class="title-highlighter highlighter-secondary"> <i class="far fa-tags"></i> Categories</span> --}}
                         <h2 class="title">Parcourir par categories</h2>
                     </div>
                     <div class="categrie-product-activation slick-layout-wrapper--15 axil-slick-arrow  arrow-top-slide">
@@ -153,12 +152,12 @@ color: #EFB121;
                                                             position: absolute;
                                                             top: 8px;
                                                             right: 18px;
-                                                            color: red;
+                                                            color: #EFB121;
                                                         }
                                                     </style>
 
                                                     <div class="top-left"
-                                                        style="background-color: rgb(237, 16, 16);color: white;">
+                                                        style="background-color: #EFB121;color: white;">
                                                         <span>
                                                             @if ($produit->inPromotion())
                                                                 <span>
@@ -358,7 +357,7 @@ color: #EFB121;
                                                                 </b>
 
                                                                 <span
-                                                                    style="position: relative; font-size: 1.2rem; color: #dc3545; font-weight: bold;">
+                                                                    style="position: relative; font-size: 1.5rem; color: #dc3545; font-weight: bold;">
                                                                     {{ $produit->prix }} DT
                                                                     <span
                                                                         style="position: absolute; top: 50%; left: 0; width: 100%; height: 2px; background-color: black;"></span>
@@ -498,19 +497,19 @@ color: #EFB121;
                                                                         position: absolute;
                                                                         top: 8px;
                                                                         right: 18px;
-                                                                        color: red;
+                                                                        color: #EFB121;
                                                                     }
 
                                                                     .top-right {
                                                                         position: absolute;
                                                                         top: -30px;
                                                                         right: 18px;
-                                                                        color: red;
+                                                                        color: #EFB121;
                                                                     }
                                                                 </style>
             
                                                                 <div class="top-left"
-                                                                    style="background-color: rgb(237, 16, 16);color: white;">
+                                                                    style="background-color:#EFB121;color: white;">
                                                                     <span>
                                                                         @if ($produit->inPromotion())
                                                                             <span>

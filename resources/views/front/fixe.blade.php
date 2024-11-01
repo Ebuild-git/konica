@@ -90,12 +90,12 @@ $produit = DB::table('produits')->get();
 
                                 object-fit: contain;
                                 transition: transform 0.3s ease;
-                                margin-top: 35px;
+                                margin-top: 50px;
                             }
 
 
                             .header-brands:hover img {
-                                transform: scale(1.1);
+                                transform: scale(1.5);
                             }
 
                         </style>
@@ -144,33 +144,101 @@ $produit = DB::table('produits')->get();
                 </div>
 
                 <ul class="mainmenu">
+
+                    <style>
+                        #dropdown-header-menu {
+                            color: #ffffff;
+                            /* Text color */
+                            background-color: #5EA13C;
+                            /* Background color */
+                            border: 1px solid #5EA13C;
+                            /* Border color */
+                            padding: 8px 12px;
+                            /* Padding for a better look */
+                            border-radius: 4px;
+                            /* Rounded corners */
+                        }
+
+                        /* Change styles when the dropdown is open */
+                        #dropdown-header-menu[aria-expanded="true"] {
+                            background-color: #5EA13C;
+                            /* Darker background when active */
+                            color: #ffffff;
+                            /* Text color when active */
+                            border-color: #EFB121;
+                            /* Darker border when active */
+                        }
+
+                        /* Optional: Style the icon specifically */
+                        #dropdown-header-menu .fa-th-large {
+                            font-size: 20px;
+                            /* Icon size */
+                            margin-right: 5px;
+                            /* Spacing between icon and text */
+                        }
+
+                        /* Hover effect */
+                        #dropdown-header-menu:hover {
+                            background-color: #5EA13C;
+                            /* Slightly different color on hover */
+                            color: #ffffff;
+                            /* Hover text color */
+                            border-color: #5EA13C;
+                            /* Hover border color */
+                        }
+
+                    </style>
+
                     <li class="dropdown">
                         <a class="dropdown-toggle" href="#" role="button" id="dropdown-header-menu" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="far fa-th-large"></i> Categories
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdown-header-menu">
                             @foreach ($categories as $category)
-                            <li><a class="dropdown-item" href="/category/{{ $category->id }}" class="{{ isset($current_category) && $current_category->id === $category->id ? 'selected' : '' }}">{{ $category->nom ?? ' ' }}</a>
+                            <li>
+
+                                <a class="dropdown-item1 @class(['selected' => isset($current_category) && $current_category->id === $category->id])" href="/category/{{ $category->id }}" style="color: {{ isset($current_category) && $current_category->id === $category->id ? '#EFB121' : '#000000' }};">
+                                    {{ $category->nom ?? ' ' }}
+                                </a>
+
+                                {{-- <a class="dropdown-item1 {{ isset($current_category) && $current_category->id === $category->id ? 'selected' : '' }}"
+                                href="/category/{{ $category->id }}">
+                                {{ $category->nom ?? ' ' }}
+                                </a> --}}
                             </li>
                             @endforeach
-
-
                         </ul>
                     </li>
-                    <li class="menu-item">
-                        <a href="{{ route('home') }}">Accueil</a>
 
-                    </li class="menu-item">
-                    <li><a href="{{ route('about') }}">A Propos </a></li>
+                    {{-- <li class="dropdown">
+                        <a class="dropdown-toggle" href="#" role="button" id="dropdown-header-menu" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="far fa-th-large"></i> Categories
+                        </a>
 
-
-
-                    <li class="menu-item">
-                        <a href="{{ route('shop') }}">Produits</a>
+            
+                        <ul class="dropdown-menu" aria-labelledby="dropdown-header-menu">
+                            @foreach ($categories as $category)
+                            <li><a class="dropdown-item" href="/category/{{ $category->id }}" class="{{ isset($current_category) && $current_category->id === $category->id ? 'selected' : '' }}">{{ $category->nom ?? ' ' }}</a>
                     </li>
+                    @endforeach
 
 
-                    <li class="menu-item"><a href="{{ route('contact') }}">Contact</a></li>
+                </ul>
+                </li> --}}
+                <li class="menu-item">
+                    <a href="{{ route('home') }}">Accueil</a>
+
+                </li class="menu-item">
+                <li><a href="{{ route('about') }}">A Propos </a></li>
+
+
+
+                <li class="menu-item">
+                    <a href="{{ route('shop') }}">Produits</a>
+                </li>
+
+
+                <li class="menu-item"><a href="{{ route('contact') }}">Contact</a></li>
 
 
 
@@ -181,15 +249,14 @@ $produit = DB::table('produits')->get();
                 <ul class="action-list">
 
                     <li class="axil-search d-xl-block d-none w-2">
-                        <input type="search" class="placeholder product-search-input small-input" name="search2" id="search2" 
-                               maxlength="128" placeholder="Rechercher un produit..." autocomplete="off" style="width: 300px;">
+                        <input type="search" class="placeholder product-search-input small-input" name="search2" id="search2" maxlength="128" placeholder="Rechercher un produit..." autocomplete="off" style="width: 300px;">
                         <button type="submit" class="icon wooc-btn-search">
                             <i class="flaticon-magnifying-glass"></i>
                         </button>
                     </li>
-                    
-                    
-{{-- 
+
+
+                    {{--
                     <li class="axil-search d-xl-block d-none w-2">
                         <input type="search" class="placeholder product-search-input small-input" name="search2" id="search2" value="" maxlength="128" placeholder="Rechercher un produit......" autocomplete="off">
                         <button type="submit" class="icon wooc-btn-search">
@@ -197,7 +264,7 @@ $produit = DB::table('produits')->get();
                         </button>
                        
                     </li> --}}
-{{-- 
+                    {{--
                     <li class="axil-search d-none-desktop w-2">
                         <a href="javascript:void(0)" class="header-search-icon" title="Search">
                             <i class="far fa-search"></i>
@@ -208,13 +275,16 @@ $produit = DB::table('produits')->get();
                             <i class="far fa-search"></i>
                         </a>
                     </li>
-                    
+
                     <style>
                         .axil-search:hover {
-                            background-color: #f0f0f0; /* Remplacez par la couleur souhaitée */
+                            background-color: #f0f0f0;
+                            /* Remplacez par la couleur souhaitée */
                         }
+
                     </style>
-                    
+
+
                     <li class="shopping-cart">
                         <a href="#" class="cart-dropdown-btn">
                             <span class="cart-count" id="count-panier-span">00</span>

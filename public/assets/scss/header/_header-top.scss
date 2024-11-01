@@ -111,7 +111,7 @@
         }
         .dropdown-toggle {
             font-size: 14px;
-            color: var(--color-body);
+            color: #5EA13C;
             background-color: transparent;
             display: flex;
             align-items: center;
@@ -154,7 +154,7 @@
         .dropdown {
             max-width: 100%;
             .dropdown-toggle {
-                color: var(--color-heading);
+                color: #5EA13C;
                 font-weight: 700;
                 border: 1px solid #f0f0f0;
                 border-radius: 6px;
@@ -299,7 +299,7 @@
     .header-top-dropdown {
         .dropdown {
             .dropdown-toggle {
-                color: #c2c2cc;
+                color: #5EA13C;
                 &:hover {
                     color: var(--color-white);
                 }

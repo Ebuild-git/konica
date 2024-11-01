@@ -67,7 +67,7 @@ Variables
 :root {
   --color-primary: #3577f0;
   --light-primary: #8c71db;
-  --color-secondary: #ff497c;
+  --color-secondary: #EFB121;
   --color-tertiary: #FAB8C4;
   --color-white: #ffffff;
   --color-dark: #27272E;
@@ -77,7 +77,7 @@ Variables
   --color-lightest: #C4C4C4;
   --color-chart01: #896BA7;
   --color-chart02: #BADEFF;
-  --color-chart03: #E76458;
+  --color-chart03: #EFB121;
   --color-heading: #292930;
   --color-body: #777777;
   --color-border-light: #E3E6E9;
@@ -86,7 +86,7 @@ Variables
   --color-midgray: #878787;
   --color-extra01: #999FAE;
   --color-success: #3EB75E;
-  --color-danger: #FF0003;
+  --color-danger: #EFB121;
   --color-warning: #FF8F3C;
   --color-info: #1BA2DB;
   --color-facebook: #3B5997;
@@ -6708,7 +6708,7 @@ Header Styles
   font-weight: 400;
 }
 .header-top-dropdown.dropdown-box-style .dropdown .dropdown-toggle:hover {
-  box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: 0 16px 32px 0 rgba(127, 198, 21, 0.06);
 }
 
 .header-top-link .quick-link {
@@ -6834,13 +6834,13 @@ Header Styles
   color: #c2c2cc;
 }
 .header-style-5 .header-top-dropdown .dropdown .dropdown-toggle:hover {
-  color: var(--color-white);
+  color: #0d8d2d;
 }
 .header-style-5 .header-top-link .quick-link li a {
   color: #c2c2cc;
 }
 .header-style-5 .header-top-link .quick-link li a:hover {
-  color: var(--color-primary);
+  color: #5EA13C;
 }
 .header-style-5 .header-top-campaign {
   background-image: url("../images/others/campaign-bg3.png");
@@ -6861,7 +6861,7 @@ Header Styles
 }
 
 .header-style-7 .axil-header-top {
-  background-color: var(--color-heading);
+  background-color: #5EA13C;
   padding: 7px 45px;
 }
 @media (max-width: 991px) {
@@ -7200,7 +7200,7 @@ Header Styles
   color: var(--color-heading);
 }
 .header-style-7 .mainmenu > li.dropdown .dropdown-toggle {
-  border: 1px dashed var(--color-primary);
+  border: 1px dashed #5EA13C;
   display: flex;
   align-items: center;
   font-size: 16px;
@@ -7220,13 +7220,13 @@ Header Styles
   transition: all 0.3s ease-in-out;
 }
 .header-style-7 .mainmenu > li.dropdown .dropdown-toggle:hover {
-  color: var(--color-primary);
+  color: #5EA13C;
 }
 .header-style-7 .mainmenu > li.dropdown .dropdown-toggle:hover i {
-  color: var(--color-primary);
+  color: #5EA13C;
 }
 .header-style-7 .mainmenu > li.dropdown .dropdown-toggle:hover:after {
-  color: var(--color-primary);
+  color: #5EA13C;
 }
 @media (max-width: 991px) {
   .header-style-7 .mainmenu > li.dropdown .dropdown-toggle {
@@ -7378,7 +7378,7 @@ Header Styles
   }
 }
 .header-action > ul > li > a:focus {
-  color: var(--color-heading);
+  color: #EFB121;
 }
 .header-action > ul > li > a:hover {
   color: var(--color-white);
@@ -7395,7 +7395,7 @@ Header Styles
 .header-action .shopping-cart .cart-dropdown-btn .cart-count {
   text-align: center;
   background-color: #5EA13C;
-  border: 2px solid #5EA13C;
+  border: 2px solid #EFB121;
   font-size: 12px;
   font-weight: 500;
   color: var(--color-white);
@@ -7421,7 +7421,7 @@ Header Styles
   min-width: 250px;
   padding: 20px;
   border-radius: 4px;
-  box-shadow: var(--shadow-primary);
+  box-shadow: #EFB121;
   list-style: none;
   transform: translateY(30px);
   margin-top: 20px;
@@ -7449,7 +7449,7 @@ Header Styles
   display: block;
 }
 .header-action .my-account .my-account-dropdown li:hover > a {
-  color: var(--color-primary);
+  color: #EFB121;
 }
 .header-action .my-account .my-account-dropdown .login-btn {
   text-align: center;
@@ -7475,8 +7475,8 @@ Header Styles
   text-decoration: none;
 }
 .header-action .my-account .my-account-dropdown .reg-footer .btn-link:hover {
-  color: var(--color-primary);
-  border-color: var(--color-primary);
+  color: #EFB121;
+  border-color: #EFB121;
 }
 .header-action .my-account .my-account-dropdown.open {
   opacity: 1;
@@ -7742,7 +7742,7 @@ Header Styles
     Header Aside Menu
 -------------------------*/
 .axil-mainmenu.aside-category-menu {
-  background-color: #f7f7f7;
+  background-color: #5EA13C;
 }
 @media only screen and (max-width: 991px) {
   .axil-mainmenu.aside-category-menu {
@@ -7771,7 +7771,7 @@ Header Styles
 }
 .axil-mainmenu.aside-category-menu .header-department .header-department-text {
   font-size: 16px;
-  background: var(--color-primary);
+  background: #5EA13C;
   margin-bottom: 0;
   display: flex;
   padding: 17px 30px;

@@ -145,12 +145,12 @@
                                                                 position: absolute;
                                                                 top: 8px;
                                                                 right: 18px;
-                                                                color: red;
+                                                                color:#EFB121;
                                                             }
                                                         </style>
                                                         @if ($produit->inPromotion())
                                                             <div class="top-left"
-                                                                style="background-color: rgb(237, 16, 16);color: white;">
+                                                                style="background-color:#EFB121;color: white;">
                                                                 <div class="product-badget">
                                                                     -{{ $produit->inPromotion()->pourcentage }}%</div>
                                                             </div>
@@ -165,9 +165,7 @@
                                                                 <li class="select-option2"><a
                                                                         onclick="AddToCart( {{ $produit->id }} )">Ajouter
                                                                         au panier</a></li>
-                                                                {{--  <li class="quickview"><a href="#" data-bs-toggle="modal" data-bs-target="#{{ $produit->id }}"><i class="far fa-eye"></i></a></li>
-                                         --}}
-                                                                <style>
+                                                                            <style>
                                                                     .select-option2 {
                                                                         background-color: #5EA13C;
                                                                         color: #ffffff;
@@ -211,7 +209,7 @@
                                                                     {{ $produit->prix }} DT
                                                                 </span> --}}
                                                                                 <span class="price old-price"
-                                                                                    style="position: relative; font-size: 1.2rem; color: #dc3545; font-weight: bold;">
+                                                                                    style="position: relative; font-size: 1.5rem; color: #dc3545; font-weight: bold;">
                                                                                     {{ $produit->prix }} DT
                                                                                     <span
                                                                                         style="position: absolute; top: 50%; left: 0; width: 100%; height: 2px; background-color: black;"></span>

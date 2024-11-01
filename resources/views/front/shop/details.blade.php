@@ -188,8 +188,22 @@
 
                                         <!-- Start Product Action  -->
                                         <ul class="product-action d-flex-center mb--0">
-                                            <li class="add-to-cart"><a onclick="AddToCart( {{ $produit->id }} )"
-                                                    class=" badge  btn-bg-primary2">Ajouter au panier</a></li>
+
+                                            <li class="select-option2"><a
+                                                onclick="AddToCart( {{ $produit->id }} )">Ajouter
+                                                au panier</a></li>
+                                                    <style>
+                                            .select-option2 {
+                                                background-color: #5EA13C;
+                                                color: #ffffff;
+                                                border: none;
+                                                padding: 10px 20px;
+                                                border-radius: 5px;
+                                                text-decoration: none;
+                                            }
+                                        </style>
+                                          {{--   <li class="add-to-cart"><a onclick="AddToCart( {{ $produit->id }} )"
+                                                    class=" badge  btn-bg-primary2">Ajouter au panier</a></li> --}}
                                             @if (Auth()->user())
                                                 <li class="wishlist">
 
@@ -264,8 +278,9 @@
         <div class="axil-product-area bg-color-white axil-section-gap pb--50 pb_sm--30">
             <div class="container">
                 <div class="section-title-wrapper">
-                    <span class="title-highlighter highlighter-primary"><i class="far fa-shopping-basket"></i> Les
-                        produits de la même categorie</span>
+                    <h4>   <span class="axil-breadcrumb-item1 active" aria-current="page"> <i class="far fa-shopping-basket"></i> Les produits de la même categorie</span> </h4>
+                                
+    
                     <h2 class="title">Parcourir</h2>
                 </div>
                 <div class="recent-product-activation slick-layout-wrapper--15 axil-slick-arrow arrow-top-slide">
@@ -293,7 +308,7 @@
                                             </style>
 
                                             <div class="top-left"
-                                                style="background-color: rgb(15, 14, 14);color: white;">
+                                                style="background-color:#EFB121;color: white;">
                                                 <span>
                                                     @if ($produit->inPromotion())
                                                         <span>
@@ -310,7 +325,7 @@
                                                             onclick="AddFavoris({{ $produit->id }})"><i
                                                                 class="far fa-heart"></i></a></li>
                                                 @endif
-                                                <li class="btn-bg-primary2"><a
+                                                <li class="axil-btn  btn-bg-primary2 "><a
                                                         onclick="AddToCart( {{ $produit->id }} )">Ajouter au
                                                         panier</a></li>
                                                 {{-- <li class="quickview"><a href="#" data-bs-toggle="modal"
@@ -376,7 +391,23 @@
 
                 </div>
             </div>
-
+            <style>
+                .axil-breadcrumb-item1 {
+            font-size: 14px;
+            color: #EFB121; /* Default breadcrumb color */
+            }
+            
+            .axil-breadcrumb-item.active {
+            font-weight: bold;
+            color: #EFB121; /* Distinct color for active item */
+            }
+            
+            .axil-breadcrumb-item:not(.active)::after {
+            content: " / "; /* Adds a separator after non-active items */
+            color: #EFB121;
+            }
+            
+            </style>
             <!-- End Axil Newsletter Area  -->
     </main>
 
