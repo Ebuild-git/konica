@@ -7150,7 +7150,7 @@ Header Styles
   top: 50%;
 }
 .header-style-7 .header-action .axil-search .icon:hover {
-  color: var(--color-heading);
+  color: #5EA13C;
 }
 .header-style-7 .header-action .shopping-cart .cart-dropdown-btn .cart-count {
   height: 14px;
@@ -7190,7 +7190,7 @@ Header Styles
 }
 .header-style-7 .mainmenu > li > a i {
   margin-right: 10px;
-  color: var(--color-body);
+  color: #5EA13C;
   transition: 0.3s;
 }
 .header-style-7 .mainmenu > li > a:before {
@@ -7208,7 +7208,7 @@ Header Styles
   border-radius: 8px;
 }
 .header-style-7 .mainmenu > li.dropdown .dropdown-toggle i {
-  color: var(--color-primary);
+  color: #5EA13C;
 }
 .header-style-7 .mainmenu > li.dropdown .dropdown-toggle:after {
   content: "\f063";

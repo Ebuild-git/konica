@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienvenue chez KONICA</title>
+    <title>Bienvenue chez Ben Mahmoud Market </title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -66,7 +66,7 @@
             <a href="#" class="button">Découvrir nos produits</a>
         </div>
         <div class="footer">
-            <p>&copy; {{ date('Y') }} KONICA. Tous droits réservés.</p>
+            <p>&copy; {{ date('Y') }} Be Mahmoud Market. Tous droits réservés.</p>
         </div>
     </div>
 </body>

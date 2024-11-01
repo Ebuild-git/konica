@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienvenue chez KONICA</title>
+    <title>Bienvenue chez Ben Mahmoud Market</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -64,12 +64,12 @@
             <p>Votre mail est : {{ $user->email }} ,</p>
             <p>Votre mot de passe est : {{ $user->phone }} ,</p>
 
-            <p>Nous sommes ravis de vous compter parmi nos nouveaux membres. Chez KONICA, nous nous engageons à vous fournir le meilleur  pour répondre à tous vos besoins.</p>
+            <p>Nous sommes ravis de vous compter parmi nos nouveaux membres. Chez Ben Mahmoud Market, nous nous engageons à vous fournir le meilleur  pour répondre à tous vos besoins.</p>
             <p>Votre inscription a été réalisée avec succès. Vous pouvez dès à présent explorer notre large gamme de produits et profiter de nos offres exclusives réservées aux membres.</p>
             <a href="#" class="button">Découvrir nos produits</a>
         </div>
         <div class="footer">
-            <p>&copy; {{ date('Y') }} KONICA. Tous droits réservés.</p>
+            <p>&copy; {{ date('Y') }} Ben Mahmoud Market. Tous droits réservés.</p>
         </div>
     </div>
 </body>
