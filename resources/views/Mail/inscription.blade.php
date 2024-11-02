@@ -59,7 +59,7 @@
             <img src="https://agrihub.online/icons/logo%20png.png" alt="AGRIHUB Logo">
         </div> --}}
         <div class="content">
-            <h1>Bienvenue chez KONICA !</h1>
+            <h1>Bienvenue chez Ben Madmoud Market !</h1>
             <p>Bonjour {{ $user->nom }} ,</p>
             <p>Votre mail est : {{ $user->email }} ,</p>
             <p>Votre mot de passe est : {{ $user->phone }} ,</p>

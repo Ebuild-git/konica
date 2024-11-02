@@ -92,7 +92,7 @@
                 </p>
                 <div class="form-group mb-6">
                     <div class="tp-contact-input-box p-relative">
-                        <input type="TEXT" class="form-control" id="password" name="password"
+                        <input type="password" class="form-control" id="password" name="password"
                             wire:model="password" placeholder="Mot de passe" />
                         <span class="tp-contact-icon">
                             <svg width="16" height="18" viewBox="0 0 16 18" fill="none"
@@ -108,7 +108,7 @@
                     @enderror
 
                     <div class="tp-contact-input-box p-relative">
-                        <input type="TEXT" class="form-control" id="password_confirmation" name="password_confirmation"
+                        <input type="password" class="form-control" id="password_confirmation" name="password_confirmation"
                             wire:model="password_confirmation" placeholder="Confirmation du mot de passre" />
                         <span class="tp-contact-icon">
                             <svg width="16" height="18" viewBox="0 0 16 18" fill="none"
